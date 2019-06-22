@@ -1,0 +1,20 @@
+class CPEOPLE
+{
+public:
+	
+	static CPEOPLE* getInstance();
+
+private:
+	static CPEOPLE* instance;
+	CPEOPLE();
+};
+
+CPEOPLE* CPEOPLE::instance = NULL;
+
+CPEOPLE* CPEOPLE::getInstance()
+{
+	if (instance == NULL)
+		instance = new CPEOPLE;
+
+	return instance;
+};

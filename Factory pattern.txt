@@ -1,0 +1,38 @@
+class Vehicle
+{
+public:
+	Vehicle();
+	~Vehicle();
+};
+
+class Truck :public Vehicle
+{
+public:
+	Truck();
+	~Truck();
+};
+
+class Car :public Vehicle
+{
+public:
+	Car();
+	~Car();
+};
+
+class VehicleFactory
+{
+public:
+	VehicleFactory();
+	~VehicleFactory();
+	static Vehicle* createVehicle(int type)
+	{
+		switch (type)
+		{
+		case CAR:
+			return new Car;
+		case TRUCK:
+			return new Truck;
+		}
+		return nullptr;
+	}
+};
