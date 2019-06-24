@@ -53,3 +53,45 @@ void screen_menu()
 	system("cls");
 	cout << "Menu" << endl;
 }
+
+void screen_game()
+{
+	system("cls");
+	cout << "Game" << endl;
+}
+
+void screen_load_game()
+{
+	system("cls");
+	cout << "Load game" << endl;
+}
+
+void screen_save_game()
+{
+	system("cls");
+	cout << "Save game" << endl;
+}
+
+void screen_setting()
+{
+	system("cls");
+	cout << "Setting" << endl;
+}
+
+void screen_continue()
+{
+	system("cls");
+	cout << "Continue" << endl;
+}
+
+void screen_win()
+{
+	system("cls");
+	cout << "Win" << endl;
+}
+
+void screen_game_over()
+{
+	system("cls");
+	cout << "Game over" << endl;
+}
