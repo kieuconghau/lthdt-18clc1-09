@@ -4,5 +4,8 @@
 
 class cDinosaur : public cAnimal
 {
-};
+public:
 
+private:
+
+};

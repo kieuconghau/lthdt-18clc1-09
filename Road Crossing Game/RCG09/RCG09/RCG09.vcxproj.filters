@@ -42,13 +42,22 @@
     <ClCompile Include="cDinosaur.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cUser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cGraphic.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cTextBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cVehicleFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cTrafficLight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cAnimalFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,13 +86,22 @@
     <ClInclude Include="cDinosaur.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cUser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cGraphic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cTextBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cVehicleFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cTrafficLight.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cAnimalFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

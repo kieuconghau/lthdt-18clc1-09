@@ -1,6 +1,9 @@
 #pragma once
 
-class cPeople
+class cPeople	// Singleton design pattern
 {
-};
+public:
 
+private:
+
+};

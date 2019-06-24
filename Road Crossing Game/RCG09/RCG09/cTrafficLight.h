@@ -1,10 +1,8 @@
 #pragma once
 
-class cAnimal
+class cTrafficLight
 {
 public:
-
-protected:
 
 private:
 

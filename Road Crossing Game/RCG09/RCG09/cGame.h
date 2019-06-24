@@ -1,17 +1,21 @@
 #pragma once
 
-#include "cGraphic.h"
+#include "Graphic.h"
+#include "Screen.h"
 #include "cTextBox.h"
-#include "cUser.h"
 #include "cPeople.h"
+#include "cAnimalFactory.h"
 #include "cAnimal.h"
 #include "cBird.h"
 #include "cDinosaur.h"
+#include "cVehicleFactory.h"
 #include "cVehicle.h"
 #include "cCar.h"
 #include "cTruck.h"
+#include "cTrafficLight.h"
 
 class cGame
 {
-};
+public:
 
+};

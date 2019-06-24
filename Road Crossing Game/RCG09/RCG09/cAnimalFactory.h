@@ -2,10 +2,8 @@
 
 #include "cAnimal.h"
 
-class cBird : public cAnimal
+class cAnimalFactory
 {
 public:
-
-private:
 
 };

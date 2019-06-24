@@ -2,10 +2,8 @@
 
 #include "cVehicle.h"
 
-class cTruck : public cVehicle
+class cVehicleFactory
 {
 public:
-
-private:
 
 };

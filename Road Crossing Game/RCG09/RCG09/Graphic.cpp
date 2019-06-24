@@ -1,6 +1,6 @@
-#include "cGraphic.h"
+#include "Graphic.h"
 
-void goto_xy(const unsigned int column, const unsigned int line)
+void goto_xy(const unsigned int& column, const unsigned int& line)
 {
 	COORD coord = { column, line };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
@@ -20,12 +20,12 @@ unsigned int where_y()
 	return csbi.dwCursorPosition.Y;
 }
 
-void text_color(const cColor color)
+void text_color(const cColor& color)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), int(color));
 }
 
-void text_size(const unsigned int size) {
+void text_size(const unsigned int& size) {
 	CONSOLE_FONT_INFOEX cfi;
 	cfi.cbSize = sizeof(cfi);
 	cfi.nFont = 0;
@@ -55,56 +55,4 @@ unsigned int get_console_height() {
 	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
 	rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 	return rows;
-}
-
-cScreen scrolling_menu(vector<string> selections)
-{
-	int pointer = 0;
-	int n = selections.size();
-
-	while (true)
-	{
-		system("cls");
-		text_color(cColor::WHITE);
-
-		for (int i = 0; i < n; ++i)
-		{
-			if (i == pointer)
-			{
-				text_color(cColor::CYAN);
-				cout << selections[i] << endl;
-			}
-			else
-			{
-				text_color(cColor::WHITE);
-				cout << selections[i] << endl;
-			}
-		}
-
-		while (true)
-		{
-			if (GetAsyncKeyState(VK_UP) != 0)
-			{
-				pointer -= 1;
-				if (pointer == -1)
-				{
-					pointer = 2;
-				}
-				break;
-			}
-			else if (GetAsyncKeyState(VK_DOWN) != 0)
-			{
-				pointer += 1;
-				if (pointer == 3)
-				{
-					pointer = 0;
-				}
-				break;
-			}
-			else if (GetAsyncKeyState(VK_RETURN) != 0)
-			{
-				return cScreen();
-			}
-		}
-	}
 }

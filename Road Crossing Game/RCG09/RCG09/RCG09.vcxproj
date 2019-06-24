@@ -124,30 +124,36 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cAnimal.cpp" />
+    <ClCompile Include="cAnimalFactory.cpp" />
     <ClCompile Include="cBird.cpp" />
     <ClCompile Include="cCar.cpp" />
     <ClCompile Include="cDinosaur.cpp" />
     <ClCompile Include="cGame.cpp" />
-    <ClCompile Include="cGraphic.cpp" />
+    <ClCompile Include="cTrafficLight.cpp" />
+    <ClCompile Include="cVehicleFactory.cpp" />
+    <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="cPeople.cpp" />
     <ClCompile Include="cTextBox.cpp" />
     <ClCompile Include="cTruck.cpp" />
-    <ClCompile Include="cUser.cpp" />
     <ClCompile Include="cVehicle.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cAnimal.h" />
+    <ClInclude Include="cAnimalFactory.h" />
     <ClInclude Include="cBird.h" />
     <ClInclude Include="cCar.h" />
     <ClInclude Include="cDinosaur.h" />
     <ClInclude Include="cGame.h" />
-    <ClInclude Include="cGraphic.h" />
+    <ClInclude Include="cTrafficLight.h" />
+    <ClInclude Include="cVehicleFactory.h" />
+    <ClInclude Include="Graphic.h" />
     <ClInclude Include="cPeople.h" />
     <ClInclude Include="cTextBox.h" />
     <ClInclude Include="cTruck.h" />
-    <ClInclude Include="cUser.h" />
     <ClInclude Include="cVehicle.h" />
+    <ClInclude Include="Screen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
