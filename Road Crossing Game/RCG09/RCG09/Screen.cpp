@@ -46,7 +46,29 @@ void screen_sign_up()
 void screen_sign_in()
 {
 	system("cls");
-	cout << "Sign in" << endl;
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, "  _____ ____   ____  ____       ____  ____  ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, " / ___/|    | /    ||    \\     |    ||    \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "(   \\_  |  | |   __||  _  |     |  | |  _  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, " \\__  | |  | |  |  ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, " /  \\ | |  | |  |_ ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, " \\    | |  | |     ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "  \\___||____||___,_||__|__|    |____||__|__|", cColor::CYAN, true);
+
+	print_text_at_middle(middleY - 5, "< Coming soon >", cColor::WHITE, true);
+
+	cTextBox back(cScreen::ACCOUNT, middleX, middleY, 25, "Back", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menuAccount = { back };
+	cScreen choice = scrolling_menu(menuAccount, cColor::RED);
+
+	if (choice == cScreen::ACCOUNT)
+		screen_account();
+	else
+		throw;
 }
 
 void screen_about()
