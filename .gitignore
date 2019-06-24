@@ -1,8 +1,11 @@
-# Myself
 *.vscode
 *.vs
+*.sln
 Debug/
 x64/
+*.vcxproj
+*.filters
+*.user
 
 # Prerequisites
 *.d
