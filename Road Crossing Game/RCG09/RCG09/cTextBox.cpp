@@ -98,7 +98,7 @@ cScreen scrolling_menu(vector<cTextBox> menu, cColor color)
 					pointer = 0;
 				break;
 			}
-			else if (GetAsyncKeyState(VK_RETURN) != 0)
+			else if (GetAsyncKeyState(VK_RETURN) != 0) 
 			{
 				Sleep(200);
 				return menu[pointer].Screen;
