@@ -2,6 +2,8 @@
 #pragma warning(disable:4996)
 
 #include <Windows.h>
+#include <iostream>
+using namespace std;
 
 enum class cColor
 {
@@ -33,3 +35,5 @@ void text_size(const unsigned int& size);
 void zoom_full_console_window();
 unsigned int get_console_width();
 unsigned int get_console_height();
+
+void print_text_at_middle(unsigned int y, string text, cColor color, bool endline);

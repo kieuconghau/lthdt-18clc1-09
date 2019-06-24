@@ -1,17 +1,9 @@
 #pragma once
 
-enum class cScreen
-{
-	ACCOUNT = 1,
-	SIGN_UP,
-	SIGN_IN,
-	ABOUT,
-	MENU,
-	GAME,
-	LOAD_GAME, 
-	SAVE_GAME,
-	SETTING,
-	CONTINUE,
-	WIN,
-	GAME_OVER
-};
+#include "cTextBox.h"
+
+void screen_account();
+void screen_sign_up();
+void screen_sign_in();
+void screen_about();
+void screen_menu();

@@ -56,3 +56,14 @@ unsigned int get_console_height() {
 	rows = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
 	return rows;
 }
+
+void print_text_at_middle(unsigned int y, string text, cColor color, bool endline)
+{
+	text_color(color);
+	goto_xy(get_console_width() / 2 - text.length() / 2, y);
+	cout << text;
+	if (endline == true) {
+		std::cout << endl;
+	}
+	text_color();
+}
