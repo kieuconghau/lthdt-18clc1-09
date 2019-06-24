@@ -1,5 +1,5 @@
-#include <iostream>
-#include <conio.h>
+﻿#include <iostream>
+#include <windows.graphics.h>
 using namespace std;
 
 #include "cGame.h"
