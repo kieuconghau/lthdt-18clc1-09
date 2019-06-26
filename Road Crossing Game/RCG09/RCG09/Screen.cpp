@@ -13,7 +13,7 @@ void screen_account()
 	print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", cColor::CYAN, true);
 	print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", cColor::CYAN, true);
 	print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", cColor::CYAN, true);
-	print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9,  "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", cColor::CYAN, true);
 
 	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", cColor::BLUE, true);
 
@@ -40,6 +40,18 @@ void screen_account()
 void screen_sign_up()
 {
 	system("cls");
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	cTextBox back(cScreen::ACCOUNT, middleX, middleY + 10, 25, "BACK", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menuAbout = { back };
+	cScreen choice = scrolling_menu(menuAbout, cColor::RED);
+
+	if (choice == cScreen::ACCOUNT)
+		screen_account();
+	else throw;
 	cout << "Sign up" << endl;
 }
 
@@ -52,13 +64,63 @@ void screen_sign_in()
 void screen_about()
 {
 	system("cls");
-	cout << "About" << endl;
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "|  D  )|     ||  o  ||    \\       /  / |  D  )|     |(   \\_ (   \\_  |  | |  _  ||   __|    |   __||  o  || _   _ | /  [_ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", cColor::CYAN, true);
+
+	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", cColor::BLUE, true);
+
+	cTextBox back(cScreen::ACCOUNT, middleX, middleY + 10, 25, "BACK", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menuAbout = { back };
+	cScreen choice = scrolling_menu(menuAbout, cColor::RED);
+
+	if (choice == cScreen::ACCOUNT)
+		screen_account();
+	else throw;
 }
 
 void screen_menu()
 {
 	system("cls");
-	cout << "Menu" << endl;
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "|  D  )|     ||  o  ||    \\       /  / |  D  )|     |(   \\_ (   \\_  |  | |  _  ||   __|    |   __||  o  || _   _ | /  [_ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", cColor::CYAN, true);
+
+	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", cColor::BLUE, true);
+
+	cTextBox newGame(cScreen::GAME, middleX, middleY - 2, 25, "NEW GAME", cColor::WHITE, cColor::WHITE);
+	cTextBox loadGame(cScreen::LOAD_GAME, middleX, middleY + 2, 25, "LOAD GAME", cColor::WHITE, cColor::WHITE);
+	cTextBox setting(cScreen::SETTING, middleX, middleY + 6, 25, "SETTING", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menu = {newGame , loadGame, setting};
+	cScreen choice = scrolling_menu(menu, cColor::RED);
+
+	if (choice == cScreen::GAME)
+		screen_game();
+	else if (choice == cScreen::LOAD_GAME)
+		screen_load_game();
+	else if (choice == cScreen::SETTING)
+		screen_setting();
+	else
+		throw;
+
 }
 
 void screen_game()
@@ -100,5 +162,25 @@ void screen_win()
 void screen_game_over()
 {
 	system("cls");
-	cout << "Game over" << endl;
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, "  ____   ____  ___ ___    ___       ___   __ __    ___  ____", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, " /    | /    ||   |   |  /  _]     /   \\ |  |  |  /  _]|    \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "|   __||  o  || _   _ | /  [_     |     ||  |  | /  [_ |  D  ) ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, "|  |  ||     ||  \\_/  ||    _]    |  O  ||  |  ||    _]|    / ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, "|  |_ ||  _  ||   |   ||   [_     |     ||  :  ||   [_ |    \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, "|     ||  |  ||   |   ||     |    |     | \\   / |     ||  .  \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "|___,_||__|__||___|___||_____|     \\___/   \\_/  |_____||__|\\_| ", cColor::CYAN, true);
+
+	cTextBox _continue(cScreen::CONTINUE, middleX, middleY - 10, 25, "OK", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menuGameOver = { _continue};
+	cScreen choice = scrolling_menu(menuGameOver, cColor::RED);
+
+	if (choice == cScreen::CONTINUE)
+		screen_continue();
+	else
+		throw;
 }
