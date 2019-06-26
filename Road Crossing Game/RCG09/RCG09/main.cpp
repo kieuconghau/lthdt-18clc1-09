@@ -49,5 +49,7 @@ int main()
 		delete lane2[i];
 	delete[] lane2;
 
+
+	system("pause");
 	return 0;
 }
