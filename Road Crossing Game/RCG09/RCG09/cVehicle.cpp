@@ -1,13 +1,5 @@
 #include "cVehicle.h"
 
-cVehicle::cVehicle()
-{
-	this->X = nullptr;
-	this->Y = nullptr;
-	this->Direction = cDirection::RIGHT;
-	this->Color = cColor::WHITE;
-}
-
 cVehicle::cVehicle(unsigned int n, cDirection direction, cColor color, unsigned int x, unsigned int y)
 {
 	this->X = new unsigned int[n];
@@ -29,9 +21,4 @@ cVehicle::cVehicle(unsigned int n, cDirection direction, cColor color, unsigned 
 
 cVehicle::~cVehicle()
 {
-	if (this->X != nullptr)
-		delete[] this->X;
-
-	if (this->Y != nullptr)
-		delete[] this->Y;
 }

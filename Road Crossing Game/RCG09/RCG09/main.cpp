@@ -19,12 +19,13 @@ int main()
 
 	cVehicle** lane1 = new cVehicle*[lane1Count];
 	for (int i = 0; i < lane1Count; i++)
-		lane1[i] = cVehicleFactory::create(cVehicleType::TRUCK, cDirection::RIGHT, i % 2 == 0 ? cColor::BLUE : cColor::RED, rightLimit - i*10, 10);
+		lane1[i] = cVehicleFactory::create(cVehicleType::TRUCK, cDirection::LEFT, i % 2 == 0 ? cColor::BLUE : cColor::RED, rightLimit - i * 10, 10);
 
 	cVehicle** lane2 = new cVehicle*[lane2Count];
 	for (int i = 0; i < lane2Count; i++)
-		lane2[i] = cVehicleFactory::create(cVehicleType::CAR, cDirection::LEFT, i % 2 == 0 ? cColor::CYAN : cColor::YELLOW, leftLimit + i*10, 20);
+		lane2[i] = cVehicleFactory::create(cVehicleType::CAR, cDirection::RIGHT, i % 2 == 0 ? cColor::CYAN : cColor::YELLOW, leftLimit + i * 10, 20);
 
+	unsigned int count = 0;
 	while (true)
 	{
 		for (unsigned int i = 0; i < lane1Count; i++)

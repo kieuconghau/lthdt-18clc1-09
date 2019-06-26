@@ -4,19 +4,19 @@ cTruck::cTruck(cDirection direction, cColor color, unsigned int x, unsigned int 
 {
 	if (direction == cDirection::RIGHT)
 	{
-		this->Shape[0] = char(32);
-		this->Shape[1] = char(220);
-		this->Shape[2] = char(220);
-		this->Shape[3] = char(219);
-		this->Shape[4] = char(219);
+		this->Shapes[0] = char(32);
+		this->Shapes[1] = char(220);
+		this->Shapes[2] = char(220);
+		this->Shapes[3] = char(219);
+		this->Shapes[4] = char(219);
 	}
 	else if (direction == cDirection::LEFT)
 	{
-		this->Shape[0] = char(219);
-		this->Shape[1] = char(219);
-		this->Shape[2] = char(220);
-		this->Shape[3] = char(220);
-		this->Shape[4] = char(32);
+		this->Shapes[0] = char(219);
+		this->Shapes[1] = char(219);
+		this->Shapes[2] = char(220);
+		this->Shapes[3] = char(220);
+		this->Shapes[4] = char(32);
 	}
 	else
 		throw;
@@ -29,7 +29,7 @@ void cTruck::draw()
 	for (int i = 0; i < cTruck::N; i++)
 	{
 		goto_xy(this->X[i], this->Y[i]);
-		cout << this->Shape[i];
+		cout << this->Shapes[i];
 	}
 
 	text_color();

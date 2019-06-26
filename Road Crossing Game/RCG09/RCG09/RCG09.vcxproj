@@ -129,6 +129,7 @@
     <ClCompile Include="cCar.cpp" />
     <ClCompile Include="cDinosaur.cpp" />
     <ClCompile Include="cGame.cpp" />
+    <ClCompile Include="cObstacle.cpp" />
     <ClCompile Include="cTrafficLight.cpp" />
     <ClCompile Include="cVehicleFactory.cpp" />
     <ClCompile Include="Graphic.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="cCar.h" />
     <ClInclude Include="cDinosaur.h" />
     <ClInclude Include="cGame.h" />
+    <ClInclude Include="cObstacle.h" />
     <ClInclude Include="cTrafficLight.h" />
     <ClInclude Include="cVehicleFactory.h" />
     <ClInclude Include="Graphic.h" />

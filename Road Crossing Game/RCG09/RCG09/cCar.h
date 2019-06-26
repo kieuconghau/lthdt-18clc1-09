@@ -12,5 +12,5 @@ public:
 	void move(unsigned int leftLimit=0, unsigned int rightLimit=get_console_width());
 
 private:
-	char Shape[cCar::N];
+	char Shapes[cCar::N];
 };
