@@ -3,6 +3,10 @@
 #include <iostream>
 #include <vector>
 #include <string>
+//<<<<<<< HEAD
+//=======
+
+//>>>>>>> master
 using namespace std;
 
 #include "Graphic.h"
