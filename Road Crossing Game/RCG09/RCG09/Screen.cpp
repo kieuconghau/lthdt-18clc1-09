@@ -50,7 +50,29 @@ void screen_sign_up()
 void screen_sign_in()
 {
 	system("cls");
-	cout << "Sign in" << endl;
+
+	unsigned int middleX = get_console_width() / 2;
+	unsigned int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, "  _____ ____   ____  ____       ____  ____  ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, " / ___/|    | /    ||    \\     |    ||    \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "(   \\_  |  | |   __||  _  |     |  | |  _  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, " \\__  | |  | |  |  ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, " /  \\ | |  | |  |_ ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, " \\    | |  | |     ||  |  |     |  | |  |  |", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "  \\___||____||___,_||__|__|    |____||__|__|", cColor::CYAN, true);
+
+	print_text_at_middle(middleY - 5, "< Coming soon >", cColor::WHITE, true);
+
+	cTextBox back(cScreen::ACCOUNT, middleX, middleY, 25, "Back", cColor::WHITE, cColor::WHITE);
+
+	vector<cTextBox> menuAccount = { back };
+	cScreen choice = scrolling_menu(menuAccount, cColor::RED);
+
+	if (choice == cScreen::ACCOUNT)
+		screen_account();
+	else
+		throw;
 }
 
 void screen_about()
@@ -68,7 +90,61 @@ void screen_menu()
 void screen_game()
 {
 	system("cls");
-	cout << "Game" << endl;
+
+	int x = 0, y = 0;
+	system("color 80");
+	text_color(cColor::CYAN);
+	for (int i = 0; i < 75; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			goto_xy(2 + i, 2 * (j + 1) + 1);
+			
+			if (j % 4 == 0)
+				cout << char(32) << char(220) << char(219) << char(219) << char(220) << endl;
+			else if (j % 4 == 1)
+				cout << char(32) << char(220) << char(220) << char(219) << char(219) << endl;
+			else if (j % 4 == 2)
+				cout << char(32) << char(223) << char(220) << char(220) << char(223) << endl;
+			else
+				cout << char(32) << char(254) << char(220) << char(219) << char(223) << endl;
+		}
+
+		if (GetAsyncKeyState(VK_LEFT) != 0)
+		{
+			if (--x < 0)
+				x = 0;
+			goto_xy(x, y);
+			cout << char(32) << char(79) << char(32);
+		}
+		else if (GetAsyncKeyState(VK_RIGHT) != 0)
+		{
+			if (++x >= 21)
+				x = 20;
+			goto_xy(x, y);
+			cout << char(32) << char(79) << char(32);
+		}
+		else if (GetAsyncKeyState(VK_DOWN) != 0)
+		{
+			if (++y >= 21)
+				y = 20;
+
+			goto_xy(x, y - 1);
+			cout << char(32);
+
+			goto_xy(x, y);
+			cout << char(79);
+		}
+		else if (GetAsyncKeyState(VK_UP) != 0)
+		{
+			if (--y < 0)
+				y = 0;
+			goto_xy(x, y);
+			cout << char(79);
+		}
+
+		Sleep(100);
+	}
 }
 
 void screen_load_game()
