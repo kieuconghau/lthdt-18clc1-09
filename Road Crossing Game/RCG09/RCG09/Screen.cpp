@@ -40,6 +40,10 @@ void screen_account()
 void screen_sign_up()
 {
 	system("cls");
+
+
+
+
 	cout << "Sign up" << endl;
 }
 
@@ -177,4 +181,23 @@ void screen_game_over()
 {
 	system("cls");
 	cout << "Game over" << endl;
+}
+
+void draw_coming_soon()
+{
+	unsigned middleX = get_console_width()/2;
+	unsigned middleY = get_console_height()/2;
+
+	print_text_at_middle(middleY - 18, "                                         _                                                                                                          ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 17, "                                        |_|                                                                                                         " , cColor::GREEN, true);
+	print_text_at_middle(middleY - 16, " ______     ________     __________     ___     _____    __     _______              ______     ________     ________     _____    __               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 15, "/      \\   /   __   \\   |          |   |   |   |     \\  |  |   /       \\            /  ____|   /   __   \\   /   __   \\   |     \\  |  |               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 14, "|   ___|   |  |  |  |   |  |\\  /|  |   |   |   |  |\\  \\ |  |   |  _____|            |  |       |  |  |  |   |  |  |  |   |  |\\  \\ |  |               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 13, "|  |       |  |  |  |   |  | \\/ |  |   |   |   |  | \\  \\|  |   |  |                  \\  \\      |  |  |  |   |  |  |  |   |  | \\  \\|  |               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 12, "|  |       |  |  |  |   |  |    |  |   |   |   |  |  \\     |   |  | _____             \\  \\     |  |  |  |   |  |  |  |   |  |  \\     |               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 11, "|  |___    |  |  |  |   |  |    |  |   |   |   |  |   \\    |   |  ||__ __|             \\  \\    |  |  |  |   |  |  |  |   |  |   \\    |               ", cColor::GREEN, true);
+	print_text_at_middle(middleY - 10, "|      |   |  |__|  |   |  |    |  |   |   |   |  |    \\   |   |  |__| |             ___|  |   |  |__|  |   |  |__|  |   |  |    \\   |   _    _    _", cColor::GREEN, true);
+	print_text_at_middle(middleY - 9 , "\\______/   \\________/   |__|    |__|   |___|   |__|     |__|   \\_______/            |______/   \\________/   \\________/   |__|     |__|  |_|  |_|  |_|", cColor::GREEN, true);
+
+
 }

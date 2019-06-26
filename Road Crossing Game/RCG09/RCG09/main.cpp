@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <windows.graphics.h>
+
 using namespace std;
 
 #include "cGame.h"
@@ -9,10 +10,12 @@ using namespace std;
 int main()
 {
 	zoom_full_console_window();
+
 	//screen_account();
 
 	const unsigned int lane1Count = 9;
 	const unsigned int lane2Count = 9;
+
 
 	const unsigned int leftLimit = 20;
 	const unsigned int rightLimit = 110;
