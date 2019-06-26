@@ -44,6 +44,17 @@ void screen_sign_up()
 	unsigned int middleX = get_console_width() / 2;
 	unsigned int middleY = get_console_height() / 2;
 
+
+	print_text_at_middle(middleY - 15, "  _____ ____   ____  ____       __ __  ____  ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 14, " / ___/|    | /    ||    \\     |  |  ||    \\ ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "(   \\_  |  | |   __||  _  |    |  |  ||  o  )", cColor::CYAN, true);
+	print_text_at_middle(middleY - 12, " \\__  | |  | |  |  ||  |  |    |  |  ||   _/", cColor::CYAN, true);
+	print_text_at_middle(middleY - 11, " /  \\ | |  | |  |_ ||  |  |    |  :  ||  |   ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 10, " \\    | |  | |     ||  |  |    |     ||  |   ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "  \\___||____||___,_||__|__|     \\__,_||__|   ", cColor::CYAN, true);
+
+	print_text_at_middle(middleY - 7, " Coming soon! ", cColor::BLUE, true);
+
 	cTextBox back(cScreen::ACCOUNT, middleX, middleY + 10, 25, "BACK", cColor::WHITE, cColor::WHITE);
 
 	vector<cTextBox> menuAbout = { back };

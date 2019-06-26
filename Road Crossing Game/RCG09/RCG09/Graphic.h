@@ -3,6 +3,7 @@
 
 #include <Windows.h>
 #include <iostream>
+#include <string>
 using namespace std;
 
 enum class cColor
