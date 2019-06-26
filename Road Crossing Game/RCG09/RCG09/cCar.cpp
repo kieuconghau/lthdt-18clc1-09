@@ -25,12 +25,15 @@ cCar::cCar(cDirection direction, cColor color, unsigned int x, unsigned int y) :
 void cCar::draw()
 {
 	text_color(this->Color);
-	
+		
 	for (int i = 0; i < cCar::N; i++)
 	{
 		goto_xy(this->X[i], this->Y[i]);
 		cout << this->Shape[i];
 	}
+
+	text_color();
+	goto_xy(0, 0);
 }
 
 void cCar::move(unsigned int leftLimit, unsigned int rightLimit)

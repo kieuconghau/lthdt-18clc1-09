@@ -14,16 +14,16 @@ int main()
 	const unsigned int lane1Count = 9;
 	const unsigned int lane2Count = 9;
 
-	const unsigned int leftLimit = 0;
-	const unsigned int rightLimit = get_console_width();
+	const unsigned int leftLimit = 20;
+	const unsigned int rightLimit = 110;
 
 	cVehicle** lane1 = new cVehicle*[lane1Count];
 	for (int i = 0; i < lane1Count; i++)
-		lane1[i] = cVehicleFactory::create(cVehicleType::TRUCK, cDirection::RIGHT, i % 2 == 0 ? cColor::BLUE : cColor::RED, i*10, 10);
+		lane1[i] = cVehicleFactory::create(cVehicleType::TRUCK, cDirection::RIGHT, i % 2 == 0 ? cColor::BLUE : cColor::RED, rightLimit - i*10, 10);
 
 	cVehicle** lane2 = new cVehicle*[lane2Count];
 	for (int i = 0; i < lane2Count; i++)
-		lane2[i] = cVehicleFactory::create(cVehicleType::CAR, cDirection::LEFT, i % 2 == 0 ? cColor::CYAN : cColor::YELLOW, i*10, 20);
+		lane2[i] = cVehicleFactory::create(cVehicleType::CAR, cDirection::LEFT, i % 2 == 0 ? cColor::CYAN : cColor::YELLOW, leftLimit + i*10, 20);
 
 	while (true)
 	{

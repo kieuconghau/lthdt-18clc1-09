@@ -31,6 +31,9 @@ void cTruck::draw()
 		goto_xy(this->X[i], this->Y[i]);
 		cout << this->Shape[i];
 	}
+
+	text_color();
+	goto_xy(0, 0);
 }
 
 void cTruck::move(unsigned int leftLimit, unsigned int rightLimit)
@@ -39,7 +42,7 @@ void cTruck::move(unsigned int leftLimit, unsigned int rightLimit)
 	{
 		for (int i = 0; i < cTruck::N; i++)
 		{
-			if (++this->X[i] == rightLimit)
+			if (++this->X[i] == rightLimit + 1)
 				this->X[i] = leftLimit;
 		}
 		if (this->X[cTruck::N - 1] >= leftLimit && this->X[cTruck::N - 1] <= rightLimit)
@@ -50,7 +53,7 @@ void cTruck::move(unsigned int leftLimit, unsigned int rightLimit)
 		for (int i = 0; i < cTruck::N; i++)
 		{
 			if (--this->X[i] == leftLimit - 1)
-				this->X[i] = rightLimit - 1;
+				this->X[i] = rightLimit;
 		}
 		if (this->X[0] >= leftLimit && this->X[0] <= rightLimit)
 			this->draw();
