@@ -1,5 +1,6 @@
 #pragma once
 
+#include <conio.h>
 #include "cTextBox.h"
 
 void screen_account();
@@ -15,3 +16,5 @@ void screen_continue();
 void screen_win();
 void screen_game_over();
 void draw_coming_soon();
+void screen_border_decoration(int distance_from_screen_border);
+void screen_ending();
