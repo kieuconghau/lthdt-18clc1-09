@@ -14,3 +14,4 @@ void screen_setting();
 void screen_continue();
 void screen_win();
 void screen_game_over();
+void draw_coming_soon();
