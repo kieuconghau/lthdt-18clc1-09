@@ -105,6 +105,6 @@ cScreen scrolling_menu(vector<cTextBox> menu, cColor color)
 			}
 		}
 
-		Sleep(100);
+		Sleep(150);
 	}
 }

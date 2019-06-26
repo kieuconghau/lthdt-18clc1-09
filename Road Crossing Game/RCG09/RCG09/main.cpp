@@ -4,68 +4,47 @@ using namespace std;
 
 #include "cGame.h"
 
+#include <vector>
+
 int main()
 {
 	zoom_full_console_window();
+	//screen_account();
 
-	screen_account();
+	const unsigned int lane1Count = 9;
+	const unsigned int lane2Count = 9;
+
+	const unsigned int leftLimit = 20;
+	const unsigned int rightLimit = 110;
+
+	cVehicle** lane1 = new cVehicle*[lane1Count];
+	for (int i = 0; i < lane1Count; i++)
+		lane1[i] = cVehicleFactory::create(cVehicleType::TRUCK, cDirection::RIGHT, i % 2 == 0 ? cColor::BLUE : cColor::RED, rightLimit - i*10, 10);
+
+	cVehicle** lane2 = new cVehicle*[lane2Count];
+	for (int i = 0; i < lane2Count; i++)
+		lane2[i] = cVehicleFactory::create(cVehicleType::CAR, cDirection::LEFT, i % 2 == 0 ? cColor::CYAN : cColor::YELLOW, leftLimit + i*10, 20);
+
+	while (true)
+	{
+		for (unsigned int i = 0; i < lane1Count; i++)
+			lane1[i]->move(leftLimit, rightLimit);
+
+		for (unsigned int i = 0; i < lane2Count; i++)
+			lane2[i]->move(leftLimit, rightLimit);
+
+		Sleep(100);
+		if (GetAsyncKeyState(VK_ESCAPE) != 0)
+			break;
+	}
+
+	for (int i = 0; i < lane1Count; i++)
+		delete lane1[i];
+	delete[] lane1;
+
+	for (int i = 0; i < lane2Count; i++)
+		delete lane2[i];
+	delete[] lane2;
 
 	return 0;
 }
-
-
-//int x = 0, y = 0;
-
-	////system("color 80");
-	//text_color(cColor::CYAN);
-	//for (int i = 0; i < 75; i++)
-	//{
-	//	for (int j = 0; j < 10; j++)
-	//	{
-	//		goto_xy(2 + i, 2 * (j + 1) + 1);
-	//		
-	//		if (j % 4 == 0)
-	//			cout << char(32) << char(220) << char(219) << char(219) << char(220) << endl;
-	//		else if (j % 4 == 1)
-	//			cout << char(32) << char(220) << char(220) << char(219) << char(219) << endl;
-	//		else if (j % 4 == 2)
-	//			cout << char(32) << char(223) << char(220) << char(220) << char(223) << endl;
-	//		else
-	//			cout << char(32) << char(254) << char(220) << char(219) << char(223) << endl;
-	//	}
-
-	//	if (GetAsyncKeyState(VK_LEFT) != 0)
-	//	{
-	//		if (--x < 0)
-	//			x = 0;
-	//		goto_xy(x, y);
-	//		cout << char(32) << char(79) << char(32);
-	//	}
-	//	else if (GetAsyncKeyState(VK_RIGHT) != 0)
-	//	{
-	//		if (++x >= 21)
-	//			x = 20;
-	//		goto_xy(x, y);
-	//		cout << char(32) << char(79) << char(32);
-	//	}
-	//	else if (GetAsyncKeyState(VK_DOWN) != 0)
-	//	{
-	//		if (++y >= 21)
-	//			y = 20;
-
-	//		goto_xy(x, y - 1);
-	//		cout << char(32);
-
-	//		goto_xy(x, y);
-	//		cout << char(79);
-	//	}
-	//	else if (GetAsyncKeyState(VK_UP) != 0)
-	//	{
-	//		if (--y < 0)
-	//			y = 0;
-	//		goto_xy(x, y);
-	//		cout << char(79);
-	//	}
-
-	//	Sleep(100);
-	//}
