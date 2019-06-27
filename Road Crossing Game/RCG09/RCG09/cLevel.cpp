@@ -5,10 +5,15 @@ cLevel::cLevel()
 	this->LaneCount = 0;
 	this->ObjectCounts = nullptr;
 	this->Lanes = nullptr;
+	this->TrafficLights = nullptr;
 }
 
 cLevel::~cLevel()
 {
+	for (unsigned int i = 0; i < this->LaneCount; i++)
+		delete this->TrafficLights[i];
+	delete[] this->TrafficLights;
+
 	for (unsigned int i = 0; i < this->LaneCount; i++)
 	{
 		for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
@@ -25,6 +30,15 @@ cLevel::~cLevel()
 
 void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts)
 {
+	if (this->TrafficLights != nullptr)
+	{
+		for (unsigned int i = 0; i < this->LaneCount; i++)
+		{
+			delete this->TrafficLights[i];
+		}
+		delete[] this->TrafficLights;
+	}
+
 	if (this->Lanes != nullptr)
 	{
 		for (unsigned int i = 0; i < this->LaneCount; i++)
@@ -39,14 +53,17 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 	}
 
 	if (this->ObjectCounts != nullptr)
+	{
 		delete[] this->ObjectCounts;
-
+	}
 
 	this->LaneCount = laneCount;
 
 	this->ObjectCounts = new unsigned int[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
+	{
 		this->ObjectCounts[i] = objectCounts[i];
+	}
 
 	this->Lanes = new cObject * *[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
@@ -107,6 +124,8 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 		else
 			throw;
 	}
+
+	this->TrafficLights = new cObject*[this->LaneCount];
 }
 
 void cLevel::draw()

@@ -27,7 +27,7 @@ public:
 	static const unsigned int LEFT_LIMIT = 20;
 	static const unsigned int RIGHT_LIMIT = 120;
 	static const unsigned int LANE_DISTANCE = 2;
-	static const ecColor BORDER_COLOR = ecColor::GREY;
+	static const ecColor BORDER_COLOR = ecColor::WHITE;
 
 	cLevel();
 	~cLevel();
@@ -40,4 +40,5 @@ private:
 	unsigned int LaneCount;
 	unsigned int* ObjectCounts;
 	cObject*** Lanes;
+	cObject** TrafficLights;
 };
