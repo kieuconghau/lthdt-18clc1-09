@@ -164,7 +164,6 @@ void screen_game()
 	cGame game;
 	game.start();
 
-	screen_ending();
 }
 
 void screen_load_game()
@@ -266,6 +265,11 @@ void screen_win()
 	system("cls");
 	
 	screen_border_decoration(17);
+	screen_border_decoration(20);
+	screen_border_decoration(23);
+	screen_border_decoration(29);
+	screen_border_decoration(32);
+	screen_border_decoration(35);
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
@@ -410,15 +414,16 @@ void screen_ending()
 	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
 	Sleep(2000);
-	print_text_at_middle(middleY + 6, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
-	Sleep(1500);
+	print_text_at_middle(middleY + 14, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
+	Sleep(500);
 
-	print_text_at_middle(middleY + 8, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
-	Sleep(1000);
-	print_text_at_middle(middleY + 10, "181272118 - Mai Dang Khanh", ecColor::GREY, true);
-	Sleep(1000);
-	print_text_at_middle(middleY + 12, "181272014 - Huynh Nhat Nam", ecColor::GREY, true);
-	Sleep(1000);
+	print_text_at_middle(middleY + 17, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
+	Sleep(500);
+	print_text_at_middle(middleY + 19, "181272118 - Mai Dang Khanh", ecColor::GREY, true);
+	Sleep(500);
+	print_text_at_middle(middleY + 21, "181272014 - Huynh Nhat Nam", ecColor::GREY, true);
+	Sleep(500);
 
-	print_text_at_middle(middleY + 14, "Press Any Key To Exit", ecColor::WHITE, true);
+	goto_xy(middleX-15, middleY + 5);
+	system("pause");
 }

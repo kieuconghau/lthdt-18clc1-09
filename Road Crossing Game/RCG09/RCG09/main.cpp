@@ -13,6 +13,5 @@ int main()
 
 	screen_account();
 
-	system("pause");
 	return 0;
 }
