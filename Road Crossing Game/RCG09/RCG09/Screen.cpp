@@ -246,6 +246,11 @@ void screen_win()
 	system("cls");
 	
 	screen_border_decoration(17);
+	screen_border_decoration(20);
+	screen_border_decoration(23);
+	screen_border_decoration(29);
+	screen_border_decoration(32);
+	screen_border_decoration(35);
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
