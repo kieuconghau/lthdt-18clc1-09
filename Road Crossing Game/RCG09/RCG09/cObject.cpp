@@ -31,8 +31,6 @@ cObject::cObject(unsigned int n, unsigned int x, unsigned int y)
 		this->Y[i] = y;
 }
 
-void cObject::work() {}
-
 cObject::~cObject()
 {
 	if (this->X != nullptr)

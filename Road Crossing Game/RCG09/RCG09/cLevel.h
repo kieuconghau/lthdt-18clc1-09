@@ -32,7 +32,7 @@ public:
 	cLevel();
 	~cLevel();
 
-	void set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts);
+	void set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts, unsigned int timeRed, unsigned int timeYellow, unsigned int timeGreen);
 	void draw();
 	void start();
 
@@ -40,5 +40,5 @@ private:
 	unsigned int LaneCount;
 	unsigned int* ObjectCounts;
 	cObject*** Lanes;
-	cObject** TrafficLights;
+	cTrafficLight** TrafficLights;
 };

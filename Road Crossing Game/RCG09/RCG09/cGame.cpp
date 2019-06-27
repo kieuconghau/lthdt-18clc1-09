@@ -12,14 +12,20 @@ cGame::cGame()
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT	, ecDirection::LEFT		, ecDirection::RIGHT	, ecDirection::LEFT		};
 	vector<ecColor> colors0 =				{ ecColor::PURPLE		, ecColor::BLUE			, ecColor::CYAN			, ecColor::YELLOW		};
 	vector<unsigned int> objectCounts0 =	{ 3						, 4						, 5						, 6						};
-	this->Levels[0].set_up(laneCount[0], objectTypes0, directions0, colors0, objectCounts0);
+	unsigned int timeRed0 = 20;
+	unsigned int timeYellow0 = 10;
+	unsigned int timeGreen0 = 20;
+	this->Levels[0].set_up(laneCount[0], objectTypes0, directions0, colors0, objectCounts0, timeRed0, timeYellow0, timeGreen0);
 
 	/* Level 1 */
 	vector<ecObjectType> objectTypes1 =		{ ecObjectType::TRUCK	, ecObjectType::CAR		, ecObjectType::BIRD	, ecObjectType::DINOSAUR, ecObjectType::TRUCK	};
 	vector<ecDirection> directions1 =		{ ecDirection::RIGHT	, ecDirection::LEFT		, ecDirection::RIGHT	, ecDirection::LEFT		, ecDirection::RIGHT	};
 	vector<ecColor> colors1 =				{ ecColor::RED			, ecColor::CYAN			, ecColor::BLUE			, ecColor::GREEN		, ecColor::WHITE		};
 	vector<unsigned int> objectCounts1 =	{ 3						, 4						, 5						, 6						, 4						};
-	this->Levels[1].set_up(laneCount[1], objectTypes1, directions1, colors1, objectCounts1);
+	unsigned int timeRed1 = 15;
+	unsigned int timeYellow1 = 10;
+	unsigned int timeGreen1 = 20;
+	this->Levels[1].set_up(laneCount[1], objectTypes1, directions1, colors1, objectCounts1, timeRed1, timeYellow1, timeGreen1);
 }
 
 cGame::~cGame()
