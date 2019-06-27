@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 #include "Graphic.h"
@@ -25,11 +26,11 @@ enum class cScreen
 class cTextBox
 {
 public:
-	cTextBox(cScreen screen, unsigned int x, unsigned int y, unsigned int width, string text, cColor text_color, cColor line_color);
+	cTextBox(cScreen screen, unsigned int x, unsigned int y, unsigned int width, string text, ecColor text_color, ecColor line_color);
 	void draw();
-	void draw(cColor textColor, cColor lineColor);
+	void draw(ecColor textColor, ecColor lineColor);
 	
-	friend cScreen scrolling_menu(vector<cTextBox> menu, cColor color);
+	friend cScreen scrolling_menu(vector<cTextBox> menu, ecColor color);
 
 private:
 	cScreen Screen;
@@ -37,6 +38,6 @@ private:
 	unsigned int Y;
 	unsigned int Width;
 	string Text;
-	cColor TextColor;
-	cColor LineColor;
+	ecColor TextColor;
+	ecColor LineColor;
 };

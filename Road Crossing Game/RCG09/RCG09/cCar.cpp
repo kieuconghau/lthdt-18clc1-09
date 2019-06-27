@@ -1,8 +1,8 @@
 #include "cCar.h"
 
-cCar::cCar(cDirection direction, cColor color, unsigned int x, unsigned int y) : cVehicle(cCar::N, direction, color, x, y)
+cCar::cCar(ecDirection direction, ecColor color, unsigned int x, unsigned int y) : cVehicle(cCar::N, direction, color, x, y)
 {
-	if (direction == cDirection::RIGHT)
+	if (direction == ecDirection::RIGHT)
 	{
 		this->Shapes[0] = char(32);
 		this->Shapes[1] = char(220);
@@ -10,7 +10,7 @@ cCar::cCar(cDirection direction, cColor color, unsigned int x, unsigned int y) :
 		this->Shapes[3] = char(219);
 		this->Shapes[4] = char(220);
 	}
-	else if (direction == cDirection::LEFT)
+	else if (direction == ecDirection::LEFT)
 	{
 		this->Shapes[0] = char(220);
 		this->Shapes[1] = char(219);
@@ -22,14 +22,15 @@ cCar::cCar(cDirection direction, cColor color, unsigned int x, unsigned int y) :
 		throw;
 }
 
-void cCar::draw()
+void cCar::draw(unsigned int leftLimit, unsigned int rightLimit)
 {
 	text_color(this->Color);
 		
 	for (int i = 0; i < cCar::N; i++)
 	{
 		goto_xy(this->X[i], this->Y[i]);
-		cout << this->Shapes[i];
+		if (this->X[i] > leftLimit && this->X[i] < rightLimit)
+			cout << this->Shapes[i];
 	}
 
 	text_color();
@@ -38,26 +39,24 @@ void cCar::draw()
 
 void cCar::move(unsigned int leftLimit, unsigned int rightLimit)
 {
-	if (this->Direction == cDirection::RIGHT)
+	if (this->Direction == ecDirection::RIGHT)
 	{
 		for (int i = 0; i < cCar::N; i++)
 		{
-			if (++this->X[i] == rightLimit + 1)
-				this->X[i] = leftLimit;
+			if (++this->X[i] == rightLimit)
+				this->X[i] = leftLimit + 1;
 		}
-		if (this->X[cCar::N - 1] >= leftLimit && this->X[cCar::N - 1] <= rightLimit)
-			this->draw();
 	}
-	else if (this->Direction == cDirection::LEFT)
+	else if (this->Direction == ecDirection::LEFT)
 	{
 		for (int i = 0; i < cCar::N; i++)
 		{
-			if (--this->X[i] == leftLimit - 1)
-				this->X[i] = rightLimit;
+			if (--this->X[i] == leftLimit)
+				this->X[i] = rightLimit - 1;
 		}
-		if (this->X[0] >= leftLimit && this->X[0] <= rightLimit)
-			this->draw();
 	}
 	else
 		throw;
+
+	this->draw(leftLimit, rightLimit);
 }

@@ -60,7 +60,10 @@
     <ClCompile Include="cAnimalFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cObstacle.cpp">
+    <ClCompile Include="cObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cLevel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,7 +110,10 @@
     <ClInclude Include="cAnimalFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cObstacle.h">
+    <ClInclude Include="cObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

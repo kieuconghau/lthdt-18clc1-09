@@ -9,7 +9,7 @@ cTrafficLight::cTrafficLight(unsigned int x, unsigned int y, unsigned int timeRe
 	this->Times[2] = timeGreen;
 }
 
-void cTrafficLight::draw(cColor color)
+void cTrafficLight::draw(ecColor color)
 {
 	goto_xy(this->X, this->Y);
 	text_color(color);

@@ -7,9 +7,9 @@ class cCar : public cVehicle
 {
 public:
 	static const unsigned int N = 5;
-	cCar(cDirection direction, cColor color, unsigned int x, unsigned int y);
-	void draw();
-	void move(unsigned int leftLimit=0, unsigned int rightLimit=get_console_width());
+	cCar(ecDirection direction, ecColor color, unsigned int x, unsigned int y);
+	void draw(unsigned int leftLimit, unsigned int rightLimit);
+	void move(unsigned int leftLimit, unsigned int rightLimit);
 
 private:
 	char Shapes[cCar::N];

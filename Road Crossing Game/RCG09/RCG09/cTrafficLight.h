@@ -6,10 +6,8 @@ class cTrafficLight
 {
 public:
 	static const unsigned int N = 1;
-	
 	cTrafficLight(unsigned int x, unsigned int y, unsigned int timeRed=3, unsigned int timeYellow=2, unsigned int timeGreen=5);
-	
-	void draw(cColor color);
+	void draw(ecColor color);
 
 private:
 	const unsigned int X;

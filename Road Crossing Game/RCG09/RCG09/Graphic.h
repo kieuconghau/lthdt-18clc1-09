@@ -3,9 +3,10 @@
 
 #include <Windows.h>
 #include <iostream>
+#include <string>
 using namespace std;
 
-enum class cColor
+enum class ecColor
 {
 	GREY = 8,
 	BLUE,
@@ -17,7 +18,7 @@ enum class cColor
 	WHITE
 };
 
-enum class cDirection
+enum class ecDirection
 {
 	LEFT,
 	RIGHT,
@@ -29,11 +30,11 @@ void goto_xy(const unsigned int& column, const unsigned int& line);
 unsigned int where_x();
 unsigned int where_y();
 
-void text_color(const cColor& color=cColor::WHITE);
+void text_color(const ecColor& color=ecColor::WHITE);
 void text_size(const unsigned int& size);
 
 void zoom_full_console_window();
 unsigned int get_console_width();
 unsigned int get_console_height();
 
-void print_text_at_middle(unsigned int y, string text, cColor color, bool endline);
+void print_text_at_middle(unsigned int y, string text, ecColor color, bool endline);
