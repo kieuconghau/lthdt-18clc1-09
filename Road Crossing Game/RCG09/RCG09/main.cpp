@@ -7,7 +7,7 @@ using namespace std;
 
 #include <vector>
 
-int main()
+int main_program()
 {
 	zoom_full_console_window();
 
@@ -49,5 +49,20 @@ int main()
 		delete lane2[i];
 	delete[] lane2;
 
+	return 0;
+}
+
+void test()
+{
+	zoom_full_console_window();
+
+	screen_win();
+
+	
+}
+
+int main()
+{
+	test();
 	return 0;
 }

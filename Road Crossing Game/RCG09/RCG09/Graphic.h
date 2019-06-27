@@ -15,6 +15,7 @@ enum class cColor
 	PURPLE,
 	YELLOW,
 	WHITE
+	
 };
 
 enum class cDirection
