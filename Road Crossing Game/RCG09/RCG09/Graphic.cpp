@@ -20,7 +20,7 @@ unsigned int where_y()
 	return csbi.dwCursorPosition.Y;
 }
 
-void text_color(const cColor& color)
+void text_color(const ecColor& color)
 {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), int(color));
 }
@@ -57,7 +57,7 @@ unsigned int get_console_height() {
 	return rows;
 }
 
-void print_text_at_middle(unsigned int y, string text, cColor color, bool endline)
+void print_text_at_middle(unsigned int y, string text, ecColor color, bool endline)
 {
 	text_color(color);
 	goto_xy(get_console_width() / 2 - text.length() / 2, y);

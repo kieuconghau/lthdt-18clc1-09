@@ -8,5 +8,6 @@
 class cVehicleFactory
 {
 public:
-	static cVehicle* create(cVehicleType type, cDirection direction, cColor color, unsigned int x, unsigned int y);
+	static cVehicle* create(cVehicleType type, ecDirection direction, ecColor color, unsigned int x, unsigned int y);
 };
+
