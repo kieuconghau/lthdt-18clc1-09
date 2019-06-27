@@ -61,7 +61,8 @@ void screen_sign_up()
 
 	if (choice == cScreen::ACCOUNT)
 		screen_account();
-	else throw;
+	else
+		throw;
 }
 
 void screen_sign_in()
@@ -193,8 +194,8 @@ void screen_load_game()
 	else if (choice == cScreen::MENU) {
 		screen_menu();
 	}
-	else exit(0);
-
+	else
+		throw;
 }
 
 void screen_save_game()
@@ -224,7 +225,8 @@ void screen_setting()
 	else if (choice == cScreen::MENU) {
 		screen_menu();
 	}
-	else exit(0);
+	else
+		throw;
 }
 
 void screen_continue()
@@ -255,8 +257,8 @@ void screen_continue()
 	else if (choice == cScreen::ENDING) {
 		screen_ending();
 	}
-	else exit(0);
-	
+	else
+		throw;
 }
 
 void screen_win()
@@ -320,11 +322,7 @@ void draw_coming_soon()
 {
 	unsigned middleX = get_console_width()/2;
 	unsigned middleY = get_console_height()/2;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 45747e6f7f799f3e2cd474550de8ca916ad5310d
 	print_text_at_middle(middleY - 15, "    __   ___   ___ ___  ____  ____    ____       _____  ___    ___   ____                  ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 14, "   /  ] /   \\ |   |   ||    ||    \\  /    |     / ___/ /   \\  /   \\ |    \\                 ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 13, "  /  / |     || _   _ | |  | |  _  ||   __|    (   \\_ |     ||     ||  _  |                ", ecColor::GREY, true);
@@ -344,7 +342,6 @@ void screen_border_decoration(int distanceFromScreenBorder)
 
 	//space from corners decoration to sides decoration
 	unsigned space2 = 1;
-
 	unsigned middleX = get_console_width()/2;
 	unsigned middleY = get_console_height() / 2;
 
@@ -417,23 +414,6 @@ void screen_ending()
 	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
 	Sleep(2000);
-<<<<<<< HEAD
-	print_text_at_middle(middleY + 6, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
-	Sleep(1500);
-
-	print_text_at_middle(middleY + 8, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
-	Sleep(1000);
-	print_text_at_middle(middleY + 10, "18127118 - Mai Dang Khanh", ecColor::GREY, true);
-	Sleep(1000);
-	print_text_at_middle(middleY + 12, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
-	Sleep(1000);
-
-	print_text_at_middle(middleY + 14, "Press Any Key To Exit", ecColor::WHITE, true);
-}
-
-
-
-=======
 	print_text_at_middle(middleY + 14, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
 	Sleep(500);
 
@@ -447,4 +427,3 @@ void screen_ending()
 	goto_xy(middleX-15, middleY + 5);
 	system("pause");
 }
->>>>>>> 45747e6f7f799f3e2cd474550de8ca916ad5310d

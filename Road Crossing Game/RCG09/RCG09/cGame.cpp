@@ -7,7 +7,7 @@ cGame::cGame()
 	/* Set up information for each level */
 	const unsigned int laneCount[cLevel::MAX_LEVEL] = { 4, 5 };
 
-	/* Level 0 */	
+	/* Level 0 */
 	vector<ecObjectType> objectTypes0 =		{ ecObjectType::CAR		, ecObjectType::TRUCK	, ecObjectType::CAR		, ecObjectType::TRUCK	};
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT	, ecDirection::LEFT		, ecDirection::RIGHT	, ecDirection::LEFT		};
 	vector<ecColor> colors0 =				{ ecColor::PURPLE		, ecColor::BLUE			, ecColor::CYAN			, ecColor::YELLOW		};
@@ -43,6 +43,4 @@ void cGame::start()
 	system("cls");
 	this->CurrentLevel++;		// Level up
 	this->Levels[this->CurrentLevel].start();
-
-	screen_ending();
 }
