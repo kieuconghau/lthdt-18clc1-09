@@ -13,6 +13,7 @@ int main()
 
 	screen_account();
 
-	system("pause");
+	screen_ending();
+
 	return 0;
 }

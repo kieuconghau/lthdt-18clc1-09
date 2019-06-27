@@ -135,7 +135,6 @@ void cLevel::draw()
 
 	text_color();
 	goto_xy(0, 0);
-
 }
 
 void cLevel::start()
