@@ -163,6 +163,7 @@ void screen_game()
 
 	cGame game;
 	game.start();
+
 }
 
 void screen_load_game()
@@ -264,6 +265,11 @@ void screen_win()
 	system("cls");
 	
 	screen_border_decoration(17);
+	screen_border_decoration(20);
+	screen_border_decoration(23);
+	screen_border_decoration(29);
+	screen_border_decoration(32);
+	screen_border_decoration(35);
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
@@ -315,7 +321,11 @@ void draw_coming_soon()
 {
 	unsigned middleX = get_console_width()/2;
 	unsigned middleY = get_console_height()/2;
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> 45747e6f7f799f3e2cd474550de8ca916ad5310d
 	print_text_at_middle(middleY - 15, "    __   ___   ___ ___  ____  ____    ____       _____  ___    ___   ____                  ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 14, "   /  ] /   \\ |   |   ||    ||    \\  /    |     / ___/ /   \\  /   \\ |    \\                 ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 13, "  /  / |     || _   _ | |  | |  _  ||   __|    (   \\_ |     ||     ||  _  |                ", ecColor::GREY, true);
@@ -408,6 +418,7 @@ void screen_ending()
 	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
 	Sleep(2000);
+<<<<<<< HEAD
 	print_text_at_middle(middleY + 6, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
 	Sleep(1500);
 
@@ -423,3 +434,18 @@ void screen_ending()
 
 
 
+=======
+	print_text_at_middle(middleY + 14, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
+	Sleep(500);
+
+	print_text_at_middle(middleY + 17, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
+	Sleep(500);
+	print_text_at_middle(middleY + 19, "181272118 - Mai Dang Khanh", ecColor::GREY, true);
+	Sleep(500);
+	print_text_at_middle(middleY + 21, "181272014 - Huynh Nhat Nam", ecColor::GREY, true);
+	Sleep(500);
+
+	goto_xy(middleX-15, middleY + 5);
+	system("pause");
+}
+>>>>>>> 45747e6f7f799f3e2cd474550de8ca916ad5310d
