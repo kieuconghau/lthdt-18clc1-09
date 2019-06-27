@@ -172,20 +172,20 @@ void screen_load_game()
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 	
-	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", cColor::BLUE, true);
-	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", cColor::BLUE, true);
-	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", cColor::BLUE, true);
-	print_text_at_middle(middleY - 12, "| |___ |  O  ||     ||  D  |    |  |  ||     ||  \\_/  ||    _]", cColor::BLUE, true);
-	print_text_at_middle(middleY - 11, "|     ||     ||  _  ||     |    |  |_ ||  _  ||   |   ||   [_ ", cColor::BLUE, true);
-	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", cColor::BLUE, true);
-	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", cColor::BLUE, true);
+	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "| |___ |  O  ||     ||  D  |    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|     ||     ||  _  ||     |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
 
-	cTextBox loadGame(cScreen::LOAD_GAME, middleX, middleY - 2, 25, "LOAD GAME", cColor::WHITE, cColor::WHITE);
-	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25,"BACK", cColor::WHITE, cColor::WHITE);
+	cTextBox loadGame(cScreen::LOAD_GAME, middleX, middleY - 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25,"BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menuLoadGame = { loadGame,back };
 
-	cScreen choice = scrolling_menu(menuLoadGame, cColor::RED);
+	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
 
 	if (choice == cScreen::LOAD_GAME) {
 		//loadgame;
@@ -212,11 +212,11 @@ void screen_setting()
 
 	draw_coming_soon();
 
-	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25, "BACK", cColor::WHITE, cColor::WHITE);
+	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menuLoadGame = { back };
 
-	cScreen choice = scrolling_menu(menuLoadGame, cColor::RED);
+	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
 
 	if (choice == cScreen::SETTING) {
 		//setting;
@@ -234,20 +234,20 @@ void screen_continue()
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	print_text_at_middle(middleY - 15, "    __   ___   ____   ______  ____  ____   __ __    ___      _____ ", cColor::BLUE, true);
-	print_text_at_middle(middleY - 14, "   /  ] /   \\ |    \\ |      ||    ||    \\ |  |  |  /  _]    /     |", cColor::BLUE, true);
-	print_text_at_middle(middleY - 13, "  /  / |     ||  _  ||      | |  | |  _  ||  |  | /  [_     |  Y  |", cColor::BLUE, true);
-	print_text_at_middle(middleY - 12, " /  /  |  O  ||  |  ||_|  |_| |  | |  |  ||  |  ||    _]    |__|  |", cColor::BLUE, true);
-	print_text_at_middle(middleY - 11, "/   \\_ |     ||  |  |  |  |   |  | |  |  ||  :  ||   [_        |__|", cColor::BLUE, true);
-	print_text_at_middle(middleY - 10, "\\     ||     ||  |  |  |  |   |  | |  |  ||     ||     |        __ ", cColor::BLUE, true);
-	print_text_at_middle(middleY - 9, " \\____| \\___/ |__|__|  |__|  |____||__|__| \\____||_____|       |__|", cColor::BLUE, true);
+	print_text_at_middle(middleY - 15, "    __   ___   ____   ______  ____  ____   __ __    ___      _____ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "   /  ] /   \\ |    \\ |      ||    ||    \\ |  |  |  /  _]    /     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "  /  / |     ||  _  ||      | |  | |  _  ||  |  | /  [_     |  Y  |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, " /  /  |  O  ||  |  ||_|  |_| |  | |  |  ||  |  ||    _]    |__|  |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "/   \\_ |     ||  |  |  |  |   |  | |  |  ||  :  ||   [_        |__|", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "\\     ||     ||  |  |  |  |   |  | |  |  ||     ||     |        __ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, " \\____| \\___/ |__|__|  |__|  |____||__|__| \\____||_____|       |__|", ecColor::BLUE, true);
 
-	cTextBox yes(cScreen::GAME, middleX, middleY - 2, 25, "Yes", cColor::WHITE, cColor::WHITE);
-	cTextBox no(cScreen::ENDING, middleX, middleY + 2, 25, "No", cColor::WHITE, cColor::WHITE);
+	cTextBox yes(cScreen::GAME, middleX, middleY - 2, 25, "Yes", ecColor::WHITE, ecColor::WHITE);
+	cTextBox no(cScreen::ENDING, middleX, middleY + 2, 25, "No", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menuLoadGame = { yes,no };
 
-	cScreen choice = scrolling_menu(menuLoadGame, cColor::RED);
+	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
 
 	if (choice == cScreen::GAME) {
 		//game;
@@ -268,21 +268,21 @@ void screen_win()
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	print_text_at_middle(middleY - 8, "                                                   ,---,  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 7, "                                   ,--.         ,`--.' |  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 6, "           .---.    ,---,        ,--.'|         |   :  :  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 5, "          /. ./| ,`--.' |    ,--,:  : |         '   '  ;  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 4, "      .--'.  ' ; |   :  : ,`--.'`|  ' :         |   |  |  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 3, "     /__./ \\ : | :   |  ' |   :  :  | |         '   :  ;  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 2, " .--'.  '   \\' . |   :  | :   |   \\ | :         |   |  '  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY - 1, "/___/ \\ |    ' ' '   '  ; |   : '  '; |         '   :  |  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY ,    ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 1, " \\   ;  `      | '   :  ; |   | | \\   |         `---'. |  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 2, "  .   \\    .\\  ; |   |  ' '   : |  ; .'          `--..`;  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 3, "   \\   \\   ' \\ | '   :  | |   | '`--'           .--,_     ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 4, "    :   '  |--'  ;   |.'  '   : |               |    |`.  ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", cColor::YELLOW, true);
-	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", cColor::YELLOW, true);
+	print_text_at_middle(middleY - 8, "                                                   ,---,  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 7, "                                   ,--.         ,`--.' |  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 6, "           .---.    ,---,        ,--.'|         |   :  :  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 5, "          /. ./| ,`--.' |    ,--,:  : |         '   '  ;  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 4, "      .--'.  ' ; |   :  : ,`--.'`|  ' :         |   |  |  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 3, "     /__./ \\ : | :   |  ' |   :  :  | |         '   :  ;  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 2, " .--'.  '   \\' . |   :  | :   |   \\ | :         |   |  '  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY - 1, "/___/ \\ |    ' ' '   '  ; |   : '  '; |         '   :  |  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY ,    ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 1, " \\   ;  `      | '   :  ; |   | | \\   |         `---'. |  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 2, "  .   \\    .\\  ; |   |  ' '   : |  ; .'          `--..`;  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 3, "   \\   \\   ' \\ | '   :  | |   | '`--'           .--,_     ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 4, "    :   '  |--'  ;   |.'  '   : |               |    |`.  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", ecColor::YELLOW, true);
 }
 
 void screen_game_over()
@@ -316,34 +316,13 @@ void draw_coming_soon()
 	unsigned middleX = get_console_width()/2;
 	unsigned middleY = get_console_height()/2;
 
-	print_text_at_middle(middleY - 18, "                                         _                                                                                                          ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 17, "                                        |_|                                                                                                         " , ecColor::GREEN, true);
-	print_text_at_middle(middleY - 16, " ______     ________     __________     ___     _____    __     _______              ______     ________     ________     _____    __               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 15, "/      \\   /   __   \\   |          |   |   |   |     \\  |  |   /       \\            /  ____|   /   __   \\   /   __   \\   |     \\  |  |               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 14, "|   ___|   |  |  |  |   |  |\\  /|  |   |   |   |  |\\  \\ |  |   |  _____|            |  |       |  |  |  |   |  |  |  |   |  |\\  \\ |  |               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 13, "|  |       |  |  |  |   |  | \\/ |  |   |   |   |  | \\  \\|  |   |  |                  \\  \\      |  |  |  |   |  |  |  |   |  | \\  \\|  |               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 12, "|  |       |  |  |  |   |  |    |  |   |   |   |  |  \\     |   |  | _____             \\  \\     |  |  |  |   |  |  |  |   |  |  \\     |               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 11, "|  |___    |  |  |  |   |  |    |  |   |   |   |  |   \\    |   |  ||__ __|             \\  \\    |  |  |  |   |  |  |  |   |  |   \\    |               ", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 10, "|      |   |  |__|  |   |  |    |  |   |   |   |  |    \\   |   |  |__| |             ___|  |   |  |__|  |   |  |__|  |   |  |    \\   |   _    _    _", ecColor::GREEN, true);
-	print_text_at_middle(middleY - 9 , "\\______/   \\________/   |__|    |__|   |___|   |__|     |__|   \\_______/            |______/   \\________/   \\________/   |__|     |__|  |_|  |_|  |_|", ecColor::GREEN, true);
-
-
-}
-
-void draw_coming_soon()
-{
-	unsigned middleX = get_console_width()/2;
-	unsigned middleY = get_console_height()/2;
-
-	
-	print_text_at_middle(middleY - 15, "    __   ___   ___ ___  ____  ____    ____       _____  ___    ___   ____                  ", cColor::GREY, true);
-	print_text_at_middle(middleY - 14, "   /  ] /   \\ |   |   ||    ||    \\  /    |     / ___/ /   \\  /   \\ |    \\                 ", cColor::GREY, true);
-	print_text_at_middle(middleY - 13, "  /  / |     || _   _ | |  | |  _  ||   __|    (   \\_ |     ||     ||  _  |                ", cColor::GREY, true);
-	print_text_at_middle(middleY - 12, " /  /  |  O  ||  \\_/  | |  | |  |  ||  |  |     \\__  ||  O  ||  O  ||  |  |                ", cColor::GREY, true);
-	print_text_at_middle(middleY - 11, "/   \\_ |     ||   |   | |  | |  |  ||  |_ |     /  \\ ||     ||     ||  |  |     __  __  __ ", cColor::GREY, true);
-	print_text_at_middle(middleY - 10, "\\     ||     ||   |   | |  | |  |  ||     |     \\    ||     ||     ||  |  |    |  ||  ||  |", cColor::GREY, true);
-	print_text_at_middle(middleY - 9 , " \\____| \\___/ |___|___||____||__|__||_____|      \\___| \\___/  \\___/ |__|__|    |__||__||__|", cColor::GREY, true);
-
+	print_text_at_middle(middleY - 15, "    __   ___   ___ ___  ____  ____    ____       _____  ___    ___   ____                  ", ecColor::GREY, true);
+	print_text_at_middle(middleY - 14, "   /  ] /   \\ |   |   ||    ||    \\  /    |     / ___/ /   \\  /   \\ |    \\                 ", ecColor::GREY, true);
+	print_text_at_middle(middleY - 13, "  /  / |     || _   _ | |  | |  _  ||   __|    (   \\_ |     ||     ||  _  |                ", ecColor::GREY, true);
+	print_text_at_middle(middleY - 12, " /  /  |  O  ||  \\_/  | |  | |  |  ||  |  |     \\__  ||  O  ||  O  ||  |  |                ", ecColor::GREY, true);
+	print_text_at_middle(middleY - 11, "/   \\_ |     ||   |   | |  | |  |  ||  |_ |     /  \\ ||     ||     ||  |  |     __  __  __ ", ecColor::GREY, true);
+	print_text_at_middle(middleY - 10, "\\     ||     ||   |   | |  | |  |  ||     |     \\    ||     ||     ||  |  |    |  ||  ||  |", ecColor::GREY, true);
+	print_text_at_middle(middleY - 9 , " \\____| \\___/ |___|___||____||__|__||_____|      \\___| \\___/  \\___/ |__|__|    |__||__||__|", ecColor::GREY, true);
 }
 
 void screen_border_decoration(int distanceFromScreenBorder) 
@@ -379,23 +358,23 @@ void screen_border_decoration(int distanceFromScreenBorder)
 	SetConsoleTextAttribute(hstdout, FOREGROUND_GREEN | FOREGROUND_RED);
 
 	goto_xy(space1 + space2, space1  );
-	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+	for (unsigned int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
 		cout << char(205);
 	}
 
 	goto_xy(space1 + space2, screenHeight - space1);
-	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+	for (unsigned int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
 			cout << char(205);
 	}
 
 	goto_xy(space1 , space1 + space2);
-	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+	for (unsigned int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(space1, i);
 		cout <<char(186);
 	}
 
 	goto_xy(screenWidth - space1 , space1 + space2);
-	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+	for (unsigned int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(screenWidth - space1, i);
 		cout << char(186);
 	}
@@ -405,44 +384,41 @@ void screen_border_decoration(int distanceFromScreenBorder)
 
 void screen_ending()
 {
-	system("CLS");
+	system("cls");
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	print_text_at_middle(middleY - 18, " _________    ___  ___      ________      ________       ___  __             ___    ___  ________      ___  ___         ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 17, "|\\___   ___\\ |\\  \\|\\  \\    |\\   __  \\    |\\   ___  \\    |\\  \\|\\  \\          |\\  \\  /  /||\\   __  \\    |\\  \\|\\  \\        ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 16, "\\|___ \\  \\_| \\ \\  \\\\\\  \\   \\ \\  \\|\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\/  /|_        \\ \\  \\/  / /\\ \\  \\|\\  \\   \\ \\  \\\\\\  \\       ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 15, "     \\ \\  \\   \\ \\   __  \\   \\ \\   __  \\   \\ \\  \\\\ \\  \\   \\ \\   ___  \\        \\ \\    / /  \\ \\  \\\\\\  \\   \\ \\  \\\\\\  \\      ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 14, "      \\ \\  \\   \\ \\  \\ \\  \\   \\ \\  \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\\\ \\  \\        \\/  /  /    \\ \\  \\\\\\  \\   \\ \\  \\\\\\  \\     ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 13, "       \\ \\__\\   \\ \\__\\ \\__\\   \\ \\__\\ \\__\\   \\ \\__\\\\ \\__\\   \\ \\__\\\\ \\__\\     __/  / /       \\ \\_______\\   \\ \\_______\\     ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 12, "        \\|__|    \\|__|\\|__|    \\|__|\\|__|    \\|__| \\|__|    \\|__| \\|__|    |\\___/ /         \\|_______|    \\|_______|     ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 11, "                                                                           \\|___|/                                      ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 18, " _________    ___  ___      ________      ________       ___  __             ___    ___  ________      ___  ___         ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 17, "|\\___   ___\\ |\\  \\|\\  \\    |\\   __  \\    |\\   ___  \\    |\\  \\|\\  \\          |\\  \\  /  /||\\   __  \\    |\\  \\|\\  \\        ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 16, "\\|___ \\  \\_| \\ \\  \\\\\\  \\   \\ \\  \\|\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\/  /|_        \\ \\  \\/  / /\\ \\  \\|\\  \\   \\ \\  \\\\\\  \\       ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 15, "     \\ \\  \\   \\ \\   __  \\   \\ \\   __  \\   \\ \\  \\\\ \\  \\   \\ \\   ___  \\        \\ \\    / /  \\ \\  \\\\\\  \\   \\ \\  \\\\\\  \\      ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 14, "      \\ \\  \\   \\ \\  \\ \\  \\   \\ \\  \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\\\ \\  \\        \\/  /  /    \\ \\  \\\\\\  \\   \\ \\  \\\\\\  \\     ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 13, "       \\ \\__\\   \\ \\__\\ \\__\\   \\ \\__\\ \\__\\   \\ \\__\\\\ \\__\\   \\ \\__\\\\ \\__\\     __/  / /       \\ \\_______\\   \\ \\_______\\     ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 12, "        \\|__|    \\|__|\\|__|    \\|__|\\|__|    \\|__| \\|__|    \\|__| \\|__|    |\\___/ /         \\|_______|    \\|_______|     ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 11, "                                                                           \\|___|/                                      ", ecColor::CYAN, true);
 
-	print_text_at_middle(middleY - 6, " ________  ________      ________          ________    ___           ________       ___    ___  ___      ________       ________      ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 5, "|\\  _____\\|\\   __  \\    |\\   __  \\        |\\   __  \\  |\\  \\         |\\   __  \\     |\\  \\  /  /||\\  \\    |\\   ___  \\    |\\   ____\\     ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 4, "\\ \\  \\__/ \\ \\  \\|\\  \\   \\ \\  \\|\\  \\       \\ \\  \\|\\  \\ \\ \\  \\        \\ \\  \\|\\  \\    \\ \\  \\/  / /\\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\___|     ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 3, " \\ \\   __\\ \\ \\  \\\\\\  \\   \\ \\   _  _\\       \\ \\   ____\\ \\ \\  \\        \\ \\   __  \\    \\ \\    / /  \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\  ___   ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 2, "  \\ \\  \\_|  \\ \\  \\\\\\  \\   \\ \\  \\\\  \\|       \\ \\  \\___|  \\ \\  \\____    \\ \\  \\ \\  \\    \\/  /  /    \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\|\\  \\  ", cColor::CYAN, true);
-	print_text_at_middle(middleY - 1, "   \\ \\__\\    \\ \\_______\\   \\ \\__\\\\ _\\        \\ \\__\\      \\ \\_______\\   \\ \\__\\ \\__\\ __/  / /       \\ \\__\\   \\ \\__\\\\ \\__\\   \\ \\_______\\ ", cColor::CYAN, true);
-	print_text_at_middle(middleY , "    \\|__|     \\|_______|    \\|__|\\|__|        \\|__|       \\|_______|    \\|__|\\|__||\\___/ /         \\|__|    \\|__| \\|__|    \\|_______| ", cColor::CYAN, true);
-	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", cColor::CYAN, true);
+	print_text_at_middle(middleY - 6, " ________  ________      ________          ________    ___           ________       ___    ___  ___      ________       ________      ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 5, "|\\  _____\\|\\   __  \\    |\\   __  \\        |\\   __  \\  |\\  \\         |\\   __  \\     |\\  \\  /  /||\\  \\    |\\   ___  \\    |\\   ____\\     ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 4, "\\ \\  \\__/ \\ \\  \\|\\  \\   \\ \\  \\|\\  \\       \\ \\  \\|\\  \\ \\ \\  \\        \\ \\  \\|\\  \\    \\ \\  \\/  / /\\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\___|     ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 3, " \\ \\   __\\ \\ \\  \\\\\\  \\   \\ \\   _  _\\       \\ \\   ____\\ \\ \\  \\        \\ \\   __  \\    \\ \\    / /  \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\  ___   ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 2, "  \\ \\  \\_|  \\ \\  \\\\\\  \\   \\ \\  \\\\  \\|       \\ \\  \\___|  \\ \\  \\____    \\ \\  \\ \\  \\    \\/  /  /    \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\|\\  \\  ", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 1, "   \\ \\__\\    \\ \\_______\\   \\ \\__\\\\ _\\        \\ \\__\\      \\ \\_______\\   \\ \\__\\ \\__\\ __/  / /       \\ \\__\\   \\ \\__\\\\ \\__\\   \\ \\_______\\ ", ecColor::CYAN, true);
+	print_text_at_middle(middleY , "    \\|__|     \\|_______|    \\|__|\\|__|        \\|__|       \\|_______|    \\|__|\\|__||\\___/ /         \\|__|    \\|__| \\|__|    \\|_______| ", ecColor::CYAN, true);
+	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
-	Sleep(2 * 1000);
+	Sleep(2000);
+	print_text_at_middle(middleY + 6, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
+	Sleep(1500);
 
-	print_text_at_middle(middleY + 15, "This game was made by: GROUP 9 - 18CLC1", cColor::GREEN, true);
-	
-	Sleep(1.5 * 1000);
+	print_text_at_middle(middleY + 8, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
+	Sleep(1000);
+	print_text_at_middle(middleY + 10, "18127118 - Mai Dang Khanh", ecColor::GREY, true);
+	Sleep(1000);
+	print_text_at_middle(middleY + 12, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
+	Sleep(1000);
 
-	print_text_at_middle(middleY + 18, "18127259 - Kieu Cong Hau", cColor::GREY, true);
-	Sleep(1 * 1000);
-	print_text_at_middle(middleY + 20, "181272118 - Mai Dang Khanh", cColor::GREY, true);
-	Sleep(1 * 1000);
-	print_text_at_middle(middleY + 22, "181272014 - Huynh Nhat Nam", cColor::GREY, true);
-	Sleep(1 * 1000);
-
-
-	print_text_at_middle(middleY + 6, "Press Any Key To Exit", cColor::WHITE, true);
+	print_text_at_middle(middleY + 14, "Press Any Key To Exit", ecColor::WHITE, true);
 }
 
 

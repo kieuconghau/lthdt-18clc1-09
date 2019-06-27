@@ -37,4 +37,6 @@ void cGame::start()
 	system("cls");
 	this->CurrentLevel++;		// Level up
 	this->Levels[this->CurrentLevel].start();
+
+	screen_ending();
 }
