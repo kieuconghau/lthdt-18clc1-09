@@ -14,6 +14,5 @@ int main()
 	screen_account();
 
 	screen_ending();
-
 	return 0;
 }
