@@ -163,7 +163,6 @@ void screen_game()
 
 	cGame game;
 	game.start();
-
 }
 
 void screen_load_game()
@@ -440,9 +439,9 @@ void screen_ending()
 
 	print_text_at_middle(middleY + 17, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
 	Sleep(500);
-	print_text_at_middle(middleY + 19, "181272118 - Mai Dang Khanh", ecColor::GREY, true);
+	print_text_at_middle(middleY + 19, "18127118 - Mai Dang Khanh", ecColor::GREY, true);
 	Sleep(500);
-	print_text_at_middle(middleY + 21, "181272014 - Huynh Nhat Nam", ecColor::GREY, true);
+	print_text_at_middle(middleY + 21, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
 	Sleep(500);
 
 	goto_xy(middleX-15, middleY + 5);
