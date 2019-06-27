@@ -2,8 +2,8 @@
 
 void goto_xy(const unsigned int& column, const unsigned int& line)
 {
-	COORD coord = { column, line };
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE),coord);
+	COORD coord = { SHORT(column), SHORT(line) };
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
 unsigned int where_x()
@@ -60,7 +60,7 @@ unsigned int get_console_height() {
 void print_text_at_middle(unsigned int y, string text, ecColor color, bool endline)
 {
 	text_color(color);
-	goto_xy(get_console_width() / 2 - text.length() / 2, y);
+	goto_xy(get_console_width() / 2 - unsigned int(text.length()) / 2, y);
 	cout << text;
 	if (endline == true) {
 		std::cout << endl;
