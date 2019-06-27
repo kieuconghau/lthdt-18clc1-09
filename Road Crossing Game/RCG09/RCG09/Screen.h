@@ -15,4 +15,7 @@ void screen_setting();
 void screen_continue();
 void screen_win();
 void screen_game_over();
+
 void draw_coming_soon();
+void screen_border_decoration(int distanceFromScreenBorder);
+void screen_ending();

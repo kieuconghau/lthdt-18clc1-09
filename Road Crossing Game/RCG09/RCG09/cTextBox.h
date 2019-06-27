@@ -20,7 +20,8 @@ enum class cScreen
 	SETTING,
 	CONTINUE,
 	WIN,
-	GAME_OVER
+	GAME_OVER,
+	ENDING
 };
 
 class cTextBox

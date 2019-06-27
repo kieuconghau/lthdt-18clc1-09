@@ -16,6 +16,7 @@ enum class ecColor
 	PURPLE,
 	YELLOW,
 	WHITE
+	
 };
 
 enum class ecDirection
