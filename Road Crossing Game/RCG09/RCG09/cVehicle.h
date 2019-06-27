@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Graphic.h"
+#include "cObject.h"
 
 enum class cVehicleType
 {
@@ -8,27 +9,16 @@ enum class cVehicleType
 	TRUCK
 };
 
-enum class cVehilceState
-{
-	RUNNING,
-	CRASHING
-};
-
-class cVehicle
+class cVehicle : public cObject
 {
 public:
-	cVehicle();
-	cVehicle(unsigned int n, cDirection direction, cColor color, unsigned int x, unsigned int y);
+	cVehicle(unsigned int n, ecDirection direction, ecColor color, unsigned int x, unsigned int y);
 	virtual ~cVehicle();
 
-	virtual void draw() = 0;
-	virtual void move(unsigned int leftLimit = 0, unsigned int rightLimit = get_console_width()) = 0;
+	virtual void draw(unsigned int leftLimit, unsigned int rightLimit) = 0;
+	virtual void move(unsigned int leftLimit, unsigned int rightLimit) = 0;
 
 protected:
-	unsigned int* X;
-	unsigned int* Y;
-	cDirection Direction;
-	cColor Color;
-	//cVehicleType Type;
-	//cVehilceState State;
+	ecDirection Direction;
+	ecColor Color;
 };

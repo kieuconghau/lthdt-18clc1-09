@@ -7,10 +7,10 @@ class cTruck : public cVehicle
 {
 public:
 	static const unsigned int N = 5;
-	cTruck(cDirection direction, cColor color, unsigned int x, unsigned int y);
-	void draw();
-	void move(unsigned int leftLimit = 0, unsigned int rightLimit = get_console_width() - 1);
+	cTruck(ecDirection direction, ecColor color, unsigned int x, unsigned int y);
+	void draw(unsigned int leftLimit, unsigned int rightLimit);
+	void move(unsigned int leftLimit, unsigned int rightLimit);
 
 private:
-	char Shape[cTruck::N];
+	char Shapes[cTruck::N];
 };

@@ -1,6 +1,6 @@
 #include "cVehicleFactory.h"
 
-cVehicle* cVehicleFactory::create(cVehicleType type, cDirection direction, cColor color, unsigned int x, unsigned int y)
+cVehicle* cVehicleFactory::create(cVehicleType type, ecDirection direction, ecColor color, unsigned int x, unsigned int y)
 {
 	switch (type)
 	{
