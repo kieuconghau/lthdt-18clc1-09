@@ -64,5 +64,5 @@ void cBird::move(unsigned int leftLimit, unsigned int rightLimit)
 
 void cBird::tell()
 {
-	PlaySound(TEXT("bird_sound.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	PlaySound(TEXT("bird.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
