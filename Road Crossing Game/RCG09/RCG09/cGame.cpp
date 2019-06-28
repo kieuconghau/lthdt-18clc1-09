@@ -5,7 +5,7 @@ cGame::cGame()
 	this->CurrentLevel = 0;
 
 	/* Set up information for each level */
-	const unsigned int laneCount[cLevel::MAX_LEVEL] = { 4, 5 };
+	const unsigned int laneCount[cGame::MAX_LEVEL] = { 4, 5 };
 
 	/* Level 0 */
 	vector<ecObjectType> objectTypes0 =		{ ecObjectType::CAR		, ecObjectType::TRUCK	, ecObjectType::CAR		, ecObjectType::TRUCK	};

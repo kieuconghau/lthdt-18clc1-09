@@ -1,26 +1,8 @@
 #include "cTruck.h"
 
-cTruck::cTruck(ecDirection direction, ecColor color, unsigned int x, unsigned int y) : cVehicle(cTruck::N, direction, color, x, y)
-{
-	if (direction == ecDirection::RIGHT)
-	{
-		this->Shapes[0] = char(32);
-		this->Shapes[1] = char(220);
-		this->Shapes[2] = char(220);
-		this->Shapes[3] = char(219);
-		this->Shapes[4] = char(219);
-	}
-	else if (direction == ecDirection::LEFT)
-	{
-		this->Shapes[0] = char(219);
-		this->Shapes[1] = char(219);
-		this->Shapes[2] = char(220);
-		this->Shapes[3] = char(220);
-		this->Shapes[4] = char(32);
-	}
-	else
-		throw;
-}
+const char cTruck::Shapes[cTruck::N] = { char(32), char(220), char(220), char(219), char(219) };
+
+cTruck::cTruck(ecDirection direction, ecColor color, unsigned int x, unsigned int y) : cVehicle(cTruck::N, direction, color, x, y) { }
 
 void cTruck::draw(unsigned int leftLimit, unsigned int rightLimit)
 {
@@ -30,7 +12,7 @@ void cTruck::draw(unsigned int leftLimit, unsigned int rightLimit)
 	{
 		goto_xy(this->X[i], this->Y[i]);
 		if (this->X[i] > leftLimit && this->X[i] < rightLimit)
-			cout << this->Shapes[i];
+			cout << this->Shapes[cTruck::N - i - 1];
 	}
 
 	text_color();

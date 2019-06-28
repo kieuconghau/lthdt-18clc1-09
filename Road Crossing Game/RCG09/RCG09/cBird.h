@@ -6,11 +6,11 @@
 class cBird : public cAnimal
 {
 public:
-	static const unsigned int N = 5;
 	cBird(ecDirection direction, ecColor color, unsigned int x, unsigned int y);
 	void draw(unsigned int leftLimit, unsigned int rightLimit);
 	void move(unsigned int leftLimit, unsigned int rightLimit);
 
 private:
-	char Shapes[cBird::N];
+	static const unsigned int N = 5;
+	static const char Shapes[cBird::N];
 };

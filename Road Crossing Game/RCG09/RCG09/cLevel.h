@@ -18,10 +18,13 @@ using namespace std;
 class cLevel
 {
 public:
-	/* Level setting */		
-	static const unsigned int MAX_LEVEL = 2;
+	cLevel();
+	~cLevel();
+	void set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts, unsigned int timeRed, unsigned int timeYellow, unsigned int timeGreen);
+	void draw();
+	void start();
 
-	/* Initial objects's location setting */
+private:
 	static const unsigned int TOP_LIMIT = 5;
 	static const unsigned int BOT_LIMIT = 30;
 	static const unsigned int LEFT_LIMIT = 20;
@@ -29,14 +32,6 @@ public:
 	static const unsigned int LANE_DISTANCE = 2;
 	static const ecColor BORDER_COLOR = ecColor::WHITE;
 
-	cLevel();
-	~cLevel();
-
-	void set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts, unsigned int timeRed, unsigned int timeYellow, unsigned int timeGreen);
-	void draw();
-	void start();
-
-private:
 	unsigned int LaneCount;
 	unsigned int* ObjectCounts;
 	cObject*** Lanes;

@@ -26,7 +26,8 @@ public:
 	void start();
 
 private:
-	cLevel Levels[cLevel::MAX_LEVEL];
+	static const unsigned int MAX_LEVEL = 2;
+	cLevel Levels[cGame::MAX_LEVEL];
 	unsigned int CurrentLevel;
 	//cPeople People;
 };
