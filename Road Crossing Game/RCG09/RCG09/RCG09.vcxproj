@@ -132,6 +132,7 @@
     <ClCompile Include="cLevel.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cTrafficLight.cpp" />
+    <ClCompile Include="cTrain.cpp" />
     <ClCompile Include="cVehicleFactory.cpp" />
     <ClCompile Include="Graphic.cpp" />
     <ClCompile Include="cPeople.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="cLevel.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cTrafficLight.h" />
+    <ClInclude Include="cTrain.h" />
     <ClInclude Include="cVehicleFactory.h" />
     <ClInclude Include="Graphic.h" />
     <ClInclude Include="cPeople.h" />

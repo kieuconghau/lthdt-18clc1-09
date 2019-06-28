@@ -9,6 +9,7 @@ enum class ecObjectType		// (Tricky)
 	DINOSAUR,
 	CAR,
 	TRUCK,
+	TRAIN,
 	TRAFFIC_LIGHT
 };
 

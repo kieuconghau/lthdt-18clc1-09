@@ -6,7 +6,8 @@
 enum class cVehicleType
 {
 	CAR,
-	TRUCK
+	TRUCK,
+	TRAIN
 };
 
 class cVehicle : public cObject

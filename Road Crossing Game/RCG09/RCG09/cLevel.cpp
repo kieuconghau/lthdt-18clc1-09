@@ -69,10 +69,10 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 		this->ObjectCounts[i] = objectCounts[i];
 	}
 
-	this->Lanes = new cObject * *[this->LaneCount];
+	this->Lanes = new cObject**[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
 	{
-		this->Lanes[i] = new cObject * [this->ObjectCounts[i]];
+		this->Lanes[i] = new cObject*[this->ObjectCounts[i]];
 		if (objectTypes[i] == ecObjectType::CAR)
 		{
 			for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
@@ -91,6 +91,19 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 			for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
 			{
 				this->Lanes[i][j] = cVehicleFactory::create(cVehicleType::TRUCK, directions[i], colors[i],
+					directions[i] == ecDirection::RIGHT ?
+					cLevel::LEFT_LIMIT + j * ((cLevel::RIGHT_LIMIT - cLevel::LEFT_LIMIT) / this->ObjectCounts[i]) :
+					directions[i] == ecDirection::LEFT ?
+					cLevel::RIGHT_LIMIT - j * ((cLevel::RIGHT_LIMIT - cLevel::LEFT_LIMIT) / this->ObjectCounts[i]) :
+					throw,
+					cLevel::TOP_LIMIT + (i + 1) * (cLevel::LANE_DISTANCE + 1));
+			}
+		}
+		else if (objectTypes[i] == ecObjectType::TRAIN)
+		{
+			for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
+			{
+				this->Lanes[i][j] = cVehicleFactory::create(cVehicleType::TRAIN, directions[i], colors[i],
 					directions[i] == ecDirection::RIGHT ?
 					cLevel::LEFT_LIMIT + j * ((cLevel::RIGHT_LIMIT - cLevel::LEFT_LIMIT) / this->ObjectCounts[i]) :
 					directions[i] == ecDirection::LEFT ?

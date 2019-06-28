@@ -8,10 +8,10 @@ cGame::cGame()
 	const unsigned int laneCount[cGame::MAX_LEVEL] = { 4, 5 };
 
 	/* Level 0 */
-	vector<ecObjectType> objectTypes0 =		{ ecObjectType::CAR		, ecObjectType::TRUCK	, ecObjectType::CAR		, ecObjectType::TRUCK	};
+	vector<ecObjectType> objectTypes0 =		{ ecObjectType::TRAIN	, ecObjectType::TRUCK	, ecObjectType::CAR		, ecObjectType::TRUCK	};
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT	, ecDirection::LEFT		, ecDirection::RIGHT	, ecDirection::LEFT		};
-	vector<ecColor> colors0 =				{ ecColor::PURPLE		, ecColor::BLUE			, ecColor::CYAN			, ecColor::YELLOW		};
-	vector<unsigned int> objectCounts0 =	{ 3						, 4						, 5						, 6						};
+	vector<ecColor> colors0 =				{ ecColor::WHITE		, ecColor::BLUE			, ecColor::CYAN			, ecColor::YELLOW		};
+	vector<unsigned int> objectCounts0 =	{ 1						, 6						, 5						, 5 					};
 	unsigned int timeRed0 = 20;
 	unsigned int timeYellow0 = 10;
 	unsigned int timeGreen0 = 20;

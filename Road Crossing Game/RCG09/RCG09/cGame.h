@@ -14,6 +14,7 @@
 #include "cVehicle.h"
 #include "cCar.h"
 #include "cTruck.h"
+#include "cTrain.h"
 #include "cTrafficLight.h"
 
 class cGame
