@@ -41,6 +41,15 @@ void zoom_full_console_window() {
 	::SendMessage(::GetConsoleWindow(), WM_SYSKEYDOWN, VK_RETURN, 0x20000000);
 }
 
+void remove_scroll_bar()
+{
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	CONSOLE_SCREEN_BUFFER_INFO info;
+	GetConsoleScreenBufferInfo(handle, &info);
+	COORD new_size = { get_console_width(), get_console_height() };
+	SetConsoleScreenBufferSize(handle, new_size);
+}
+
 unsigned int get_console_width() {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	int columns;
