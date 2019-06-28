@@ -142,13 +142,17 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 			throw;
 	}
 
+	/* Traffic light */
 	this->TrafficLights = new cTrafficLight*[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
 	{
-		if (objectTypes[i] == ecObjectType::CAR || objectTypes[i] == ecObjectType::TRUCK)
+		if (objectTypes[i] == ecObjectType::CAR || objectTypes[i] == ecObjectType::TRUCK || objectTypes[i] == ecObjectType::TRAIN)
 		{
-			this->TrafficLights[i] = new cTrafficLight(directions[i] == ecDirection::RIGHT ?
+			/*this->TrafficLights[i] = new cTrafficLight(directions[i] == ecDirection::RIGHT ?
 				cLevel::RIGHT_LIMIT + 1 : directions[i] == ecDirection::LEFT ? cLevel::LEFT_LIMIT - cTrafficLight::N : throw,
+				cLevel::TOP_LIMIT + (i + 1) * (cLevel::LANE_DISTANCE + 1), timeRed, timeYellow, timeGreen);*/
+			this->TrafficLights[i] = new cTrafficLight(directions[i] == ecDirection::RIGHT ?
+				cLevel::RIGHT_LIMIT + 1 : directions[i] == ecDirection::LEFT ? cLevel::LEFT_LIMIT - 3 : throw,
 				cLevel::TOP_LIMIT + (i + 1) * (cLevel::LANE_DISTANCE + 1), timeRed, timeYellow, timeGreen);
 		}
 		else
