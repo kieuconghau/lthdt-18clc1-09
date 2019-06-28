@@ -11,6 +11,7 @@ public:
 	cDinosaur(cDirection direction, cColor color, unsigned int x, unsigned int y);
 	void draw();
 	void move(unsigned int leftLimit = 0, unsigned int rightLimit = get_console_width()-1);
+	void tell();
 private:
 	char Shape[cDinosaur::N];
 };

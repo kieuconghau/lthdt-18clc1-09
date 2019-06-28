@@ -1,6 +1,7 @@
 #pragma once
 #include "Graphic.h"
-
+#include <Windows.h>
+#include <mmsystem.h>
 
 enum class cAnimalType
 {
@@ -23,6 +24,7 @@ public:
 
 	virtual void draw() = 0;
 	virtual void move(unsigned int leftLimit = 0, unsigned int rightLimit = get_console_width()) = 0;
+	virtual void tell() = 0;
 protected:
 	unsigned int* X;
 	unsigned int* Y;

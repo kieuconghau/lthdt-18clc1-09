@@ -61,3 +61,8 @@ void cDinosaur::move(unsigned int leftLimit, unsigned int rightLimit)
 	else
 		throw;
 }
+
+void cDinosaur::tell()
+{
+	PlaySound(TEXT("bird sound.wav"),NULL,SND_FILENAME|SND_ASYNC)
+}

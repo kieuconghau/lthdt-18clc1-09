@@ -16,7 +16,6 @@ int main()
 	const unsigned int lane1Count = 9;
 	const unsigned int lane2Count = 9;
 
-
 	const unsigned int leftLimit = 20;
 	const unsigned int rightLimit = 110;
 
