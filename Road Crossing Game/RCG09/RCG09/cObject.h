@@ -16,7 +16,7 @@ class cObject
 {
 public:
 	cObject(unsigned int n, ecDirection direction, unsigned int x, unsigned int y);	// Only used for automatic-moving objects: cVehicle, cAnimal.
-	//cObject(...);		// Only used for controlled-moving objects: cPeople.
+	cObject();
 	//cObject(...);		// Only used for non-moving objects: cTrafficLight.
 	virtual ~cObject();
 

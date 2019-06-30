@@ -8,6 +8,7 @@ using namespace std;
 
 enum class ecColor
 {
+	BLACK = 0,
 	GREY = 8,
 	BLUE,
 	GREEN,

@@ -18,6 +18,11 @@ cObject::cObject(unsigned int n, ecDirection direction, unsigned int x, unsigned
 		this->Y[i] = y;
 }
 
+cObject::cObject() {
+	X = nullptr;
+	Y = nullptr;
+}
+
 cObject::~cObject()
 {
 	if (this->X != nullptr)
