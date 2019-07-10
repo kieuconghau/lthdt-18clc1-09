@@ -5,10 +5,18 @@ cLevel::cLevel()
 	this->LaneCount = 0;
 	this->ObjectCounts = nullptr;
 	this->Lanes = nullptr;
+	this->TrafficLights = nullptr;
 }
 
 cLevel::~cLevel()
 {
+	for (unsigned int i = 0; i < this->LaneCount; i++)
+	{
+		if (this->TrafficLights[i] != nullptr)
+			delete this->TrafficLights[i];
+	}
+	delete[] this->TrafficLights;
+
 	for (unsigned int i = 0; i < this->LaneCount; i++)
 	{
 		for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
@@ -23,8 +31,18 @@ cLevel::~cLevel()
 		delete[] this->ObjectCounts;
 }
 
-void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts)
+void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, vector<ecDirection> directions, vector<ecColor> colors, vector<unsigned int> objectCounts, unsigned int timeRed, unsigned int timeYellow, unsigned int timeGreen)
 {
+	if (this->TrafficLights != nullptr)
+	{
+		for (unsigned int i = 0; i < this->LaneCount; i++)
+		{
+			if (this->TrafficLights[i] != nullptr)
+				delete this->TrafficLights[i];
+		}
+		delete[] this->TrafficLights;
+	}
+
 	if (this->Lanes != nullptr)
 	{
 		for (unsigned int i = 0; i < this->LaneCount; i++)
@@ -39,14 +57,17 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 	}
 
 	if (this->ObjectCounts != nullptr)
+	{
 		delete[] this->ObjectCounts;
-
+	}
 
 	this->LaneCount = laneCount;
 
 	this->ObjectCounts = new unsigned int[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
+	{
 		this->ObjectCounts[i] = objectCounts[i];
+	}
 
 	this->Lanes = new cObject * *[this->LaneCount];
 	for (unsigned int i = 0; i < this->LaneCount; i++)
@@ -107,6 +128,19 @@ void cLevel::set_up(unsigned int laneCount, vector<ecObjectType> objectTypes, ve
 		else
 			throw;
 	}
+
+	this->TrafficLights = new cTrafficLight*[this->LaneCount];
+	for (unsigned int i = 0; i < this->LaneCount; i++)
+	{
+		if (objectTypes[i] == ecObjectType::CAR || objectTypes[i] == ecObjectType::TRUCK)
+		{
+			this->TrafficLights[i] = new cTrafficLight(directions[i] == ecDirection::RIGHT ?
+				cLevel::RIGHT_LIMIT + 1 : directions[i] == ecDirection::LEFT ? cLevel::LEFT_LIMIT - cTrafficLight::N : throw,
+				cLevel::TOP_LIMIT + (i + 1) * (cLevel::LANE_DISTANCE + 1), timeRed, timeYellow, timeGreen);
+		}
+		else
+			this->TrafficLights[i] = nullptr;
+	}
 }
 
 void cLevel::draw()
@@ -135,21 +169,44 @@ void cLevel::draw()
 
 	text_color();
 	goto_xy(0, 0);
-
 }
 
 void cLevel::start()
 {
 	this->draw();
 
+	unsigned int time = 0;
 	while (true)
 	{
+		time++;
+
 		for (unsigned int i = 0; i < this->LaneCount; i++)
+		{
+			if (this->TrafficLights[i] != nullptr)
+				this->TrafficLights[i]->change_light_color(time);
+
 			for (unsigned int j = 0; j < this->ObjectCounts[i]; j++)
-				this->Lanes[i][j]->move(cLevel::LEFT_LIMIT, cLevel::RIGHT_LIMIT);
+			{
+				if (this->TrafficLights[i] == nullptr)
+				{
+					this->Lanes[i][j]->move(cLevel::LEFT_LIMIT, cLevel::RIGHT_LIMIT);
+				}
+				else
+				{
+					if (this->TrafficLights[i]->isGreenLight(time))
+					{
+						this->Lanes[i][j]->move(cLevel::LEFT_LIMIT, cLevel::RIGHT_LIMIT);
+					}
+					else if (this->TrafficLights[i]->isYellowLight(time))
+					{
+						this->Lanes[i][j]->move(cLevel::LEFT_LIMIT, cLevel::RIGHT_LIMIT);
+					}
+				}
+			}
+		}
 
 		Sleep(50);
-		if (GetAsyncKeyState(VK_ESCAPE) != 0)
+		if (GetAsyncKeyState(VK_RETURN) != 0)
 			break;
 	}
 }

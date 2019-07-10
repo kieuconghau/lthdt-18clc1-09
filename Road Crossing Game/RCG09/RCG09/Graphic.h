@@ -8,8 +8,19 @@ using namespace std;
 
 enum class ecColor
 {
+<<<<<<< HEAD
 	BLACK = 0,
 	GREY = 8,
+=======
+	LIGHT_BLUE = 1,
+	LIGHT_GREEN,
+	LIGHT_CYAN,
+	LIGHT_RED,
+	LIGHT_PURPLE,
+	LIGHT_YELLOW,
+	LIGHT_WHITE,
+	GREY,
+>>>>>>> 3cd397dbc61891256a431c7f9d0043b150b100b0
 	BLUE,
 	GREEN,
 	CYAN,
@@ -17,7 +28,6 @@ enum class ecColor
 	PURPLE,
 	YELLOW,
 	WHITE
-	
 };
 
 enum class ecDirection

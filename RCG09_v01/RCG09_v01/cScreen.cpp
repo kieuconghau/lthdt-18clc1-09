@@ -1,11 +1,11 @@
-#include "Screen.h"
+#include "cScreen.h"
 
-void screen_account()
+void cScreen::screen_account()
 {
 	system("cls");
 
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", ecColor::CYAN, true);
@@ -13,36 +13,36 @@ void screen_account()
 	print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 9,  "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", ecColor::CYAN, true);
+	print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", ecColor::CYAN, true);
 
 	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
 
-	cTextBox signUp(cScreen::SIGN_UP, middleX, middleY - 2, 25, "SIGN UP", ecColor::WHITE, ecColor::WHITE);
-	cTextBox signIn(cScreen::SIGN_IN, middleX, middleY + 2, 25, "SIGN IN", ecColor::WHITE, ecColor::WHITE);
-	cTextBox guest(cScreen::MENU, middleX, middleY + 6, 25, "GUEST", ecColor::WHITE, ecColor::WHITE);
-	cTextBox about(cScreen::ABOUT, middleX, middleY + 10, 25, "ABOUT", ecColor::WHITE, ecColor::WHITE);
+	cTextBox signUp(cTextBox::ecScreenType::SIGN_UP, middleX, middleY - 2, 25, "SIGN UP", ecColor::WHITE, ecColor::WHITE);
+	cTextBox signIn(cTextBox::ecScreenType::SIGN_IN, middleX, middleY + 2, 25, "SIGN IN", ecColor::WHITE, ecColor::WHITE);
+	cTextBox guest(cTextBox::ecScreenType::MENU, middleX, middleY + 6, 25, "GUEST", ecColor::WHITE, ecColor::WHITE);
+	cTextBox about(cTextBox::ecScreenType::ABOUT, middleX, middleY + 10, 25, "ABOUT", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuAccount = { signUp, signIn, guest, about };
-	cScreen choice = scrolling_menu(menuAccount, ecColor::RED);
+	vector<cTextBox> menu = { signUp, signIn, guest, about };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::SIGN_UP)
+	if (choice == cTextBox::ecScreenType::SIGN_UP)
 		screen_sign_up();
-	else if (choice == cScreen::SIGN_IN)
+	else if (choice == cTextBox::ecScreenType::SIGN_IN)
 		screen_sign_in();
-	else if (choice == cScreen::MENU)
+	else if (choice == cTextBox::ecScreenType::MENU)
 		screen_menu();
-	else if (choice == cScreen::ABOUT)
+	else if (choice == cTextBox::ecScreenType::ABOUT)
 		screen_about();
 	else
 		throw;
 }
 
-void screen_sign_up()
+void cScreen::screen_sign_up()
 {
 	system("cls");
-  
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, "  _____ ____   ____  ____       __ __  ____  ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, " / ___/|    | /    ||    \\     |  |  ||    \\ ", ecColor::CYAN, true);
@@ -54,23 +54,23 @@ void screen_sign_up()
 
 	print_text_at_middle(middleY - 5, "< Coming soon >", ecColor::WHITE, true);
 
-	cTextBox back(cScreen::ACCOUNT, middleX, middleY, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuAbout = { back };
-	cScreen choice = scrolling_menu(menuAbout, ecColor::RED);
+	vector<cTextBox> menu = { back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::ACCOUNT)
+	if (choice == cTextBox::ecScreenType::ACCOUNT)
 		screen_account();
 	else
 		throw;
 }
 
-void screen_sign_in()
+void cScreen::screen_sign_in()
 {
 	system("cls");
 
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, "  _____ ____   ____  ____       ____  ____  ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, " / ___/|    | /    ||    \\     |    ||    \\ ", ecColor::CYAN, true);
@@ -82,23 +82,23 @@ void screen_sign_in()
 
 	print_text_at_middle(middleY - 5, "< Coming soon >", ecColor::WHITE, true);
 
-	cTextBox back(cScreen::ACCOUNT, middleX, middleY, 25, "Back", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 2, 25, "Back", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuAccount = { back };
-	cScreen choice = scrolling_menu(menuAccount, ecColor::RED);
+	vector<cTextBox> menu = { back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::ACCOUNT)
+	if (choice == cTextBox::ecScreenType::ACCOUNT)
 		screen_account();
 	else
 		throw;
 }
 
-void screen_about()
+void cScreen::screen_about()
 {
 	system("cls");
 
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", ecColor::CYAN, true);
@@ -110,22 +110,23 @@ void screen_about()
 
 	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
 
-	cTextBox back(cScreen::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuAbout = { back };
-	cScreen choice = scrolling_menu(menuAbout, ecColor::RED);
+	vector<cTextBox> menu = { back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::ACCOUNT)
+	if (choice == cTextBox::ecScreenType::ACCOUNT)
 		screen_account();
-	else throw;
+	else
+		throw;
 }
 
-void screen_menu()
+void cScreen::screen_menu()
 {
 	system("cls");
 
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", ecColor::CYAN, true);
@@ -137,42 +138,43 @@ void screen_menu()
 
 	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
 
-	cTextBox newGame(cScreen::GAME, middleX, middleY - 2, 25, "NEW GAME", ecColor::WHITE, ecColor::WHITE);
-	cTextBox loadGame(cScreen::LOAD_GAME, middleX, middleY + 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
-	cTextBox setting(cScreen::SETTING, middleX, middleY + 6, 25, "SETTING", ecColor::WHITE, ecColor::WHITE);
-	cTextBox back(cScreen::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox newGame(cTextBox::ecScreenType::GAME, middleX, middleY - 2, 25, "NEW GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox loadGame(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY + 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox setting(cTextBox::ecScreenType::SETTING, middleX, middleY + 6, 25, "SETTING", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { newGame , loadGame, setting, back };
-	cScreen choice = scrolling_menu(menu, ecColor::RED);
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::GAME)
+	if (choice == cTextBox::ecScreenType::GAME)
 		screen_game();
-	else if (choice == cScreen::LOAD_GAME)
+	else if (choice == cTextBox::ecScreenType::LOAD_GAME)
 		screen_load_game();
-	else if (choice == cScreen::SETTING)
+	else if (choice == cTextBox::ecScreenType::SETTING)
 		screen_setting();
-	else if (choice == cScreen::ACCOUNT)
+	else if (choice == cTextBox::ecScreenType::ACCOUNT)
 		screen_account();
 	else
 		throw;
 
 }
 
-void screen_game()
+void cScreen::screen_game()
 {
 	system("cls");
 
-	cGame game;
-	game.start();
+	/*
+		Start game
+	*/
 }
 
-void screen_load_game()
+void cScreen::screen_load_game()
 {
 	system("cls");
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
-	
+
 	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", ecColor::BLUE, true);
 	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
 	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
@@ -181,55 +183,52 @@ void screen_load_game()
 	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
 	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
 
-	cTextBox loadGame(cScreen::LOAD_GAME, middleX, middleY - 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
-	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25,"BACK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox loadGame(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY - 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::MENU, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuLoadGame = { loadGame,back };
+	vector<cTextBox> menu = { loadGame, back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
-
-	if (choice == cScreen::LOAD_GAME) {
-		//loadgame;
+	if (choice == cTextBox::ecScreenType::LOAD_GAME)
+	{
+		/*
+			Load game
+		*/
 	}
-	else if (choice == cScreen::MENU) {
+	else if (choice == cTextBox::ecScreenType::MENU)
 		screen_menu();
-	}
 	else
 		throw;
 }
 
-void screen_save_game()
+void cScreen::screen_save_game()
 {
 	system("cls");
-	cout << "Save game" << endl;
+
+	/*
+		Save game
+	*/
 }
 
-void screen_setting()
+void cScreen::screen_setting()
 {
 	system("cls");
 
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	draw_coming_soon();
+	cTextBox back(cTextBox::ecScreenType::MENU, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
-	cTextBox back(cScreen::MENU, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+	vector<cTextBox> menu = { back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	vector<cTextBox> menuLoadGame = { back };
-
-	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
-
-	if (choice == cScreen::SETTING) {
-		//setting;
-	}
-	else if (choice == cScreen::MENU) {
+	if (choice == cTextBox::ecScreenType::MENU)
 		screen_menu();
-	}
 	else
 		throw;
 }
 
-void screen_continue()
+void cScreen::screen_continue()
 {
 	system("cls");
 
@@ -244,27 +243,29 @@ void screen_continue()
 	print_text_at_middle(middleY - 10, "\\     ||     ||  |  |  |  |   |  | |  |  ||     ||     |        __ ", ecColor::BLUE, true);
 	print_text_at_middle(middleY - 9, " \\____| \\___/ |__|__|  |__|  |____||__|__| \\____||_____|       |__|", ecColor::BLUE, true);
 
-	cTextBox yes(cScreen::GAME, middleX, middleY - 2, 25, "Yes", ecColor::WHITE, ecColor::WHITE);
-	cTextBox no(cScreen::ENDING, middleX, middleY + 2, 25, "No", ecColor::WHITE, ecColor::WHITE);
+	cTextBox yes(cTextBox::ecScreenType::GAME, middleX - 18, middleY + 2, 25, "Yes", ecColor::WHITE, ecColor::WHITE);
+	cTextBox no(cTextBox::ecScreenType::ENDING, middleX + 18, middleY + 2, 25, "No", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menuLoadGame = { yes,no };
 
-	cScreen choice = scrolling_menu(menuLoadGame, ecColor::RED);
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menuLoadGame, ecColor::RED);
 
-	if (choice == cScreen::GAME) {
-		//game;
+	if (choice == cTextBox::ecScreenType::GAME)
+	{
+		/*
+			Play game
+		*/
 	}
-	else if (choice == cScreen::ENDING) {
+	else if (choice == cTextBox::ecScreenType::ENDING)
 		screen_ending();
-	}
 	else
 		throw;
 }
 
-void screen_win()
+void cScreen::screen_win()
 {
 	system("cls");
-	
+
 	screen_border_decoration(17);
 	screen_border_decoration(20);
 	screen_border_decoration(23);
@@ -283,21 +284,31 @@ void screen_win()
 	print_text_at_middle(middleY - 3, "     /__./ \\ : | :   |  ' |   :  :  | |         '   :  ;  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY - 2, " .--'.  '   \\' . |   :  | :   |   \\ | :         |   |  '  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY - 1, "/___/ \\ |    ' ' '   '  ; |   : '  '; |         '   :  |  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY ,    ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", ecColor::YELLOW, true);
+	print_text_at_middle(middleY, ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 1, " \\   ;  `      | '   :  ; |   | | \\   |         `---'. |  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 2, "  .   \\    .\\  ; |   |  ' '   : |  ; .'          `--..`;  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 3, "   \\   \\   ' \\ | '   :  | |   | '`--'           .--,_     ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 4, "    :   '  |--'  ;   |.'  '   : |               |    |`.  ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", ecColor::YELLOW, true);
 	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", ecColor::YELLOW, true);
+
+	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY + 10, 35, "Winner Winner Chicken Dinner", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { ok };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+	if (choice == cTextBox::ecScreenType::CONTINUE)
+		screen_continue();
+	else
+		throw;
 }
 
-void screen_game_over()
+void cScreen::screen_game_over()
 {
 	system("cls");
 
-	unsigned int middleX = get_console_width() / 2;
-	unsigned int middleY = get_console_height() / 2;
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, "  ____   ____  ___ ___    ___       ___   __ __    ___  ____", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 14, " /    | /    ||   |   |  /  _]     /   \\ |  |  |  /  _]|    \\ ", ecColor::CYAN, true);
@@ -307,21 +318,21 @@ void screen_game_over()
 	print_text_at_middle(middleY - 10, "|     ||  |  ||   |   ||     |    |     | \\   / |     ||  .  \\ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 9, "|___,_||__|__||___|___||_____|     \\___/   \\_/  |_____||__|\\_| ", ecColor::CYAN, true);
 
-	cTextBox _continue(cScreen::CONTINUE, middleX, middleY - 10, 25, "OK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY - 10, 25, "OK FINE", ecColor::WHITE, ecColor::WHITE);
 
-	vector<cTextBox> menuGameOver = { _continue};
-	cScreen choice = scrolling_menu(menuGameOver, ecColor::RED);
+	vector<cTextBox> menu = { ok };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cScreen::CONTINUE)
+	if (choice == cTextBox::ecScreenType::CONTINUE)
 		screen_continue();
 	else
 		throw;
 }
 
-void draw_coming_soon()
+void cScreen::draw_coming_soon()
 {
-	unsigned middleX = get_console_width()/2;
-	unsigned middleY = get_console_height()/2;
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
 
 	print_text_at_middle(middleY - 15, "    __   ___   ___ ___  ____  ____    ____       _____  ___    ___   ____                  ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 14, "   /  ] /   \\ |   |   ||    ||    \\  /    |     / ___/ /   \\  /   \\ |    \\                 ", ecColor::GREY, true);
@@ -329,10 +340,10 @@ void draw_coming_soon()
 	print_text_at_middle(middleY - 12, " /  /  |  O  ||  \\_/  | |  | |  |  ||  |  |     \\__  ||  O  ||  O  ||  |  |                ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 11, "/   \\_ |     ||   |   | |  | |  |  ||  |_ |     /  \\ ||     ||     ||  |  |     __  __  __ ", ecColor::GREY, true);
 	print_text_at_middle(middleY - 10, "\\     ||     ||   |   | |  | |  |  ||     |     \\    ||     ||     ||  |  |    |  ||  ||  |", ecColor::GREY, true);
-	print_text_at_middle(middleY - 9 , " \\____| \\___/ |___|___||____||__|__||_____|      \\___| \\___/  \\___/ |__|__|    |__||__||__|", ecColor::GREY, true);
+	print_text_at_middle(middleY - 9, " \\____| \\___/ |___|___||____||__|__||_____|      \\___| \\___/  \\___/ |__|__|    |__||__||__|", ecColor::GREY, true);
 }
 
-void screen_border_decoration(int distanceFromScreenBorder) 
+void cScreen::screen_border_decoration(int distanceFromScreenBorder)
 {
 	unsigned screenHeight = get_console_height();
 	unsigned screenWidth = get_console_width();
@@ -342,20 +353,20 @@ void screen_border_decoration(int distanceFromScreenBorder)
 
 	//space from corners decoration to sides decoration
 	unsigned space2 = 1;
-	unsigned middleX = get_console_width()/2;
+	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
 	HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	SetConsoleTextAttribute(hstdout, FOREGROUND_RED);
-	
+
 	goto_xy(space1, space1);
 	cout << char(201);
 
-	goto_xy(screenWidth- space1, space1);
+	goto_xy(screenWidth - space1, space1);
 	cout << char(187);
 
-	goto_xy(screenWidth- space1,screenHeight- space1);
+	goto_xy(screenWidth - space1, screenHeight - space1);
 	cout << char(188);
 
 	goto_xy(space1, screenHeight - space1);
@@ -363,32 +374,32 @@ void screen_border_decoration(int distanceFromScreenBorder)
 
 	SetConsoleTextAttribute(hstdout, FOREGROUND_GREEN | FOREGROUND_RED);
 
-	goto_xy(space1 + space2, space1  );
-	for (unsigned int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+	goto_xy(space1 + space2, space1);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
 		cout << char(205);
 	}
 
 	goto_xy(space1 + space2, screenHeight - space1);
-	for (unsigned int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
-			cout << char(205);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+		cout << char(205);
 	}
 
-	goto_xy(space1 , space1 + space2);
-	for (unsigned int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+	goto_xy(space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(space1, i);
-		cout <<char(186);
+		cout << char(186);
 	}
 
-	goto_xy(screenWidth - space1 , space1 + space2);
-	for (unsigned int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+	goto_xy(screenWidth - space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(screenWidth - space1, i);
 		cout << char(186);
 	}
-  
+
 	SetConsoleTextAttribute(hstdout, 15);
 }
 
-void screen_ending()
+void cScreen::screen_ending()
 {
 	system("cls");
 
@@ -410,7 +421,7 @@ void screen_ending()
 	print_text_at_middle(middleY - 3, " \\ \\   __\\ \\ \\  \\\\\\  \\   \\ \\   _  _\\       \\ \\   ____\\ \\ \\  \\        \\ \\   __  \\    \\ \\    / /  \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\  ___   ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 2, "  \\ \\  \\_|  \\ \\  \\\\\\  \\   \\ \\  \\\\  \\|       \\ \\  \\___|  \\ \\  \\____    \\ \\  \\ \\  \\    \\/  /  /    \\ \\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\|\\  \\  ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 1, "   \\ \\__\\    \\ \\_______\\   \\ \\__\\\\ _\\        \\ \\__\\      \\ \\_______\\   \\ \\__\\ \\__\\ __/  / /       \\ \\__\\   \\ \\__\\\\ \\__\\   \\ \\_______\\ ", ecColor::CYAN, true);
-	print_text_at_middle(middleY , "    \\|__|     \\|_______|    \\|__|\\|__|        \\|__|       \\|_______|    \\|__|\\|__||\\___/ /         \\|__|    \\|__| \\|__|    \\|_______| ", ecColor::CYAN, true);
+	print_text_at_middle(middleY, "    \\|__|     \\|_______|    \\|__|\\|__|        \\|__|       \\|_______|    \\|__|\\|__||\\___/ /         \\|__|    \\|__| \\|__|    \\|_______| ", ecColor::CYAN, true);
 	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
 	Sleep(2000);
@@ -424,6 +435,6 @@ void screen_ending()
 	print_text_at_middle(middleY + 21, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
 	Sleep(500);
 
-	goto_xy(middleX-15, middleY + 5);
+	goto_xy(middleX - 15, middleY + 5);
 	system("pause");
 }
