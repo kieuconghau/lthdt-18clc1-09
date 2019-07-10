@@ -16,8 +16,8 @@ public:
 	virtual void work() = 0;
 	virtual void impact(cPeople* people) = 0;
 
-	virtual void update_pos() = 0;
-	virtual void draw() = 0;
+	//virtual void update_pos() = 0;
+	//virtual void draw() = 0;
 	
 	bool has_people(cPeople* people);
 
