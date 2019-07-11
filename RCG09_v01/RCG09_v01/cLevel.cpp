@@ -53,15 +53,16 @@ void cLevel::play()
 	this->People->set_starting_pos((cSetting::Game::RIGHT_LIMIT + cSetting::Game::LEFT_LIMIT)/2, cSetting::Game::BOT_LIMIT - 2);
 
 	// Play
-	ecDirection peopleDirection = ecDirection::NONE;
+
 	while (true)
 	{
 		// Update people's position
-		peopleDirection = this->People->move_1(cSetting::Game::LEFT_LIMIT + 1, cSetting::Game::RIGHT_LIMIT - 1
+		this->People->move(cSetting::Game::LEFT_LIMIT + 1, cSetting::Game::RIGHT_LIMIT - 1
 			, cSetting::Game::TOP_LIMIT + 1, cSetting::Game::BOT_LIMIT - 1);
 
 		// Check if people impact on objects
-		if (peopleDirection != ecDirection::NONE)
+		if (!People->stand_still())
+
 		{
 			for (int i = 0; i < this->LaneCount; ++i)
 			{
@@ -69,7 +70,8 @@ void cLevel::play()
 			}
 
 			// Draw people at updated position
-			this->People->draw();
+
+			this->People->update_pos();
 
 			if (this->People->is_dead())
 				break;

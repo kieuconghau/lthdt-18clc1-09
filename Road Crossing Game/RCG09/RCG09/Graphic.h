@@ -6,9 +6,10 @@
 #include <string>
 using namespace std;
 
-enum class ecColor
+enum class ecColor : char
 {
-	LIGHT_BLUE = 1,
+	BLACK,
+	LIGHT_BLUE,
 	LIGHT_GREEN,
 	LIGHT_CYAN,
 	LIGHT_RED,
@@ -25,23 +26,27 @@ enum class ecColor
 	WHITE
 };
 
-enum class ecDirection
+enum class ecDirection : char
 {
+	NONE,
 	LEFT,
 	RIGHT,
 	DOWN,
 	UP
 };
 
-void goto_xy(const unsigned int& column, const unsigned int& line);
-unsigned int where_x();
-unsigned int where_y();
+void goto_xy(const int& column, const int& line);
+int where_x();
+int where_y();
 
-void text_color(const ecColor& color=ecColor::WHITE);
-void text_size(const unsigned int& size);
+void text_color(const ecColor& color = ecColor::BLACK);
+bool text_size(const int& size);
 
-void zoom_full_console_window();
-unsigned int get_console_width();
-unsigned int get_console_height();
+bool zoom_full_console_window();
+bool remove_scroll_bar();
+bool fix_console_window();
 
-void print_text_at_middle(unsigned int y, string text, ecColor color, bool endline);
+int get_console_width();
+int get_console_height();
+
+void print_text_at_middle(int y, string text, ecColor color, bool endline);

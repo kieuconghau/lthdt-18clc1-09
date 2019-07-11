@@ -23,6 +23,10 @@ public:
 
 private:
 	static void draw_coming_soon();
-	static void screen_border_decoration(int distanceFromScreenBorder);
+	static void screen_border_decoration(int distanceFromScreenBorder,int numberOfLine);
+	static void screen_border_decoration_inside(int distanceFromScreenBorder);
+	static void screen_border_decoration_outside_border(int distanceFromScreenBorder);
+	static void screen_border_decoration_inside_border(int distanceFromScreenBorder);
+	static void draw_win(ecColor color);
 };
 
