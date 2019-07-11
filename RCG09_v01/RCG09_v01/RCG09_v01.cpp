@@ -1,5 +1,4 @@
 #include "cGame.h"
-#include "cScreen.h"
 
 int main()
 {

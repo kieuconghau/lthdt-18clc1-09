@@ -547,11 +547,13 @@ void cScreen::screen_border_decoration_inside_border(int distanceFromScreenBorde
 	goto_xy(space1 + space2, space1);
 	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
 		cout << char(202);
+
 	}
 
 	goto_xy(space1 + space2, screenHeight - space1);
 	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
 		cout << char(203);
+
 	}
 
 	goto_xy(space1, space1 + space2);
@@ -567,6 +569,7 @@ void cScreen::screen_border_decoration_inside_border(int distanceFromScreenBorde
 	}
 
 	text_color(ecColor::BLACK);
+
 }
 
 void cScreen::screen_ending()
@@ -629,3 +632,4 @@ void cScreen::draw_win(ecColor color)
 	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", color, true);
 	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", color, true);
 }
+

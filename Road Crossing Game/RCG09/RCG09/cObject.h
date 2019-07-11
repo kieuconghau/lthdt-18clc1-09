@@ -2,40 +2,36 @@
 
 #include "Graphic.h"
 
-enum class ecObjectType		// (Tricky)
-{
-	PEOPLE,
-	BIRD,
-	DINOSAUR,
-	CAR,
-	TRUCK,
-	TRAFFIC_LIGHT
-};
-
 class cObject
 {
 public:
-<<<<<<< HEAD
-	cObject(unsigned int n, ecDirection direction, unsigned int x, unsigned int y);	// Only used for automatic-moving objects: cVehicle, cAnimal.
-	cObject();
-	//cObject(...);		// Only used for non-moving objects: cTrafficLight.
-	virtual ~cObject();
-=======
-	// Only used for automatic-moving objects: cVehicle, cAnimal. (One-dimesional)
-	cObject(unsigned int n, ecDirection direction, unsigned int x, unsigned int y);
-#//virtual void draw(unsigned int leftLimit, unsigned int rightLimit);
-	virtual void move(unsigned int leftLimit, unsigned int rightLimit);
-					
-	// Only used for controlled-moving objects: cPeople. (Two-dimensional)
-	//cObject(...);
-	
-	// Only used for non-moving objects: cTrafficLight.
-	cObject(unsigned int n, unsigned int x, unsigned int y);
->>>>>>> 3cd397dbc61891256a431c7f9d0043b150b100b0
+	enum class ecType
+	{
+		MV_CAR,
+		MV_TRUCK,
+		MV_TRAIN,
 
+		MA_BIRD,
+		MA_DINOSAUR,
+
+		MF_WOOD,
+
+		S_COIN,
+		S_BUSH,
+
+		TRAFFIC_LIGHT
+	};
+
+	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step=0);
 	virtual ~cObject();
+
+	virtual bool impact(int x) = 0;
+
+private:
 
 protected:
-	unsigned int* X;
-	unsigned int* Y;
+	int* X;
+	int Y;
+	ecDirection Direction;
+	cObject::ecType ObjectType;
 };

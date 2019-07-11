@@ -47,4 +47,5 @@ private:
 	char Shape;
 	char BrickShape;
 	ecColor BrickColor;
+
 };

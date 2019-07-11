@@ -13,6 +13,7 @@ cPeople* cPeople::get_instance()
 
 cPeople::cPeople()
 {
+
 	this->X = 0;
 	this->Y = 0;
 	this->State = ecState::ALIVE;
@@ -21,6 +22,7 @@ cPeople::cPeople()
 	this->Shape = char(219);
 	this->BrickShape = char(219);
 	this->BrickColor = ecColor::BLACK;
+
 }
 
 cPeople::~cPeople()
@@ -34,7 +36,6 @@ void cPeople::draw()
 
 	goto_xy(this->X, this->Y);
 	cout << this->Shape;
-
 	text_color();
 	goto_xy(0, 0);
 }
@@ -138,6 +139,7 @@ void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 	{
 		this->move_right(rightLimit);
 		return;
+
 	}
 	else if (GetAsyncKeyState(0x57) != 0)
 	{
@@ -147,7 +149,7 @@ void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 	else if (GetAsyncKeyState(0x53) != 0)
 	{
 		this->move_down(bottomLimit);
-		return;
+    return;
 	}
 	this->LastDirection = ecDirection::NONE;
 }
@@ -157,19 +159,18 @@ void cPeople::move_1(int leftLimit, int rightLimit, int topLimit, int bottomLimi
 	if (GetAsyncKeyState(VK_LEFT))
 	{
 		this->move_left(leftLimit);
-		return;
+    return;
+
 	}
 	else if (GetAsyncKeyState(VK_RIGHT))
 	{
 		this->move_right(rightLimit);
 		return;
-
 	}
 	else if (GetAsyncKeyState(VK_UP))
 	{
 		this->move_up(topLimit);
 		return;
-
 	}
 	else if (GetAsyncKeyState(VK_DOWN))
 	{
@@ -198,6 +199,7 @@ void cPeople::die()
 bool cPeople::is_impacted(int y)
 {
 	return this->Y == y;
+
 }
 
 bool cPeople::is_impacted(cObject* object)
@@ -212,3 +214,4 @@ bool cPeople::stand_still()
 	}
 	return false;
 }
+
