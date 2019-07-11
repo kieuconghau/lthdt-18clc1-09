@@ -20,10 +20,13 @@ public:
 	void move_down(int botLimit);
 	void move_left(int leftLimit);
 	void move_right(int rightLimit);
+	void move_back();
 	void die();
 
+	void update_pos();
+
 	void move(int leftLimit, int rightLimit, int topLimit, int bottomLimit);		// Use WASD
-	ecDirection move_1(int leftLimit, int rightLimit, int topLimit, int bottomLimit);		// Use arrow-keys
+	void move_1(int leftLimit, int rightLimit, int topLimit, int bottomLimit);		// Use arrow-keys
 	
 	void set_starting_pos(int xStart, int yStart);
 	bool is_alive();
@@ -32,12 +35,16 @@ public:
 	bool is_impacted(int y);
 	bool is_impacted(cObject* objects);
 
+	bool stand_still();
+
 private:
-	static const int N = 2;
-	static const char Shapes[cPeople::N];
 	static cPeople* Instance;
-	int* X;
-	int* Y;
+	int X;
+	int Y;
 	cPeople::ecState State;
 	ecColor Color;
+	ecDirection LastDirection;
+	char Shape;
+	char BrickShape;
+	ecColor BrickColor;
 };

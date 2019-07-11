@@ -266,33 +266,87 @@ void cScreen::screen_win()
 {
 	system("cls");
 
-	screen_border_decoration(17);
-	screen_border_decoration(20);
-	screen_border_decoration(23);
-	screen_border_decoration(29);
-	screen_border_decoration(32);
-	screen_border_decoration(35);
-
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	print_text_at_middle(middleY - 8, "                                                   ,---,  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 7, "                                   ,--.         ,`--.' |  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 6, "           .---.    ,---,        ,--.'|         |   :  :  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 5, "          /. ./| ,`--.' |    ,--,:  : |         '   '  ;  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 4, "      .--'.  ' ; |   :  : ,`--.'`|  ' :         |   |  |  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 3, "     /__./ \\ : | :   |  ' |   :  :  | |         '   :  ;  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 2, " .--'.  '   \\' . |   :  | :   |   \\ | :         |   |  '  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY - 1, "/___/ \\ |    ' ' '   '  ; |   : '  '; |         '   :  |  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY, ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 1, " \\   ;  `      | '   :  ; |   | | \\   |         `---'. |  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 2, "  .   \\    .\\  ; |   |  ' '   : |  ; .'          `--..`;  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 3, "   \\   \\   ' \\ | '   :  | |   | '`--'           .--,_     ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 4, "    :   '  |--'  ;   |.'  '   : |               |    |`.  ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", ecColor::YELLOW, true);
-	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", ecColor::YELLOW, true);
+	screen_border_decoration(0,12);
 
-	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY + 10, 35, "Winner Winner Chicken Dinner", ecColor::WHITE, ecColor::WHITE);
+	print_text_at_middle(middleY + 8, "press enter to continue", ecColor::LIGHT_WHITE, true);
+
+	int speed = 50;
+
+	while(true) {
+	
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::RED);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::LIGHT_RED);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::LIGHT_YELLOW);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::GREEN);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::CYAN);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::LIGHT_PURPLE);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::PURPLE);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::GREY);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::GREEN);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::BLUE);
+		Sleep(speed);
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			break;
+		}
+		draw_win(ecColor::YELLOW);
+		Sleep(speed);
+	}
+	Sleep(100);
+	system("CLS");
+
+	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY , 35, "Winner Winner Chicken Dinner !!!", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { ok };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
@@ -343,7 +397,17 @@ void cScreen::draw_coming_soon()
 	print_text_at_middle(middleY - 9, " \\____| \\___/ |___|___||____||__|__||_____|      \\___| \\___/  \\___/ |__|__|    |__||__||__|", ecColor::GREY, true);
 }
 
-void cScreen::screen_border_decoration(int distanceFromScreenBorder)
+void cScreen::screen_border_decoration(int distanceFromScreenBorder,int numberOfLine)
+{
+	screen_border_decoration_outside_border(distanceFromScreenBorder);
+
+	for (int i = 0; i < numberOfLine; i++) {
+		screen_border_decoration_inside(++distanceFromScreenBorder);
+	}
+	screen_border_decoration_inside_border(distanceFromScreenBorder);
+}
+
+void cScreen::screen_border_decoration_inside(int distanceFromScreenBorder)
 {
 	unsigned screenHeight = get_console_height();
 	unsigned screenWidth = get_console_width();
@@ -356,9 +420,61 @@ void cScreen::screen_border_decoration(int distanceFromScreenBorder)
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
-	HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
+	text_color(ecColor::RED);
 
-	SetConsoleTextAttribute(hstdout, FOREGROUND_RED);
+	goto_xy(space1, space1);
+	cout << char(206);
+
+	goto_xy(screenWidth - space1, space1);
+	cout << char(206);
+
+	goto_xy(screenWidth - space1, screenHeight - space1);
+	cout << char(206);
+
+	goto_xy(space1, screenHeight - space1);
+	cout << char(206);
+
+	text_color(ecColor::YELLOW);
+
+	goto_xy(space1 + space2, space1);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+		cout << char(206);
+	}
+
+	goto_xy(space1 + space2, screenHeight - space1);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+		cout << char(206);
+	}
+
+	goto_xy(space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+		goto_xy(space1, i);
+		cout << char(206);
+	}
+
+	goto_xy(screenWidth - space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+		goto_xy(screenWidth - space1, i);
+		cout << char(206);
+	}
+
+	text_color(ecColor::BLACK);
+}
+
+void cScreen::screen_border_decoration_outside_border(int distanceFromScreenBorder)
+{
+	unsigned screenHeight = get_console_height();
+	unsigned screenWidth = get_console_width();
+
+	//space from screen border to corners decoration
+	unsigned space1 = distanceFromScreenBorder;
+
+	//space from corners decoration to sides decoration
+	unsigned space2 = 1;
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	text_color(ecColor::RED);
 
 	goto_xy(space1, space1);
 	cout << char(201);
@@ -372,31 +488,85 @@ void cScreen::screen_border_decoration(int distanceFromScreenBorder)
 	goto_xy(space1, screenHeight - space1);
 	cout << char(200);
 
-	SetConsoleTextAttribute(hstdout, FOREGROUND_GREEN | FOREGROUND_RED);
+	text_color(ecColor::YELLOW);
 
 	goto_xy(space1 + space2, space1);
 	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
-		cout << char(205);
+		cout << char(203);
 	}
 
 	goto_xy(space1 + space2, screenHeight - space1);
 	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
-		cout << char(205);
+		cout << char(202);
 	}
 
 	goto_xy(space1, space1 + space2);
 	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(space1, i);
-		cout << char(186);
+		cout << char(204);
 	}
 
 	goto_xy(screenWidth - space1, space1 + space2);
 	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
 		goto_xy(screenWidth - space1, i);
-		cout << char(186);
+		cout << char(185);
 	}
 
-	SetConsoleTextAttribute(hstdout, 15);
+	text_color(ecColor::BLACK);
+}
+
+void cScreen::screen_border_decoration_inside_border(int distanceFromScreenBorder)
+{
+	unsigned screenHeight = get_console_height();
+	unsigned screenWidth = get_console_width();
+
+	//space from screen border to corners decoration
+	unsigned space1 = distanceFromScreenBorder;
+
+	//space from corners decoration to sides decoration
+	unsigned space2 = 1;
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	text_color(ecColor::RED);
+
+	goto_xy(space1, space1);
+	cout << char(206);
+
+	goto_xy(screenWidth - space1, space1);
+	cout << char(206);
+
+	goto_xy(screenWidth - space1, screenHeight - space1);
+	cout << char(206);
+
+	goto_xy(space1, screenHeight - space1);
+	cout << char(206);
+
+	text_color(ecColor::YELLOW);
+
+	goto_xy(space1 + space2, space1);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+		cout << char(202);
+	}
+
+	goto_xy(space1 + space2, screenHeight - space1);
+	for (int i = space1 + space2; i <= screenWidth - space1 - space2; i++) {
+		cout << char(203);
+	}
+
+	goto_xy(space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+		goto_xy(space1, i);
+		cout << char(185);
+	}
+
+	goto_xy(screenWidth - space1, space1 + space2);
+	for (int i = space1 + space2; i <= screenHeight - space1 - space2; i++) {
+		goto_xy(screenWidth - space1, i);
+		cout << char(204);
+	}
+
+	text_color(ecColor::BLACK);
 }
 
 void cScreen::screen_ending()
@@ -437,4 +607,25 @@ void cScreen::screen_ending()
 
 	goto_xy(middleX - 15, middleY + 5);
 	system("pause");
+}
+
+void cScreen::draw_win(ecColor color)
+{
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+	print_text_at_middle(middleY - 8, "                                                   ,---,  ", color, true);
+	print_text_at_middle(middleY - 7, "                                   ,--.         ,`--.' |  ", color, true);
+	print_text_at_middle(middleY - 6, "           .---.    ,---,        ,--.'|         |   :  :  ", color, true);
+	print_text_at_middle(middleY - 5, "          /. ./| ,`--.' |    ,--,:  : |         '   '  ;  ", color, true);
+	print_text_at_middle(middleY - 4, "      .--'.  ' ; |   :  : ,`--.'`|  ' :         |   |  |  ", color, true);
+	print_text_at_middle(middleY - 3, "     /__./ \\ : | :   |  ' |   :  :  | |         '   :  ;  ", color, true);
+	print_text_at_middle(middleY - 2, " .--'.  '   \\' . |   :  | :   |   \\ | :         |   |  '  ", color, true);
+	print_text_at_middle(middleY - 1, "/___/ \\ |    ' ' '   '  ; |   : '  '; |         '   :  |  ", color, true);
+	print_text_at_middle(middleY, ";   \\  \\;      : |   |  | '   ' ;.    ;         ;   |  ;  ", color, true);
+	print_text_at_middle(middleY + 1, " \\   ;  `      | '   :  ; |   | | \\   |         `---'. |  ", color, true);
+	print_text_at_middle(middleY + 2, "  .   \\    .\\  ; |   |  ' '   : |  ; .'          `--..`;  ", color, true);
+	print_text_at_middle(middleY + 3, "   \\   \\   ' \\ | '   :  | |   | '`--'           .--,_     ", color, true);
+	print_text_at_middle(middleY + 4, "    :   '  |--'  ;   |.'  '   : |               |    |`.  ", color, true);
+	print_text_at_middle(middleY + 5, "     \\   \\ ;     '---'    ;   |.'               `-- -`, ; ", color, true);
+	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", color, true);
 }
