@@ -67,6 +67,7 @@ cMovableObjectLane::~cMovableObjectLane()
 	delete this->TrafficLight;
 }
 
+
 bool cMovableObjectLane::is_vehicle_lane()
 {
 	return this->MovableObjectType == cObject::ecType::MV_CAR
@@ -84,7 +85,8 @@ void cMovableObjectLane::work()
 		{
 			for (int i = 0; i < this->ObjectCount; i++)
 			{
-				this->MovableObjects[i]->work(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+				this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+				this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
 			}
 		}
 	}
@@ -92,7 +94,8 @@ void cMovableObjectLane::work()
 	{
 		for (int i = 0; i < this->ObjectCount; i++)
 		{
-			this->MovableObjects[i]->work(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+			this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+			this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
 		}
 	}
 }

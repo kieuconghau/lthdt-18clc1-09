@@ -9,16 +9,20 @@ public:
 	static const char BRICK_SHAPE;
 	static const ecColor BRICK_COLOR;
 
+public:
 	cTrain(ecDirection direction, ecColor color, int x, int y, int step);
 	~cTrain();
 
-	void work(int leftLimit, int rightLimit, int virtualDistance);
+public:
+	void move(int leftLimit, int rightLimit, int virtualDistance);
+	void draw(int leftLimit, int rightLimit);
 	void tell();
 
 private:
 	static const int N;
 	static const vector<char> Shapes;
 
-	void draw(int leftLimit, int rightLimit);
+private:
 	bool impact_xcor(int x);
 };
+

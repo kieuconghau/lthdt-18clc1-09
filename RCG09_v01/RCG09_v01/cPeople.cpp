@@ -149,7 +149,7 @@ void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 	else if (GetAsyncKeyState(0x53) != 0)
 	{
 		this->move_down(bottomLimit);
-    return;
+		return;
 	}
 	this->LastDirection = ecDirection::NONE;
 }
