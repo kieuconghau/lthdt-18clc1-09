@@ -13,7 +13,7 @@ public:
 
 private:
 	virtual void draw(int leftLimit, int rightLimit) = 0;
-	virtual bool impact(int x) = 0;
+	virtual bool impact_xcor(int x) = 0;
 
 protected:
 	ecColor Color;

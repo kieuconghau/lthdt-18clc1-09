@@ -204,7 +204,7 @@ bool cPeople::is_impacted(int y)
 
 bool cPeople::is_impacted(cObject* object)
 {
-	return object->impact(this->X);
+	return object->impact_xcor(this->X);
 }
 
 bool cPeople::stand_still()

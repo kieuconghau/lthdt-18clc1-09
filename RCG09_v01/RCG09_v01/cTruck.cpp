@@ -79,7 +79,7 @@ void cTruck::tell()
 	// do_sth
 }
 
-bool cTruck::impact(int x)
+bool cTruck::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cTruck::N - 1] && x <= this->X[0];

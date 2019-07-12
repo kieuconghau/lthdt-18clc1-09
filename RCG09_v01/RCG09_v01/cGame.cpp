@@ -13,7 +13,7 @@ cGame::cGame()
 	const int rightLimit = cSetting::Game::RIGHT_LIMIT - 1;
 
 	/* Level 1 */
-	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MA_DINOSAUR	, cObject::ecType::MV_CAR	, cObject::ecType::MV_TRUCK	, cObject::ecType::MV_CAR	, cObject::ecType::MA_BIRD		};
+	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::FI_STONE	, cObject::ecType::MV_CAR	, cObject::ecType::MV_TRUCK	, cObject::ecType::MV_CAR	, cObject::ecType::MA_BIRD		};
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT			, ecDirection::LEFT			, ecDirection::RIGHT		, ecDirection::LEFT			, ecDirection::RIGHT			};
 	vector<ecColor> colors0 =				{ ecColor::BLUE					, ecColor::RED				, ecColor::CYAN				, ecColor::GREEN			, ecColor::YELLOW				};
 	vector<int> objectCounts0 =				{ 7								, 4							, 5							, 3							, 5								};

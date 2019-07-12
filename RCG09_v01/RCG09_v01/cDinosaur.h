@@ -20,5 +20,5 @@ private:
 	static const vector<char> Shapes;
 
 	void draw(int leftLimit, int rightLimit);
-	bool impact(int x);
+	bool impact_xcor(int x);
 };

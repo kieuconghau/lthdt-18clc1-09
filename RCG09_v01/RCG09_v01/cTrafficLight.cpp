@@ -14,7 +14,7 @@ cTrafficLight::cTrafficLight(ecDirection direction, int x, int y, int timeRed, i
 
 cTrafficLight::~cTrafficLight() {}
 
-bool cTrafficLight::impact(int x)
+bool cTrafficLight::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cTrafficLight::N - 1] && x <= this->X[0];

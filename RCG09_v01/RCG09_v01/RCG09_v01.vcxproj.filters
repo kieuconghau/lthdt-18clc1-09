@@ -48,9 +48,6 @@
     <ClCompile Include="cLane.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cMovableObjectFactory.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cTrain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -79,6 +76,27 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFixedObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cEdibleObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cInedibleObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cStone.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCoin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cFixedObjectLane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cObjectFactory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,9 +131,6 @@
     <ClInclude Include="cLane.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cMovableObjectFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cTrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -144,6 +159,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cGame.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFixedObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cEdibleObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cInedibleObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cStone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCoin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cFixedObjectLane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cObjectFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -31,14 +31,24 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 		this->BrickColor = cDinosaur::BRICK_COLOR;
 		break;
 	case cObject::ecType::MF_WOOD:
+		//this->BrickShape = cWood::BRICK_SHAPE;
+		//this->BrickColor = cWood::BRICK_COLOR;
 		break;
-	case cObject::ecType::S_COIN:
+	case cObject::ecType::FE_COIN:
+		//this->BrickShape = cCoin::BRICK_SHAPE;
+		//this->BrickColor = cCoin::BRICK_COLOR;
 		break;
-	case cObject::ecType::S_BUSH:
+	case cObject::ecType::FI_STONE:
+		//this->BrickShape = cStone::BRICK_SHAPE;
+		//this->BrickColor = cStone::BRICK_COLOR;
 		break;
 	case cObject::ecType::TRAFFIC_LIGHT:
+		this->BrickShape = char(219);
+		this->BrickColor = ecColor::BLACK;
 		break;
 	default:
+		this->BrickShape = char(219);
+		this->BrickColor = ecColor::BLACK;
 		break;
 	}
 }

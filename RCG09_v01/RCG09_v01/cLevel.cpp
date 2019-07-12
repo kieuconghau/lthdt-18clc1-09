@@ -66,7 +66,7 @@ void cLevel::play()
 		{
 			for (int i = 0; i < this->LaneCount; ++i)
 			{
-				this->Lanes[i]->impact(this->People);	// Polymorphism
+				this->Lanes[i]->impact_xcor(this->People);	// Polymorphism
 			}
 
 			// Draw people at updated position
@@ -110,11 +110,8 @@ void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<e
 	this->Lanes = new cLane * [this->LaneCount];
 	for (int i = 0; i < this->LaneCount; i++)
 	{
-		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + 2*i, times[i], steps[i], leftLimit, rightLimit);	// Testing
-		//this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + i, times[i], steps[i], leftLimit, rightLimit);	// Official
+		//this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i]
+			//, cSetting::Game::TOP_LIMIT + 2 + 2*i, times[i], steps[i], leftLimit, rightLimit);	// Testing
+		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + i, times[i], steps[i], leftLimit, rightLimit);	// Official
 	}
 }
-
-
-
-

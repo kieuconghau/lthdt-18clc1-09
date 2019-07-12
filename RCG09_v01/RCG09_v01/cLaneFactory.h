@@ -7,8 +7,14 @@
 #include "cBird.h"
 #include "cDinosaur.h"
 
+#include "cFixedObjectLane.h"
+#include "cCoin.h"
+#include "cStone.h"
+
 class cLaneFactory
 {
 public:
-	static cLane* create(cObject::ecType objectType, ecDirection direction, ecColor color, int objectCount, int y, vector<int> time, int step, int leftLimit, int rightLimit);
+	static cLane* create(cObject::ecType objectType, ecDirection direction, ecColor color
+		, int objectCount, int y, vector<int> time, int step, int leftLimit, int rightLimit);
 };
+

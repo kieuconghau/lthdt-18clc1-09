@@ -79,7 +79,7 @@ void cBird::tell()
 	// do_sth
 }
 
-bool cBird::impact(int x)
+bool cBird::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cBird::N - 1] && x <= this->X[0];

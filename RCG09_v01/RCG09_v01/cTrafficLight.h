@@ -9,7 +9,7 @@ public:
 	cTrafficLight(ecDirection direction, int x, int y, int timeRed, int timeYellow, int timeGreen);
 	~cTrafficLight();
 
-	bool impact(int x);
+	bool impact_xcor(int x);
 
 private:
 	static const int N = 3;

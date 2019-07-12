@@ -16,8 +16,8 @@ public:
 
 		MF_WOOD,
 
-		S_COIN,
-		S_BUSH,
+		FE_COIN,
+		FI_STONE,
 
 		TRAFFIC_LIGHT
 	};
@@ -25,7 +25,7 @@ public:
 	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step=0);
 	virtual ~cObject();
 
-	virtual bool impact(int x) = 0;
+	virtual bool impact_xcor(int x) = 0;
 
 private:
 

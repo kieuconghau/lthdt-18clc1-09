@@ -3,7 +3,7 @@
 #include "cSetting.h"
 #include "cLane.h"
 #include "cTrafficLight.h"
-#include "cMovableObjectFactory.h"
+#include "cObjectFactory.h"
 #include "cPeople.h"
 
 class cMovableObjectLane : public cLane
@@ -21,7 +21,7 @@ private:
 
 	bool is_vehicle_lane();
 	void work();
-	void impact(cPeople* people);
+	void impact_xcor(cPeople* people);
 
 	friend class cPeople;
 };

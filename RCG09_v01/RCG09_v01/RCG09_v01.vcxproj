@@ -153,8 +153,13 @@
   <ItemGroup>
     <ClCompile Include="cAnimal.cpp" />
     <ClCompile Include="cBird.cpp" />
+    <ClCompile Include="cCoin.cpp" />
     <ClCompile Include="cDinosaur.cpp" />
+    <ClCompile Include="cEdibleObject.cpp" />
+    <ClCompile Include="cFixedObject.cpp" />
+    <ClCompile Include="cFixedObjectLane.cpp" />
     <ClCompile Include="cGame.cpp" />
+    <ClCompile Include="cInedibleObject.cpp" />
     <ClCompile Include="cLaneFactory.cpp" />
     <ClCompile Include="cLevel.cpp" />
     <ClCompile Include="cPeople.cpp" />
@@ -162,10 +167,11 @@
     <ClCompile Include="cCar.cpp" />
     <ClCompile Include="cLane.cpp" />
     <ClCompile Include="cMovableObject.cpp" />
-    <ClCompile Include="cMovableObjectFactory.cpp" />
+    <ClCompile Include="cObjectFactory.cpp" />
     <ClCompile Include="cMovableObjectLane.cpp" />
     <ClCompile Include="cObject.cpp" />
     <ClCompile Include="cScreen.cpp" />
+    <ClCompile Include="cStone.cpp" />
     <ClCompile Include="cTextBox.cpp" />
     <ClCompile Include="cTrafficLight.cpp" />
     <ClCompile Include="cTrain.cpp" />
@@ -177,8 +183,13 @@
   <ItemGroup>
     <ClInclude Include="cAnimal.h" />
     <ClInclude Include="cBird.h" />
+    <ClInclude Include="cCoin.h" />
     <ClInclude Include="cDinosaur.h" />
+    <ClInclude Include="cEdibleObject.h" />
+    <ClInclude Include="cFixedObject.h" />
+    <ClInclude Include="cFixedObjectLane.h" />
     <ClInclude Include="cGame.h" />
+    <ClInclude Include="cInedibleObject.h" />
     <ClInclude Include="cLaneFactory.h" />
     <ClInclude Include="cLevel.h" />
     <ClInclude Include="cPeople.h" />
@@ -186,10 +197,11 @@
     <ClInclude Include="cCar.h" />
     <ClInclude Include="cLane.h" />
     <ClInclude Include="cMovableObject.h" />
-    <ClInclude Include="cMovableObjectFactory.h" />
+    <ClInclude Include="cObjectFactory.h" />
     <ClInclude Include="cMovableObjectLane.h" />
     <ClInclude Include="cObject.h" />
     <ClInclude Include="cScreen.h" />
+    <ClInclude Include="cStone.h" />
     <ClInclude Include="cTextBox.h" />
     <ClInclude Include="cTrafficLight.h" />
     <ClInclude Include="cTrain.h" />

@@ -79,7 +79,7 @@ void cDinosaur::tell()
 	// do_sth
 }
 
-bool cDinosaur::impact(int x)
+bool cDinosaur::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cDinosaur::N - 1] && x <= this->X[0];

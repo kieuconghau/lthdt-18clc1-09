@@ -84,7 +84,7 @@ void cTrain::tell()
 	// do_sth
 }
 
-bool cTrain::impact(int x)
+bool cTrain::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cTrain::N - 1] && x <= this->X[0];

@@ -79,7 +79,7 @@ void cCar::tell()
 	// do_sth
 }
 
-bool cCar::impact(int x)
+bool cCar::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)
 		return x >= this->X[cCar::N - 1] && x <= this->X[0];

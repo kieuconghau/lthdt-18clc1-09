@@ -54,7 +54,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 		else
 			throw;
 
-		this->MovableObjects[i] = cMovableObjectFactory::create(objectType, direction, objectColor, x, y, step);
+		this->MovableObjects[i] = cObjectFactory::create(objectType, direction, objectColor, x, y, step);
 	}
 }
 
@@ -97,7 +97,7 @@ void cMovableObjectLane::work()
 	}
 }
 
-void cMovableObjectLane::impact(cPeople* people)
+void cMovableObjectLane::impact_xcor(cPeople* people)
 {
 	// Check if people is on this lane? (check y_cor)
 	if (people->is_impacted(this->Y))

@@ -23,14 +23,15 @@ cMovableObject* cObjectFactory::create(cObject::ecType movableObjectType, ecDire
 	return nullptr;
 }
 
-cFixedObject* cObjectFactory::create(cObject::ecType fixedObjectType, ecColor color, int x, int y)
+cFixedObject* cObjectFactory::create(cObject::ecType fixedObjectType, ecDirection direction, ecColor color, int x, int y)
 {
 	switch (fixedObjectType)
 	{
 	case cObject::ecType::FE_COIN:
-		return new cCoin(fixedObjectType, )
+		return new cCoin(direction, color, x, y);
 		break;
 	case cObject::ecType::FI_STONE:
+		return new cStone(direction, color, x, y);
 		break;
 	default:
 		break;
