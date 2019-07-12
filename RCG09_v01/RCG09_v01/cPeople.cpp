@@ -4,7 +4,8 @@ cPeople* cPeople::Instance = nullptr;
 
 cPeople* cPeople::get_instance()
 {
-	if (cPeople::Instance == nullptr) {
+	if (cPeople::Instance == nullptr)
+	{
 		cPeople::Instance = new cPeople;
 	}
 
@@ -13,7 +14,6 @@ cPeople* cPeople::get_instance()
 
 cPeople::cPeople()
 {
-
 	this->X = 0;
 	this->Y = 0;
 	this->State = ecState::ALIVE;
@@ -21,8 +21,7 @@ cPeople::cPeople()
 	this->LastDirection = ecDirection::NONE;
 	this->Shape = char(219);
 	this->BrickShape = char(219);
-	this->BrickColor = ecColor::BLACK;
-
+	this->BrickColor = ecColor::BLACK;	
 }
 
 cPeople::~cPeople()
@@ -214,4 +213,3 @@ bool cPeople::stand_still()
 	}
 	return false;
 }
-

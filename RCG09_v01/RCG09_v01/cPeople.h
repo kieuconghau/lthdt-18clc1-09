@@ -12,9 +12,14 @@ public:
 		DEAD
 	};
 
+public:
 	static cPeople* get_instance();
+
+public:
 	cPeople();
 	~cPeople();
+
+public:
 	void draw();
 	void move_up(int topLimit);
 	void move_down(int botLimit);
@@ -39,13 +44,15 @@ public:
 
 private:
 	static cPeople* Instance;
+
+private:
 	int X;
 	int Y;
 	cPeople::ecState State;
 	ecColor Color;
 	ecDirection LastDirection;
+
 	char Shape;
 	char BrickShape;
 	ecColor BrickColor;
-
 };
