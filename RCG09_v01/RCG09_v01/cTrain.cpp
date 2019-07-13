@@ -107,3 +107,11 @@ bool cTrain::impact_xcor(int x)
 
 	return false;
 }
+
+char cTrain::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cTrain::brick_color()
+{
+	return this->BRICK_COLOR;
+}

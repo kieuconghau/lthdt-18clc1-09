@@ -29,6 +29,7 @@ public:
 public:
 	virtual bool impact_xcor(int x) = 0;
 
+
 private:
 
 protected:

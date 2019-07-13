@@ -48,3 +48,16 @@ bool cStone::impact_xcor(int x)
 
 	return false;
 }
+
+bool cStone::is_edible()
+{
+	return false;
+}
+
+char cStone::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cStone::brick_color()
+{
+	return this->BRICK_COLOR;
+}

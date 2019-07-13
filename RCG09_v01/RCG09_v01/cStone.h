@@ -15,7 +15,11 @@ public:
 public:
 	void draw(int leftLimit, int rightLimit);
 	bool impact_xcor(int x);
-
+	bool is_edible();
+	void is_eaten() {}; // can't be eaten
+	bool was_eaten() { return false; }
+	char brick_shape();
+	ecColor brick_color();
 private:
 	static const int N;
 	static const vector<char> Shapes;

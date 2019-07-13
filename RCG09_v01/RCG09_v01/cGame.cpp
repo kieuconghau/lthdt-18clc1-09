@@ -33,7 +33,7 @@ cGame::cGame()
 	vector<ecColor> colors0 =				{ ecColor::GREY					, ecColor::RED				, ecColor::YELLOW			, ecColor::GREEN			, ecColor::YELLOW				};
 	vector<int> objectCounts0 =				{ 25							, 4							, 5							, 3							, 5								};
 	vector<vector<int>> times0 =			{ {10, 5, 20}                   , {7, 5, 10}				, {5, 5, 10}                , {15, 3, 20}               , {5, 5, 15}					};
-	vector<int> steps0 =					{ 2								, 1							, 1							, 3							, 1								};
+	vector<int> steps0 =					{ 2							, 1							, 1							, 3							, 1								};
 	this->Levels[0].set_up(laneCounts[0], objectTypes0, directions0, colors0, objectCounts0, times0, steps0, leftLimit, rightLimit);
 }
 
