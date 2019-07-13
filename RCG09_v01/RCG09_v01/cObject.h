@@ -22,9 +22,11 @@ public:
 		TRAFFIC_LIGHT
 	};
 
-	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step=0);
+public:
+	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step = 0);
 	virtual ~cObject();
 
+public:
 	virtual bool impact_xcor(int x) = 0;
 
 private:

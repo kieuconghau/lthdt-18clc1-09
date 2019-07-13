@@ -35,12 +35,12 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 		//this->BrickColor = cWood::BRICK_COLOR;
 		break;
 	case cObject::ecType::FE_COIN:
-		//this->BrickShape = cCoin::BRICK_SHAPE;
-		//this->BrickColor = cCoin::BRICK_COLOR;
+		this->BrickShape = cCoin::BRICK_SHAPE;
+		this->BrickColor = cCoin::BRICK_COLOR;
 		break;
 	case cObject::ecType::FI_STONE:
-		//this->BrickShape = cStone::BRICK_SHAPE;
-		//this->BrickColor = cStone::BRICK_COLOR;
+		this->BrickShape = cStone::BRICK_SHAPE;
+		this->BrickColor = cStone::BRICK_COLOR;
 		break;
 	case cObject::ecType::TRAFFIC_LIGHT:
 		this->BrickShape = char(219);
@@ -58,4 +58,15 @@ cLane::~cLane() {}
 bool cLane::has_people(cPeople* people)
 {
 	return people->is_impacted(this->Y);
+}
+
+void cLane::draw()
+{
+	goto_xy(this->LeftLimit, this->Y);
+	text_color(this->BrickColor);
+
+	for (int i = this->LeftLimit; i <= this->RightLimit; ++i)
+	{
+		cout << this->BrickShape;
+	}
 }

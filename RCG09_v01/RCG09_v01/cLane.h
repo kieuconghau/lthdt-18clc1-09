@@ -11,28 +11,30 @@
 
 class cLane
 {
+	friend class cPeople;
+
 public:
 	cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, int rightLimit, int virtualDistance);
 	virtual ~cLane();
 
+public:
 	virtual void work() = 0;
 	virtual void impact_xcor(cPeople* people) = 0;
-
-	//virtual void update_pos() = 0;
-	//virtual void draw() = 0;
 	
+public:
 	bool has_people(cPeople* people);
+	void draw();
 
 private:
 
 protected:
 	int Y;
 	int ObjectCount;
+
 	char BrickShape;
 	ecColor BrickColor;
+
 	int LeftLimit;
 	int RightLimit;
 	int VirtualDistance;
-
-	friend class cPeople;
 };

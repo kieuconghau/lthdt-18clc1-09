@@ -16,8 +16,10 @@ cLevel::~cLevel()
 	delete[] this->Lanes;
 }
 
+
 void cLevel::draw()
 {
+	/* Draw borders */
 	text_color(cSetting::Game::BORDER_COLOR);
 
 	goto_xy(cSetting::Game::LEFT_LIMIT, cSetting::Game::TOP_LIMIT);
@@ -40,20 +42,28 @@ void cLevel::draw()
 		cout << char(205);
 	cout << char(188);
 
+
+	/* Draw lanes */
+	for (int i = 0; i < this->LaneCount; i++)
+	{
+		this->Lanes[i]->draw();
+	}
+
+
+	/*  */
+
 	text_color();
 	goto_xy(0, 0);
 }
 
 void cLevel::play()
 {
-	// Draw border
 	this->draw();
 
 	// Set starting position for people
 	this->People->set_starting_pos((cSetting::Game::RIGHT_LIMIT + cSetting::Game::LEFT_LIMIT)/2, cSetting::Game::BOT_LIMIT - 2);
 
 	// Play
-
 	while (true)
 	{
 		// Update people's position
@@ -110,8 +120,7 @@ void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<e
 	this->Lanes = new cLane * [this->LaneCount];
 	for (int i = 0; i < this->LaneCount; i++)
 	{
-		//this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i]
-			//, cSetting::Game::TOP_LIMIT + 2 + 2*i, times[i], steps[i], leftLimit, rightLimit);	// Testing
-		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i], objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + i, times[i], steps[i], leftLimit, rightLimit);	// Official
+		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i]
+			, objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + i, times[i], steps[i], leftLimit, rightLimit);
 	}
 }
