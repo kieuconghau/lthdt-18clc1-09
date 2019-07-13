@@ -28,10 +28,10 @@ cGame::cGame()
 	const int rightLimit = cSetting::Game::RIGHT_LIMIT - 1;
 
 	/* Level 1 */
-	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MA_DINOSAUR	, cObject::ecType::MV_CAR	, cObject::ecType::MV_TRUCK	, cObject::ecType::MV_CAR	, cObject::ecType::MA_BIRD		};
+	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::FI_STONE		, cObject::ecType::MV_CAR	, cObject::ecType::FE_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MA_BIRD		};
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT			, ecDirection::LEFT			, ecDirection::RIGHT		, ecDirection::LEFT			, ecDirection::RIGHT			};
-	vector<ecColor> colors0 =				{ ecColor::BLUE					, ecColor::RED				, ecColor::CYAN				, ecColor::GREEN			, ecColor::YELLOW				};
-	vector<int> objectCounts0 =				{ 7								, 4							, 5							, 3							, 5								};
+	vector<ecColor> colors0 =				{ ecColor::GREY					, ecColor::RED				, ecColor::YELLOW			, ecColor::GREEN			, ecColor::YELLOW				};
+	vector<int> objectCounts0 =				{ 25							, 4							, 5							, 3							, 5								};
 	vector<vector<int>> times0 =			{ {10, 5, 20}                   , {7, 5, 10}				, {5, 5, 10}                , {15, 3, 20}               , {5, 5, 15}					};
 	vector<int> steps0 =					{ 2								, 1							, 1							, 3							, 1								};
 	this->Levels[0].set_up(laneCounts[0], objectTypes0, directions0, colors0, objectCounts0, times0, steps0, leftLimit, rightLimit);

@@ -1,6 +1,8 @@
 #include "cTrafficLight.h"
 
+
 const char cTrafficLight::Shapes[cTrafficLight::N] = { char(223), char(223), char(223) };
+
 
 cTrafficLight::cTrafficLight(ecDirection direction, int x, int y, int timeRed, int timeYellow, int timeGreen)
 	: cObject(cObject::ecType::TRAFFIC_LIGHT, cTrafficLight::N, direction, x, y)
@@ -13,6 +15,7 @@ cTrafficLight::cTrafficLight(ecDirection direction, int x, int y, int timeRed, i
 }
 
 cTrafficLight::~cTrafficLight() {}
+
 
 bool cTrafficLight::impact_xcor(int x)
 {

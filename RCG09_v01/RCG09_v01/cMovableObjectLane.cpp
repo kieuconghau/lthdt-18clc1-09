@@ -116,3 +116,13 @@ void cMovableObjectLane::impact_xcor(cPeople* people)
 		}
 	}
 }
+
+void cMovableObjectLane::draw()
+{
+	cLane::draw();
+
+	for (int i = 0; i < this->ObjectCount; ++i)
+	{
+		this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+	}
+}

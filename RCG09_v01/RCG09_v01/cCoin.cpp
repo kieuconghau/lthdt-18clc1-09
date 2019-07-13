@@ -15,6 +15,23 @@ cCoin::cCoin(ecDirection direction, ecColor color, int x, int y)
 
 cCoin::~cCoin() {}
 
+void cCoin::draw(int leftLimit, int rightLimit)
+{
+	text_color(this->Color);
+
+	for (int i = 0; i < cCoin::N; i++)
+	{
+		if (this->X[i] >= leftLimit && this->X[i] <= rightLimit)
+		{
+			goto_xy(this->X[i], this->Y);
+			cout << cCoin::Shapes[i];
+		}
+	}
+
+	text_color();
+	goto_xy(0, 0);
+}
+
 bool cCoin::impact_xcor(int x)
 {
 	if (this->Direction == ecDirection::RIGHT)

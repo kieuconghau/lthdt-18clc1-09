@@ -20,10 +20,10 @@ public:
 public:
 	virtual void work() = 0;
 	virtual void impact_xcor(cPeople* people) = 0;
-	
+	virtual void draw();
+
 public:
 	bool has_people(cPeople* people);
-	void draw();
 
 private:
 

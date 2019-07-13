@@ -50,3 +50,13 @@ cFixedObjectLane::~cFixedObjectLane()
 	delete this->FixedObjects;
 }
 
+void cFixedObjectLane::draw()
+{
+	cLane::draw();
+
+	for (int i = 0; i < this->ObjectCount; i++)
+	{
+		this->FixedObjects[i]->draw(this->LeftLimit, this->RightLimit);
+	}
+}
+
