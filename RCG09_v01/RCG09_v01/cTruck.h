@@ -2,6 +2,7 @@
 
 #include "cSetting.h"
 #include "cVehicle.h"
+#include "cPeople.h"
 
 class cTruck : public cVehicle
 {
@@ -17,6 +18,8 @@ public:
 	void move(int leftLimit, int rightLimit, int virtualDistance);
 	void draw(int leftLimit, int rightLimit);
 	void tell();
+	char brick_shape();
+	ecColor brick_color();
 
 private:
 	static const int N;

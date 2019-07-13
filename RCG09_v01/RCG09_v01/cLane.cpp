@@ -55,11 +55,6 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 
 cLane::~cLane() {}
 
-bool cLane::has_people(cPeople* people)
-{
-	return people->is_impacted(this->Y);
-}
-
 void cLane::draw()
 {
 	goto_xy(this->LeftLimit, this->Y);
@@ -69,4 +64,9 @@ void cLane::draw()
 	{
 		cout << this->BrickShape;
 	}
+}
+
+bool cLane::has_people(cPeople* people)
+{
+	return people->is_in_line(this->Y);
 }

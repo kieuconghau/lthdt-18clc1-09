@@ -195,7 +195,7 @@ void cPeople::die()
 	this->Color = ecColor::RED;
 }
 
-bool cPeople::is_impacted(int y)
+bool cPeople::is_in_line(unsigned int y)
 {
 	return this->Y == y;
 
@@ -212,4 +212,10 @@ bool cPeople::stand_still()
 		return true;
 	}
 	return false;
+}
+
+void cPeople::change_brick(char brickShape, ecColor brickColor) 
+{
+	this->BrickShape = brickShape;
+	this->BrickColor = brickColor;
 }

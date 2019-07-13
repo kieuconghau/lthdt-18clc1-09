@@ -60,3 +60,31 @@ void cFixedObjectLane::draw()
 	}
 }
 
+void cFixedObjectLane::impact_xcor(cPeople* people)
+{
+	if (people->is_in_line(this->Y)) {
+
+		for (int i = 0; i < this->ObjectCount; i++) {
+
+			if (people->is_impacted(this->FixedObjects[i])) {
+				if (this->FixedObjects[i]->is_edible()) {
+					if (!this->FixedObjects[i]->was_eaten()) {
+						this->FixedObjects[i]->is_eaten();
+					}
+				}
+				else {
+					people->move_back();
+				}
+				return;
+			}
+		}
+	}
+}
+
+void cFixedObjectLane::change_people_brick(cPeople* people)
+{
+	if (this->ObjectCount != 0) {
+		people->change_brick(this->FixedObjects[0]->brick_shape(), this->FixedObjects[0]->brick_color());
+	}
+}
+

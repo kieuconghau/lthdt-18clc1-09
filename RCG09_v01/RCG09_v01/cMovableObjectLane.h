@@ -4,7 +4,6 @@
 #include "cLane.h"
 #include "cTrafficLight.h"
 #include "cObjectFactory.h"
-#include "cPeople.h"
 
 class cMovableObjectLane : public cLane
 {
@@ -19,6 +18,7 @@ public:
 	void work();
 	void impact_xcor(cPeople* people);
 	void draw();
+	void change_people_brick(cPeople* people);
 
 public:
 	bool is_vehicle_lane();
