@@ -8,15 +8,40 @@ cFixedObjectLane::cFixedObjectLane(cObject::ecType objectType, ecDirection direc
 
 	this->FixedObjects = new cFixedObject*[this->ObjectCount];
 	
-	srand(time(nullptr));
+	srand(unsigned(time(nullptr)));
 	int temp = this->LeftLimit + rand() % (rightLimit - leftLimit + 1);
 	vector<int> x;
 	x.push_back(temp);
 
+	/////////////////////TRICKY//////////////////////
+	const int MAX_COIN = 1;
+	/////////////////////////////////////////////////
+
 	bool duplicated;
+	cObject::ecType type;
 	for (int i = 0; i < this->ObjectCount; i++)
 	{
-		this->FixedObjects[i] = cObjectFactory::create(this->FixedObjectType, direction, objectColor, x[i], y);
+		/////////////////////TRICKY//////////////////////
+		if (this->FixedObjectType == cObject::ecType::MIX_STONE_AND_COIN)
+		{
+			if (i < MAX_COIN)
+			{
+				type = cObject::ecType::FE_COIN;
+				objectColor = ecColor::YELLOW;
+			}
+			else
+			{
+				type = cObject::ecType::FI_STONE;
+				objectColor = ecColor::GREY;
+			}
+		}
+		else
+		{
+			type = this->FixedObjectType;
+		}
+		/////////////////////////////////////////////////
+
+		this->FixedObjects[i] = cObjectFactory::create(type, direction, objectColor, x[i], y);
 
 		if (i == this->ObjectCount - 1)
 			break;
@@ -60,7 +85,7 @@ void cFixedObjectLane::draw()
 	}
 }
 
-void cFixedObjectLane::impact_xcor(cPeople* people)
+void cFixedObjectLane::impact(cPeople* people)
 {
 	if (people->is_in_line(this->Y)) {
 

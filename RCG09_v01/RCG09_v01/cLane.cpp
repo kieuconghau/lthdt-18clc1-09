@@ -46,6 +46,10 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 		this->BrickShape = char(219);
 		this->BrickColor = ecColor::BLACK;
 		break;
+	case cObject::ecType::MIX_STONE_AND_COIN:	// Tricky
+		this->BrickShape = cStone::BRICK_SHAPE;
+		this->BrickColor = cStone::BRICK_COLOR;
+		break;
 	default:
 		this->BrickShape = char(219);
 		this->BrickColor = ecColor::BLACK;

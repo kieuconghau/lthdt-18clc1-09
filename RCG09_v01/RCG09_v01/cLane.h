@@ -19,7 +19,7 @@ public:
 
 public:
 	virtual void work() = 0;
-	virtual void impact_xcor(cPeople* people) = 0;
+	virtual void impact(cPeople* people) = 0;
 	virtual void draw();
 	virtual void change_people_brick(cPeople* people) = 0;
 	
