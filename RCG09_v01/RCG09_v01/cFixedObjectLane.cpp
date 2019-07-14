@@ -8,10 +8,8 @@ cFixedObjectLane::cFixedObjectLane(cObject::ecType objectType, ecDirection direc
 
 	this->FixedObjects = new cFixedObject*[this->ObjectCount];
 	
-	srand(unsigned(time(nullptr)));
-	int temp = this->LeftLimit + rand() % (rightLimit - leftLimit + 1);
 	vector<int> x;
-	x.push_back(temp);
+	int temp;
 
 	/////////////////////TRICKY//////////////////////
 	const int MAX_COIN = 1;
@@ -21,10 +19,11 @@ cFixedObjectLane::cFixedObjectLane(cObject::ecType objectType, ecDirection direc
 	cObject::ecType type;
 	for (int i = 0; i < this->ObjectCount; i++)
 	{
+		// Type
 		/////////////////////TRICKY//////////////////////
 		if (this->FixedObjectType == cObject::ecType::MIX_STONE_AND_COIN)
 		{
-			if (i < MAX_COIN)
+			if (i >= this->ObjectCount - MAX_COIN)
 			{
 				type = cObject::ecType::FE_COIN;
 				objectColor = ecColor::YELLOW;
@@ -41,21 +40,42 @@ cFixedObjectLane::cFixedObjectLane(cObject::ecType objectType, ecDirection direc
 		}
 		/////////////////////////////////////////////////
 
-		this->FixedObjects[i] = cObjectFactory::create(type, direction, objectColor, x[i], y);
-
-		if (i == this->ObjectCount - 1)
-			break;
-
+		// Random x[i]
 		while (true)
 		{
+			temp = this->LeftLimit + rand() % (this->RightLimit - this->LeftLimit + 1);
+			
 			duplicated = false;
-			for (int i = 0; i < x.size(); i++)
+			for (int j = 0; j < x.size(); j++)
 			{
-				if (temp == x[i])
+				if (this->FixedObjectType == cObject::ecType::MIX_STONE_AND_COIN)
 				{
-					duplicated = true;
-					temp = this->LeftLimit + rand() % (rightLimit - leftLimit + 1);
-					break;
+					if (direction == ecDirection::RIGHT)
+					{
+						if (temp <= x[j] && temp >= x[j] - cStone::N + 1)
+						{
+							duplicated = true;
+							break;
+						}
+					}
+					else if (direction == ecDirection::LEFT)
+					{
+						if (temp >= x[j] && temp <= x[j] + cStone::N - 1)
+						{
+							duplicated = true;
+							break;
+						}
+					}
+					else
+						throw;
+				}
+				else
+				{
+					if (temp == x[j])
+					{
+						duplicated = true;
+						break;
+					}
 				}
 			}
 
@@ -65,6 +85,9 @@ cFixedObjectLane::cFixedObjectLane(cObject::ecType objectType, ecDirection direc
 				break;
 			}
 		}
+
+		// Create an object with type and x[i]
+		this->FixedObjects[i] = cObjectFactory::create(type, direction, objectColor, x[i], y);
 	}
 }
 

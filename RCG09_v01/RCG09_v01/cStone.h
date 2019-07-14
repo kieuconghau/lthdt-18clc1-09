@@ -4,6 +4,8 @@
 
 class cStone : public cInedibleObject
 {
+	friend class cFixedObjectLane;
+
 public:
 	static const char BRICK_SHAPE;
 	static const ecColor BRICK_COLOR;
@@ -20,6 +22,7 @@ public:
 	bool was_eaten() { return false; }
 	char brick_shape();
 	ecColor brick_color();
+
 private:
 	static const int N;
 	static const vector<char> Shapes;

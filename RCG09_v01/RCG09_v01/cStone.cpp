@@ -7,7 +7,7 @@ const ecColor cStone::BRICK_COLOR(ecColor::LIGHT_GREEN);
 
 const int cStone::N(2);
 
-const vector<char> cStone::Shapes({ char(219), char(219) });
+const vector<char> cStone::Shapes({ char(219) , char(219) });
 
 
 cStone::cStone(ecDirection direction, ecColor color, int x, int y)
