@@ -25,6 +25,8 @@ private:
 	cLane** Lanes;
 	cPeople* People;
 	cLevel::ecState State;
-
+	void pause();
+	void load();
+	void save();
 	void draw();
 };

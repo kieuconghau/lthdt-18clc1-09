@@ -1,4 +1,5 @@
 #include "cLevel.h"
+#include <thread>
 
 cLevel::cLevel()
 {
@@ -56,8 +57,24 @@ void cLevel::draw()
 	goto_xy(0, 0);
 }
 
+void cLevel::pause()
+{
+	system("pause");
+}
+
+void cLevel::load()
+{
+	//Load game()
+}
+
+void cLevel::save()
+{
+	//Save Game
+}
+
 void cLevel::play()
 {
+
 	this->draw();
 
 	// Set starting position for people
@@ -100,6 +117,27 @@ void cLevel::play()
 			}
 		}
 
+		if (GetAsyncKeyState(0x50))
+		{
+			thread P(&cLevel::pause, this);
+			P.join();
+
+		}
+
+		if (GetAsyncKeyState(0x53))
+		{
+			thread S(&cLevel::save,this);
+			S.join();
+
+		}
+
+		if (GetAsyncKeyState(0x4C))
+		{
+			thread L(&cLevel::load, this);
+			L.join();
+
+		}
+
 		Sleep(50);
 		if (GetAsyncKeyState(VK_RETURN))
 			break;
@@ -124,3 +162,4 @@ void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<e
 			, objectCounts[i], cSetting::Game::TOP_LIMIT + 2 + i, times[i], steps[i], leftLimit, rightLimit);
 	}
 }
+
