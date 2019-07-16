@@ -59,23 +59,72 @@ void cLevel::draw()
 
 void cLevel::pause()
 {
+	//Pause game()
+	system("cls");
+
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " ____   ____  __ __  _____   ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "|    \\ /    ||  |  |/ ___/  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "|  o  )  o  ||  |  (   \\_  /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "|   _/|     ||  |  |\\__  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|  |  |  _  ||  :  |/  \\ ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|  |  |  |  ||     |\\    ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|__|  |__|__| \\__,_| \\___||_____|", ecColor::BLUE, true);
+
 	system("pause");
+	system("cls");
+	this->draw();
 }
 
 void cLevel::load()
 {
-	//Load game()
+	//Load Game
+	system("cls");
+
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "| |___ |  O  ||     ||  D  |    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|     ||     ||  _  ||     |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+
+	system("pause");
+	system("cls");
+	this->draw();
 }
 
 void cLevel::save()
 {
 	//Save Game
+	system("cls");
+
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, "   _____  ____  __ __    ___       ____   ____  ___ ___    ___", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "  / ___/ /    ||  |  |  /  _]     /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, " (   \\_ |  o  ||  |  | /  [_     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "  \\__  ||     ||  |  ||    _]    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, " /  \\ ||  _  ||  :  ||   [_     |  |_ ||  _  ||   |   ||   [_", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "  \\    ||  |  | \\   / |     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "   \\___||__|__|  \\_/  |_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+
+	system("pause");
+	system("cls");
+	this->draw();
 }
 
 void cLevel::play()
 {
 
 	this->draw();
+
 
 	// Set starting position for people
 	this->People->set_starting_pos((cSetting::Game::RIGHT_LIMIT + cSetting::Game::LEFT_LIMIT)/2, cSetting::Game::BOT_LIMIT - 2);
@@ -117,25 +166,21 @@ void cLevel::play()
 			}
 		}
 
+		//Hot keys
 		if (GetAsyncKeyState(0x50))
 		{
 			thread P(&cLevel::pause, this);
 			P.join();
-
 		}
-
-		if (GetAsyncKeyState(0x53))
+		if (GetAsyncKeyState(0x35)) // "5" key, 'cause "S" conflict with movement key :v
 		{
-			thread S(&cLevel::save,this);
+			thread S(&cLevel::save, this);
 			S.join();
-
 		}
-
 		if (GetAsyncKeyState(0x4C))
 		{
 			thread L(&cLevel::load, this);
 			L.join();
-
 		}
 
 		Sleep(50);
