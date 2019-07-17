@@ -129,23 +129,23 @@ void cPeople::set_starting_pos(int xStart, int yStart)
 
 void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 {
-	if (GetAsyncKeyState(0x41) != 0)
+	if (GetAsyncKeyState(VK_LEFT) != 0)
 	{
 		this->move_left(leftLimit);
 		return;
 	}
-	else if (GetAsyncKeyState(0x44) != 0)
+	else if (GetAsyncKeyState(VK_RIGHT) != 0)
 	{
 		this->move_right(rightLimit);
 		return;
 
 	}
-	else if (GetAsyncKeyState(0x57) != 0)
+	else if (GetAsyncKeyState(VK_UP) != 0)
 	{
 		this->move_up(topLimit);
 		return;
 	}
-	else if (GetAsyncKeyState(0x53) != 0)
+	else if (GetAsyncKeyState(VK_DOWN) != 0)
 	{
 		this->move_down(bottomLimit);
 		return;

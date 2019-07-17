@@ -128,18 +128,21 @@ void cLevel::play()
 			thread P(&cScreen::screen_pause_game);			
 			P.join();
 			this->draw();
+			this->People->draw();
 		}
-		if (GetAsyncKeyState(0x35)) // "5" key, 'cause "S" conflict with movement key :v
+		if (GetAsyncKeyState(0x53))
 		{
 			thread S(&cScreen::screen_save_game);			
 			S.join();
 			this->draw();
+			this->People->draw();
 		}
 		if (GetAsyncKeyState(0x4C))
 		{
 			thread L(&cScreen::screen_load_mid_game);
 			L.join();
 			this->draw();
+			this->People->draw();
 		}
 
 		if (this->People->is_dead())
@@ -149,8 +152,10 @@ void cLevel::play()
 		}
 		Sleep(50);
 
-		if (GetAsyncKeyState(VK_RETURN))
+		if (GetAsyncKeyState(VK_ESCAPE))
+		{
 			break;
+		}
 	}
 }
 
