@@ -100,10 +100,10 @@ void cMovableObjectLane::work()
 	}
 }
 
-void cMovableObjectLane::impact_xcor(cPeople* people)
+void cMovableObjectLane::impact(cPeople* people)
 {
 	// Check if people is on this lane? (check y_cor)
-	if (people->is_impacted(this->Y))
+	if (people->is_in_line(this->Y))
 	{
 		for (int i = 0; i < this->ObjectCount; i++)
 		{
@@ -111,7 +111,16 @@ void cMovableObjectLane::impact_xcor(cPeople* people)
 			if (people->is_impacted(this->MovableObjects[i]))
 			{
 				people->die();
-				break;
+				return;
+			}
+
+			// Check if people impact on a traffic light on this light (check x_cor)
+			if (this->TrafficLight != nullptr)
+			{
+				if (people->is_impacted(this->TrafficLight))
+				{
+					people->move_back();
+				}
 			}
 		}
 	}
@@ -124,5 +133,12 @@ void cMovableObjectLane::draw()
 	for (int i = 0; i < this->ObjectCount; ++i)
 	{
 		this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+	}
+}
+
+void cMovableObjectLane::change_people_brick(cPeople* people)
+{
+	if (this->ObjectCount != 0) {
+		people->change_brick(this->MovableObjects[0]->brick_shape(), this->MovableObjects[0]->brick_color());
 	}
 }

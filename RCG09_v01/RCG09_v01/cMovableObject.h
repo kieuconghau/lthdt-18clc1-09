@@ -13,6 +13,8 @@ public:
 	virtual void draw(int leftLimit, int rightLimit) = 0;
 	virtual void tell() = 0;
 	virtual bool impact_xcor(int x) = 0;
+	virtual char brick_shape() = 0;
+	virtual ecColor brick_color() = 0;
 
 private:
 

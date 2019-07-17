@@ -103,3 +103,11 @@ bool cCar::impact_xcor(int x)
 
 	return false;
 }
+
+char cCar::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cCar::brick_color()
+{
+	return this->BRICK_COLOR;
+}

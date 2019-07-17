@@ -19,6 +19,9 @@ public:
 	void tell();
 	bool impact_xcor(int x);
 
+	char brick_shape() ;
+	ecColor brick_color() ;
+
 private:
 	static const int N;
 	static const vector<char> Shapes;

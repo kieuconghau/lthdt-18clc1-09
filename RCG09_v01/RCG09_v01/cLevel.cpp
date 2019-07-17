@@ -138,27 +138,46 @@ void cLevel::play()
 
 		// Check if people impact on objects
 		if (!People->stand_still())
-
 		{
 			for (int i = 0; i < this->LaneCount; ++i)
 			{
-				this->Lanes[i]->impact_xcor(this->People);	// Polymorphism
+				this->Lanes[i]->impact(this->People);	// Polymorphism
 			}
 
 			// Draw people at updated position
-
 			this->People->update_pos();
 
+			// Get brick shape and color of current lane
+			int count = 0;
+			for (count = 0; count < this->LaneCount; ++count)
+			{
+				if (this->Lanes[count]->has_people(this->People))
+				{
+					this->Lanes[count]->change_people_brick(this->People);
+					break;
+				}
+			}
+			if (count == this->LaneCount)
+			{
+				People->change_brick(char(219), ecColor::BLACK);
+			}
+
 			if (this->People->is_dead())
+			{
+				this->People->draw();
 				break;
+			}
 		}
 
 		// Objects move
 		for (int i = 0; i < this->LaneCount; i++)
 		{
-			if (this->Lanes[i]->has_people(this->People))
+			this->Lanes[i]->impact(this->People);
+
+			if (this->People->is_dead())
 			{
-				//this->Lanes[i]->
+				this->People->draw();
+				break;
 			}
 			else
 			{
@@ -181,9 +200,14 @@ void cLevel::play()
 		{
 			thread L(&cLevel::load, this);
 			L.join();
+		if (this->People->is_dead())
+		{
+			this->People->draw();
+			break;
 		}
 
 		Sleep(50);
+
 		if (GetAsyncKeyState(VK_RETURN))
 			break;
 	}

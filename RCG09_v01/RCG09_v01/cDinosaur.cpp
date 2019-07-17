@@ -103,3 +103,11 @@ bool cDinosaur::impact_xcor(int x)
 
 	return false;
 }
+
+char cDinosaur::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cDinosaur::brick_color()
+{
+	return this->BRICK_COLOR;
+}

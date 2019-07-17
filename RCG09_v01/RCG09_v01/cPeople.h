@@ -37,10 +37,12 @@ public:
 	bool is_alive();
 	bool is_dead();
 
-	bool is_impacted(int y);
+	bool is_in_line(unsigned int y);
 	bool is_impacted(cObject* objects);
 
 	bool stand_still();
+	
+	void change_brick(char brickShape, ecColor brickColor);
 
 private:
 	static cPeople* Instance;
@@ -53,6 +55,7 @@ private:
 	ecDirection LastDirection;
 
 	char Shape;
+
 	char BrickShape;
 	ecColor BrickColor;
 };

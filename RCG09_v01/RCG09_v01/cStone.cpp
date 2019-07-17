@@ -7,7 +7,7 @@ const ecColor cStone::BRICK_COLOR(ecColor::LIGHT_GREEN);
 
 const int cStone::N(2);
 
-const vector<char> cStone::Shapes({ char(219), char(219) });
+const vector<char> cStone::Shapes({ char(219) , char(219) });
 
 
 cStone::cStone(ecDirection direction, ecColor color, int x, int y)
@@ -47,4 +47,17 @@ bool cStone::impact_xcor(int x)
 		throw;
 
 	return false;
+}
+
+bool cStone::is_edible()
+{
+	return false;
+}
+
+char cStone::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cStone::brick_color()
+{
+	return this->BRICK_COLOR;
 }

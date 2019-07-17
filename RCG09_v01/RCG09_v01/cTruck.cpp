@@ -103,3 +103,11 @@ bool cTruck::impact_xcor(int x)
 
 	return false;
 }
+
+char cTruck::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cTruck::brick_color()
+{
+	return this->BRICK_COLOR;
+}

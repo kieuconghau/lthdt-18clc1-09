@@ -46,6 +46,10 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 		this->BrickShape = char(219);
 		this->BrickColor = ecColor::BLACK;
 		break;
+	case cObject::ecType::MIX_STONE_AND_COIN:	// Tricky
+		this->BrickShape = cStone::BRICK_SHAPE;
+		this->BrickColor = cStone::BRICK_COLOR;
+		break;
 	default:
 		this->BrickShape = char(219);
 		this->BrickColor = ecColor::BLACK;
@@ -54,11 +58,6 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 }
 
 cLane::~cLane() {}
-
-bool cLane::has_people(cPeople* people)
-{
-	return people->is_impacted(this->Y);
-}
 
 void cLane::draw()
 {
@@ -69,4 +68,9 @@ void cLane::draw()
 	{
 		cout << this->BrickShape;
 	}
+}
+
+bool cLane::has_people(cPeople* people)
+{
+	return people->is_in_line(this->Y);
 }

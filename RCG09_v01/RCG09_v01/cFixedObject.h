@@ -11,7 +11,11 @@ public:
 public:
 	virtual bool impact_xcor(int x) = 0;
 	virtual void draw(int leftLimit, int rightLimit) = 0;
-
+	virtual bool is_edible() = 0;
+	virtual void is_eaten() = 0;
+	virtual bool was_eaten() = 0;
+	virtual char brick_shape() = 0;
+	virtual ecColor brick_color() = 0;
 private:
 
 protected:

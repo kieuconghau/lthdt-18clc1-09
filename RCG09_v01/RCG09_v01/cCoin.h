@@ -2,6 +2,12 @@
 
 #include "cEdibleObject.h"
 
+enum class coinState
+{
+	AVAILABLE,
+	UNAVAILABLE,
+};
+
 class cCoin : public cEdibleObject
 {
 public:
@@ -15,8 +21,13 @@ public:
 public:
 	void draw(int leftLimit, int rightLimit);
 	bool impact_xcor(int x);
-
+	bool is_edible();
+	void is_eaten();
+	bool was_eaten();
+	char brick_shape();
+	ecColor brick_color();
 private:
 	static const int N;
 	static const vector<char> Shapes;
+	coinState cState;
 };

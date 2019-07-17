@@ -20,6 +20,8 @@ cLane* cLaneFactory::create(cObject::ecType objectType, ecDirection direction, e
 		return new cFixedObjectLane(objectType, direction, objectColor, y, objectCount, leftLimit, rightLimit);
 	case cObject::ecType::FI_STONE:
 		return new cFixedObjectLane(objectType, direction, objectColor, y, objectCount, leftLimit, rightLimit);
+	case cObject::ecType::MIX_STONE_AND_COIN:
+		return new cFixedObjectLane(objectType, direction, objectColor, y, objectCount, leftLimit, rightLimit);
 	default:
 		break;
 	}

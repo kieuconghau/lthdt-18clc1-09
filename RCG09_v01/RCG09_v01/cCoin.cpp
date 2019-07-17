@@ -17,14 +17,16 @@ cCoin::~cCoin() {}
 
 void cCoin::draw(int leftLimit, int rightLimit)
 {
-	text_color(this->Color);
+	if (this->cState == coinState::AVAILABLE) {
+		text_color(this->Color);
 
-	for (int i = 0; i < cCoin::N; i++)
-	{
-		if (this->X[i] >= leftLimit && this->X[i] <= rightLimit)
+		for (int i = 0; i < cCoin::N; i++)
 		{
-			goto_xy(this->X[i], this->Y);
-			cout << cCoin::Shapes[i];
+			if (this->X[i] >= leftLimit && this->X[i] <= rightLimit)
+			{
+				goto_xy(this->X[i], this->Y);
+				cout << cCoin::Shapes[i];
+			}
 		}
 	}
 
@@ -42,4 +44,27 @@ bool cCoin::impact_xcor(int x)
 		throw;
 
 	return false;
+}
+
+bool cCoin::is_edible()
+{
+	return true;
+}
+
+void cCoin::is_eaten()
+{
+	this->cState = coinState::UNAVAILABLE;
+}
+
+bool cCoin::was_eaten()
+{
+	return (this->cState == coinState::UNAVAILABLE);
+}
+
+char cCoin::brick_shape() {
+	return this->BRICK_SHAPE;
+}
+ecColor cCoin::brick_color()
+{
+	return this->BRICK_COLOR;
 }

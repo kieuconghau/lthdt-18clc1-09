@@ -13,8 +13,9 @@ public:
 
 public:
 	void work() {};
-	void impact_xcor(cPeople* people) {};
+	void impact(cPeople* people);
 	void draw();
+	void change_people_brick(cPeople* people);
 
 private:
 	cObject::ecType FixedObjectType;

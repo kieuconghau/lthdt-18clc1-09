@@ -19,7 +19,9 @@ public:
 		FE_COIN,
 		FI_STONE,
 
-		TRAFFIC_LIGHT
+		TRAFFIC_LIGHT,
+
+		MIX_STONE_AND_COIN
 	};
 
 public:
@@ -28,6 +30,7 @@ public:
 
 public:
 	virtual bool impact_xcor(int x) = 0;
+
 
 private:
 
