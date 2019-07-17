@@ -138,7 +138,6 @@ void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 	{
 		this->move_right(rightLimit);
 		return;
-
 	}
 	else if (GetAsyncKeyState(VK_UP) != 0)
 	{
@@ -146,32 +145,6 @@ void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 		return;
 	}
 	else if (GetAsyncKeyState(VK_DOWN) != 0)
-	{
-		this->move_down(bottomLimit);
-		return;
-	}
-	this->LastDirection = ecDirection::NONE;
-}
-
-void cPeople::move_1(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
-{
-	if (GetAsyncKeyState(VK_LEFT))
-	{
-		this->move_left(leftLimit);
-    return;
-
-	}
-	else if (GetAsyncKeyState(VK_RIGHT))
-	{
-		this->move_right(rightLimit);
-		return;
-	}
-	else if (GetAsyncKeyState(VK_UP))
-	{
-		this->move_up(topLimit);
-		return;
-	}
-	else if (GetAsyncKeyState(VK_DOWN))
 	{
 		this->move_down(bottomLimit);
 		return;

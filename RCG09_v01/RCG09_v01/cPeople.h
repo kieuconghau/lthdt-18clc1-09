@@ -30,8 +30,7 @@ public:
 
 	void update_pos();
 
-	void move(int leftLimit, int rightLimit, int topLimit, int bottomLimit);		// Use WASD
-	void move_1(int leftLimit, int rightLimit, int topLimit, int bottomLimit);		// Use arrow-keys
+	void move(int leftLimit, int rightLimit, int topLimit, int bottomLimit);
 	
 	void set_starting_pos(int xStart, int yStart);
 	bool is_alive();
