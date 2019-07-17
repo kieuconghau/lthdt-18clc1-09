@@ -129,7 +129,7 @@ void cLevel::play()
 			P.join();
 			this->draw();
 		}
-		if (GetAsyncKeyState(0x35)) // "5" key, 'cause "S" conflict with movement key :v
+		if (GetAsyncKeyState(0x53))
 		{
 			thread S(&cScreen::screen_save_game);			
 			S.join();
