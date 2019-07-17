@@ -1,5 +1,6 @@
 #pragma once
 
+#include "cScreen.h"
 #include "cSetting.h"
 #include "cPeople.h"
 #include "cLaneFactory.h"
@@ -25,8 +26,5 @@ private:
 	cLane** Lanes;
 	cPeople* People;
 	cLevel::ecState State;
-	void pause();
-	void load();
-	void save();
 	void draw();
 };

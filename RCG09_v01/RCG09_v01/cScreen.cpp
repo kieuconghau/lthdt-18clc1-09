@@ -201,14 +201,102 @@ void cScreen::screen_load_game()
 		throw;
 }
 
-void cScreen::screen_save_game()
+void cScreen::screen_load_mid_game()
 {
 	system("cls");
 
-	/*
-		Save game
-	*/
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "| |___ |  O  ||     ||  D  |    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|     ||     ||  _  ||     |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+
+	cTextBox loadGame(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY - 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::GAME, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { loadGame, back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+	if (choice == cTextBox::ecScreenType::LOAD_GAME)
+	{
+		/*
+			Load game
+		*/
+		system("cls");
+	}
+	else if (choice == cTextBox::ecScreenType::GAME)
+		system("cls");
+	else
+		throw;
 }
+
+void cScreen::screen_save_game()
+{
+		//Save Game
+		system("cls");
+
+		unsigned middleX = get_console_width() / 2;
+		unsigned middleY = get_console_height() / 2;
+
+		print_text_at_middle(middleY - 15, "   _____  ____  __ __    ___       ____   ____  ___ ___    ___", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 14, "  / ___/ /    ||  |  |  /  _]     /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 13, " (   \\_ |  o  ||  |  | /  [_     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 12, "  \\__  ||     ||  |  ||    _]    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 11, " /  \\ ||  _  ||  :  ||   [_     |  |_ ||  _  ||   |   ||   [_", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 10, "  \\    ||  |  | \\   / |     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+		print_text_at_middle(middleY - 9, "   \\___||__|__|  \\_/  |_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+
+		cTextBox saveGame(cTextBox::ecScreenType::SAVE_GAME, middleX, middleY - 2, 25, "SAVE GAME", ecColor::WHITE, ecColor::WHITE);
+		cTextBox back(cTextBox::ecScreenType::GAME, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+
+		vector<cTextBox> menu = { saveGame, back };
+		cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+		if (choice == cTextBox::ecScreenType::SAVE_GAME)
+		{
+			/*
+				Save game
+			*/
+			system("cls");
+		}
+		else if (choice == cTextBox::ecScreenType::GAME)
+			system("cls");
+		else
+			throw;
+}
+
+void cScreen::screen_pause_game()
+{
+	//Pause game()
+	system("cls");
+
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " ____   ____  __ __  _____   ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "|    \\ /    ||  |  |/ ___/  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "|  o  )  o  ||  |  (   \\_  /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "|   _/|     ||  |  |\\__  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|  |  |  _  ||  :  |/  \\ ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|  |  |  |  ||     |\\    ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|__|  |__|__| \\__,_| \\___||_____|", ecColor::BLUE, true);
+
+	cTextBox back(cTextBox::ecScreenType::GAME, middleX, middleY - 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { back };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+	if (choice == cTextBox::ecScreenType::GAME)
+		system("cls");
+	else
+		throw;
+}
+
 
 void cScreen::screen_setting()
 {
