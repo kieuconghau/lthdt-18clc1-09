@@ -129,7 +129,7 @@ void cLevel::play()
 			P.join();
 			this->draw();
 		}
-		if (GetAsyncKeyState(0x53))
+		if (GetAsyncKeyState(0x35)) // "5" key, 'cause "S" conflict with movement key :v
 		{
 			thread S(&cScreen::screen_save_game);			
 			S.join();
@@ -139,11 +139,7 @@ void cLevel::play()
 		{
 			thread L(&cScreen::screen_load_mid_game);
 			L.join();
-
 			this->draw();
-		}
-
-
 		}
 
 		if (this->People->is_dead())
@@ -157,7 +153,6 @@ void cLevel::play()
 			break;
 	}
 }
-
 
 void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
