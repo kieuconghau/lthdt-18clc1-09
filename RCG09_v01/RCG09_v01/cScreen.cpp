@@ -21,6 +21,7 @@ void cScreen::screen_account()
 	cTextBox signIn(cTextBox::ecScreenType::SIGN_IN, middleX, middleY + 2, 25, "SIGN IN", ecColor::WHITE, ecColor::WHITE);
 	cTextBox guest(cTextBox::ecScreenType::MENU, middleX, middleY + 6, 25, "GUEST", ecColor::WHITE, ecColor::WHITE);
 	cTextBox about(cTextBox::ecScreenType::ABOUT, middleX, middleY + 10, 25, "ABOUT", ecColor::WHITE, ecColor::WHITE);
+	// How to play?
 
 	vector<cTextBox> menu = { signUp, signIn, guest, about };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);

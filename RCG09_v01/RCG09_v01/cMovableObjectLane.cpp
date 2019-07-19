@@ -6,7 +6,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 {
 	this->MovableObjectType = objectType;
 	this->Direction = direction;
-	
+
 	// Traffic light
 	if (this->is_vehicle_lane())
 	{
@@ -39,7 +39,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 	}
 
 	// Create objects
-	this->MovableObjects = new cMovableObject*[this->ObjectCount];
+	this->MovableObjects = new cMovableObject * [this->ObjectCount];
 	int x;
 	for (int i = 0; i < this->ObjectCount; i++)
 	{
@@ -71,8 +71,8 @@ cMovableObjectLane::~cMovableObjectLane()
 bool cMovableObjectLane::is_vehicle_lane()
 {
 	return this->MovableObjectType == cObject::ecType::MV_CAR
-		|| this->MovableObjectType == cObject::ecType::MV_TRUCK
-		|| this->MovableObjectType == cObject::ecType::MV_TRAIN;
+		|| this->MovableObjectType == cObject::ecType::MV_TRUCK;
+	//|| this->MovableObjectType == cObject::ecType::MV_TRAIN;
 }
 
 void cMovableObjectLane::work()

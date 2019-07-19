@@ -31,8 +31,8 @@ cLane::cLane(cObject::ecType objectType, int y, int objectCount, int leftLimit, 
 		this->BrickColor = cDinosaur::BRICK_COLOR;
 		break;
 	case cObject::ecType::MF_WOOD:
-		//this->BrickShape = cWood::BRICK_SHAPE;
-		//this->BrickColor = cWood::BRICK_COLOR;
+		this->BrickShape = cWood::BRICK_SHAPE;
+		this->BrickColor = cWood::BRICK_COLOR;
 		break;
 	case cObject::ecType::FE_COIN:
 		this->BrickShape = cCoin::BRICK_SHAPE;

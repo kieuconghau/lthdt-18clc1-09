@@ -15,7 +15,7 @@ cMovableObject* cObjectFactory::create(cObject::ecType movableObjectType, ecDire
 	case cObject::ecType::MA_DINOSAUR:
 		return new cDinosaur(direction, color, x, y, step);
 	case cObject::ecType::MF_WOOD:
-
+		return new cWood(direction, color, x, y, step);
 	default:
 		throw;
 	}
@@ -29,10 +29,8 @@ cFixedObject* cObjectFactory::create(cObject::ecType fixedObjectType, ecDirectio
 	{
 	case cObject::ecType::FE_COIN:
 		return new cCoin(direction, color, x, y);
-		break;
 	case cObject::ecType::FI_STONE:
 		return new cStone(direction, color, x, y);
-		break;
 	default:
 		break;
 	}

@@ -23,17 +23,17 @@ cGame::cGame()
 	this->State = cGame::ecState::PLAYING;
 
 	/* Setting: Levels */
-	const int laneCounts[cGame::LevelCount] = { 5 };
+	const int laneCounts[cGame::LevelCount] = { 6 };
 	const int leftLimit = cSetting::Game::LEFT_LIMIT + 1;
 	const int rightLimit = cSetting::Game::RIGHT_LIMIT - 1;
 
 	/* Level 1 */
-	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MA_BIRD		};
-	vector<ecDirection> directions0 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT			};
-	vector<ecColor> colors0 =				{ ecColor::GREY							, ecColor::RED				, ecColor::GREY							, ecColor::GREEN			, ecColor::YELLOW				};
-	vector<int> objectCounts0 =				{ 25									, 4							, 30									, 3							, 5								};
-	vector<vector<int>> times0 =			{ {10, 5, 20}							, {7, 5, 10}				, {5, 5, 10}							, {15, 3, 20}               , {5, 5, 15}					};
-	vector<int> steps0 =					{ 2							, 1							, 1							, 3						, 1								};
+	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN };
+	vector<ecDirection> directions0 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		};
+	vector<ecColor> colors0 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::LIGHT_YELLOW		, ecColor::LIGHT_GREEN			, ecColor::CYAN				};
+	vector<int> objectCounts0 =				{ 25									, 4							, 30									, 5							, 6								, 1							};
+	vector<vector<int>> times0 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {5, 5, 15}					, {0, 0, 0}					};
+	vector<int> steps0 =					{ 2										, 1							, 1										, 1							, 1								, 9							};
 	this->Levels[0].set_up(laneCounts[0], objectTypes0, directions0, colors0, objectCounts0, times0, steps0, leftLimit, rightLimit);
 }
 

@@ -1,33 +1,28 @@
 #pragma once
 
-#include "cEdibleObject.h"
+#include "cSetting.h"
+#include "cFloat.h"
 
-enum class coinState
-{
-	AVAILABLE,
-	UNAVAILABLE,
-};
-
-class cCoin : public cEdibleObject
+class cWood : public cFloat
 {
 public:
 	static const char BRICK_SHAPE;
 	static const ecColor BRICK_COLOR;
 
 public:
-	cCoin(ecDirection direction, ecColor color, int x, int y);
-	virtual ~cCoin();
+	cWood(ecDirection direction, ecColor color, int x, int y, int step);
+	~cWood();
 
 public:
+	void move(int leftLimit, int rightLimit, int virtualDistance);
 	void draw(int leftLimit, int rightLimit);
+	void tell();
 	bool impact_xcor(int x);
-	bool is_edible();
-	void is_eaten();
-	bool was_eaten();
 	char brick_shape();
 	ecColor brick_color();
+
 private:
 	static const int N;
 	static const vector<char> Shapes;
-	coinState State;
 };
+
