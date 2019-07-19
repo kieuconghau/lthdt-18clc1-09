@@ -122,25 +122,36 @@ void cLevel::play()
 			}
 		}
 
-		//Hot keys
-		if (GetAsyncKeyState(0x50))
+		//Hot keys		
+		int flag = 0;
+		if ((GetAsyncKeyState(0x50)&0x8000)&&(flag==0))
 		{
-			thread P(&cScreen::screen_pause_game);			
+			//hot_key_pressed = true;
+			flag = 1;
+			thread P(cScreen::screen_pause_game);
 			P.join();
+			//hot_key_pressed = false;
 			this->draw();
 			this->People->draw();
 		}
-		if (GetAsyncKeyState(0x53))
+		if ((GetAsyncKeyState(0x53) & 0x8000) && (flag == 0))
 		{
-			thread S(&cScreen::screen_save_game);			
+			//hot_key_pressed = true;
+			flag = 1;
+			thread S(cScreen::screen_save_game);
+			if(GetAsyncKeyState(0x53))
 			S.join();
+			//hot_key_pressed = false;
 			this->draw();
-			this->People->draw();
-		}
-		if (GetAsyncKeyState(0x4C))
+			this->People->draw();			
+		}	
+		if ((GetAsyncKeyState(0x4C) & 0x8000) && (flag == 0))
 		{
-			thread L(&cScreen::screen_load_mid_game);
+			//hot_key_pressed = true;
+			flag = 1;
+			thread L(cScreen::screen_load_mid_game);
 			L.join();
+			//hot_key_pressed = false;
 			this->draw();
 			this->People->draw();
 		}
@@ -152,8 +163,9 @@ void cLevel::play()
 		}
 		Sleep(50);
 
-		if (GetAsyncKeyState(VK_ESCAPE))
+		if ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) && (flag == 0))
 		{
+			flag = 1;
 			break;
 		}
 	}
