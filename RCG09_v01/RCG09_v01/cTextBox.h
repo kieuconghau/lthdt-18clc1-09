@@ -23,7 +23,9 @@ public:
 		CONTINUE,
 		WIN,
 		GAME_OVER,
-		ENDING
+		ENDING,
+		YES,
+		NO
 	};
 
 	cTextBox(cTextBox::ecScreenType screenType, int x, int y, int width, string text, ecColor text_color, ecColor line_color);

@@ -727,3 +727,65 @@ void cScreen::draw_win(ecColor color)
 	print_text_at_middle(middleY + 6, "      '---'               '---'                   '---`'  ", color, true);
 }
 
+void cScreen::screen_escape()
+{
+	system("cls");
+
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " ____   ____  __ __  _____   ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "|    \\ /    ||  |  |/ ___/  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "|  o  )  o  ||  |  (   \\_  /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "|   _/|     ||  |  |\\__  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|  |  |  _  ||  :  |/  \\ ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|  |  |  |  ||     |\\    ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|__|  |__|__| \\__,_| \\___||_____|", ecColor::BLUE, true);
+
+	cTextBox resume(cTextBox::ecScreenType::CONTINUE, middleX, middleY - 2, 25, "RESUME GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox save(cTextBox::ecScreenType::SAVE_GAME, middleX, middleY + 2, 25, "SAVE GAME", ecColor::WHITE, ecColor::WHITE);
+	cTextBox load(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY + 6, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);;
+	cTextBox quit(cTextBox::ecScreenType::MENU, middleX, middleY + 10, 25, "QUIT GAME", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { resume,save,load,quit };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+	if (choice == cTextBox::ecScreenType::CONTINUE)
+		system("cls");
+	else if (choice == cTextBox::ecScreenType::SAVE_GAME)
+		screen_save_game();
+	else if (choice == cTextBox::ecScreenType::LOAD_GAME)
+		screen_load_mid_game();
+	else if (choice == cTextBox::ecScreenType::MENU)
+	{
+		if (screen_confirm())
+			exit(1);
+		else system("cls");
+	}	
+	else
+		throw;
+}
+
+bool cScreen::screen_confirm()
+{
+	system("cls");
+
+
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 14, "Are you sure?", ecColor::WHITE, true);
+
+	cTextBox yes(cTextBox::ecScreenType::YES, middleX, middleY - 12, 25, "YES", ecColor::WHITE, ecColor::WHITE);
+	cTextBox no(cTextBox::ecScreenType::NO, middleX, middleY - 8, 25, "NO", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { yes,no };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
+	if (choice == cTextBox::ecScreenType::YES)
+		return true;
+	else if (choice == cTextBox::ecScreenType::NO)
+		return false;
+	else throw;
+
+}

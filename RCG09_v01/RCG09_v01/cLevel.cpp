@@ -124,32 +124,29 @@ void cLevel::play()
 		int flag = 0;
 		if ((GetAsyncKeyState(0x50)&0x8000)&&(flag==0))
 		{
-			//hot_key_pressed = true;
 			flag = 1;
 			thread P(cScreen::screen_pause_game);
 			P.join();
-			//hot_key_pressed = false;
+			system("cls");
 			this->draw();
 			this->People->draw();
 		}
 		if ((GetAsyncKeyState(0x53) & 0x8000) && (flag == 0))
 		{
-			//hot_key_pressed = true;
 			flag = 1;
 			thread S(cScreen::screen_save_game);
 			if(GetAsyncKeyState(0x53))
 			S.join();
-			//hot_key_pressed = false;
+			system("cls");
 			this->draw();
 			this->People->draw();			
 		}	
 		if ((GetAsyncKeyState(0x4C) & 0x8000) && (flag == 0))
 		{
-			//hot_key_pressed = true;
 			flag = 1;
 			thread L(cScreen::screen_load_mid_game);
 			L.join();
-			//hot_key_pressed = false;
+			system("cls");
 			this->draw();
 			this->People->draw();
 		}
@@ -159,12 +156,17 @@ void cLevel::play()
 			this->People->draw();
 			break;
 		}
+
 		Sleep(50);
 
 		if ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) && (flag == 0))
 		{
 			flag = 1;
-			break;
+			thread Esc(cScreen::screen_escape);
+			Esc.join();
+			system("cls");
+			this->draw();
+			this->People->draw();
 		}
 	}
 }
