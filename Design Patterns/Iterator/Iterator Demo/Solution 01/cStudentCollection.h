@@ -4,15 +4,14 @@
 
 class cStudentCollection
 {
+	friend class cMinistryA;
+	friend class cMinistryB;
 public:
 	cStudentCollection();
 	~cStudentCollection();
 
-	void input_all_infos();
-	void show_all_infos();
-
 private:
-	cStudent* Students;
-	int N;
+	cStudent* Head;
 };
+
 

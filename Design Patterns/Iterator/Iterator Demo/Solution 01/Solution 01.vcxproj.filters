@@ -18,30 +18,24 @@
     <ClCompile Include="cLecturer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cPerson.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="cStudent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cStudentCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cLecturerCollections.cpp">
+    <ClCompile Include="cLecturerCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cClient.cpp">
+    <ClCompile Include="cMinistryA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cServer.cpp">
+    <ClCompile Include="cMinistryB.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cLecturer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cPerson.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cStudent.h">
@@ -50,13 +44,13 @@
     <ClInclude Include="cStudentCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cLecturerCollections.h">
+    <ClInclude Include="cLecturerCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cClient.h">
+    <ClInclude Include="cMinistryA.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cServer.h">
+    <ClInclude Include="cMinistryB.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
