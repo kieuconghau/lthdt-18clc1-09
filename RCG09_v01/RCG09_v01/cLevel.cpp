@@ -150,15 +150,6 @@ void cLevel::play()
 			this->draw();
 			this->People->draw();
 		}
-
-		if (this->People->is_dead())
-		{
-			this->People->draw();
-			break;
-		}
-
-		Sleep(50);
-
 		if ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) && (flag == 0))
 		{
 			flag = 1;
@@ -168,10 +159,24 @@ void cLevel::play()
 			this->draw();
 			this->People->draw();
 		}
+
+		if (this->People->is_dead())
+		{
+			this->People->draw();
+			break;
+		}
+
+		Sleep(50);
+		this->TimeAlotted -= 75;
+
+		if (this->TimeAlotted <= 0)
+		{
+			break;
+		}
 	}
 }
 
-void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+void cLevel::set_up(int laneCount,int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
 {
 	for (int i = 0; i < this->LaneCount; i++)
@@ -179,6 +184,7 @@ void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<e
 	delete[] this->Lanes;
 
 	this->LaneCount = laneCount;
+	this->TimeAlotted = timeAlotted*1000;
 	this->State = cLevel::ecState::PLAYING;
 	this->People = cPeople::get_instance();
 
