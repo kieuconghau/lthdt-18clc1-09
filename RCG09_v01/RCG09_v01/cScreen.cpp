@@ -111,6 +111,11 @@ void cScreen::screen_about()
 
 	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
 
+	print_text_at_middle(middleY - 4, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
+	print_text_at_middle(middleY -2, "18127118 - Mai Dang Khanh", ecColor::GREY, true);
+	print_text_at_middle(middleY + 0, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
+
+
 	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { back };
