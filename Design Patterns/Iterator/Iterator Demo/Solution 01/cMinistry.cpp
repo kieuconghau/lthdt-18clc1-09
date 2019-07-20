@@ -22,8 +22,9 @@ void cMinistry::show_list_students()
 	int i = 0;
 	for (cStudent* st = this->StudentCollection->Head; st != nullptr; st = st->next())
 	{
-		cout << " #" << i++ + 1 << endl;
+		cout << " #" << i + 1 << endl;
 		st->show_info();
+		i++;
 	}
 }
 

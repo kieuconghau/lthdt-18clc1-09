@@ -6,6 +6,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 {
 	this->MovableObjectType = objectType;
 	this->Direction = direction;
+	this->Step = step;
 
 	// Traffic light
 	if (this->is_vehicle_lane())

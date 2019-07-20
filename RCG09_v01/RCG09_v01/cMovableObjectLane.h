@@ -28,4 +28,5 @@ private:
 	ecDirection Direction;
 	cMovableObject** MovableObjects;
 	cTrafficLight* TrafficLight;
+	int Step;
 };

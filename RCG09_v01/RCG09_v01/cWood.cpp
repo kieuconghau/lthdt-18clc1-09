@@ -9,13 +9,13 @@
 //const vector<char> cWood::Shapes(cSetting::Object::Wood::SHAPES);
 
 
-const char cWood::BRICK_SHAPE(char(177));
+const char cWood::BRICK_SHAPE(char(219));
 
-const ecColor cWood::BRICK_COLOR(ecColor::BLUE);
+const ecColor cWood::BRICK_COLOR(ecColor::LIGHT_YELLOW);
 
-const int cWood::N(6);
+const int cWood::N(9);
 
-const vector<char> cWood::Shapes({ char(219), char(219), char(219), char(219), char(219), char(219)
+const vector<char> cWood::Shapes({ char(177), char(177), char(177), char(177), char(177), char(177), char(177), char(177), char(177)
 , cWood::BRICK_SHAPE, cWood::BRICK_SHAPE, cWood::BRICK_SHAPE
 , cWood::BRICK_SHAPE, cWood::BRICK_SHAPE, cWood::BRICK_SHAPE
 , cWood::BRICK_SHAPE, cWood::BRICK_SHAPE, cWood::BRICK_SHAPE });
