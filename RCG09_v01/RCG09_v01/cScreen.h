@@ -22,6 +22,8 @@ public:
 	static void screen_win();
 	static void screen_game_over();
 	static void screen_ending();
+	static void screen_escape();
+	static bool screen_confirm();
 private:
 	static void draw_coming_soon();
 	static void screen_border_decoration(int distanceFromScreenBorder,int numberOfLine);

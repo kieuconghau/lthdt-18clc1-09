@@ -18,11 +18,12 @@ public:
 	~cLevel();
 
 	void play();
-	void set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+	void set_up(int laneCount,int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 		, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit);
 
 private:
 	int LaneCount;
+	int TimeAlotted;
 	cLane** Lanes;
 	cPeople* People;
 	cLevel::ecState State;

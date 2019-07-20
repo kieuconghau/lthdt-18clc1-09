@@ -120,25 +120,42 @@ void cLevel::play()
 			}
 		}
 
-		//Hot keys
-		if (GetAsyncKeyState(0x50))
+		//Hot keys		
+		int flag = 0;
+		if ((GetAsyncKeyState(0x50)&0x8000)&&(flag==0))
 		{
-			thread P(&cScreen::screen_pause_game);			
+			flag = 1;
+			thread P(cScreen::screen_pause_game);
 			P.join();
+			system("cls");
 			this->draw();
 			this->People->draw();
 		}
-		if (GetAsyncKeyState(0x53))
+		if ((GetAsyncKeyState(0x53) & 0x8000) && (flag == 0))
 		{
-			thread S(&cScreen::screen_save_game);			
+			flag = 1;
+			thread S(cScreen::screen_save_game);
+			if(GetAsyncKeyState(0x53))
 			S.join();
+			system("cls");
+			this->draw();
+			this->People->draw();			
+		}	
+		if ((GetAsyncKeyState(0x4C) & 0x8000) && (flag == 0))
+		{
+			flag = 1;
+			thread L(cScreen::screen_load_mid_game);
+			L.join();
+			system("cls");
 			this->draw();
 			this->People->draw();
 		}
-		if (GetAsyncKeyState(0x4C))
+		if ((GetAsyncKeyState(VK_ESCAPE) & 0x8000) && (flag == 0))
 		{
-			thread L(&cScreen::screen_load_mid_game);
-			L.join();
+			flag = 1;
+			thread Esc(cScreen::screen_escape);
+			Esc.join();
+			system("cls");
 			this->draw();
 			this->People->draw();
 		}
@@ -148,16 +165,18 @@ void cLevel::play()
 			this->People->draw();
 			break;
 		}
-		Sleep(50);
 
-		if (GetAsyncKeyState(VK_ESCAPE))
+		Sleep(50);
+		this->TimeAlotted -= 75;
+
+		if (this->TimeAlotted <= 0)
 		{
 			break;
 		}
 	}
 }
 
-void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+void cLevel::set_up(int laneCount,int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
 {
 	for (int i = 0; i < this->LaneCount; i++)
@@ -165,6 +184,7 @@ void cLevel::set_up(int laneCount, vector<cObject::ecType> objectTypes, vector<e
 	delete[] this->Lanes;
 
 	this->LaneCount = laneCount;
+	this->TimeAlotted = timeAlotted*1000;
 	this->State = cLevel::ecState::PLAYING;
 	this->People = cPeople::get_instance();
 
