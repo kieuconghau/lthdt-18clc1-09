@@ -7,6 +7,7 @@ cLevel::cLevel()
 	this->Lanes = nullptr;
 	this->People = cPeople::get_instance();
 	this->State = cLevel::ecState::PLAYING;
+	this->TimeAlotted = 0;
 }
 
 cLevel::~cLevel()
@@ -176,7 +177,7 @@ void cLevel::play()
 	}
 }
 
-void cLevel::set_up(int laneCount,int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+void cLevel::set_up(int laneCount, int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
 {
 	for (int i = 0; i < this->LaneCount; i++)
