@@ -15,7 +15,7 @@ cLane* cLaneFactory::create(cObject::ecType objectType, ecDirection direction, e
 	case cObject::ecType::MA_DINOSAUR:
 		return new cMovableObjectLane(objectType, direction, objectColor, objectCount, y, time, step, leftLimit, rightLimit);
 	case cObject::ecType::MF_WOOD:
-		//return new cMovableObjectLane(objectType, direction, objectColor, objectCount, y, time, step, leftLimit, rightLimit);
+		return new cMovableObjectLane(objectType, direction, objectColor, objectCount, y, time, step, leftLimit, rightLimit);
 	case cObject::ecType::FE_COIN:
 		return new cFixedObjectLane(objectType, direction, objectColor, y, objectCount, leftLimit, rightLimit);
 	case cObject::ecType::FI_STONE:

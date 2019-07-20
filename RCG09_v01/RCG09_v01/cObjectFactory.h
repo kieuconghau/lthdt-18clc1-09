@@ -6,6 +6,8 @@
 #include "cBird.h"
 #include "cDinosaur.h"
 
+#include "cWood.h"
+
 #include "cStone.h"
 #include "cCoin.h"
 

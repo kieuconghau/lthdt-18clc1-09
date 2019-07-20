@@ -5,6 +5,7 @@
 #include "cTrain.h"
 #include "cBird.h"
 #include "cDinosaur.h"
+#include "cWood.h"
 #include "cCoin.h"
 #include "cStone.h"
 #include "cPeople.h"

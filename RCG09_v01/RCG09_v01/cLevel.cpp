@@ -59,9 +59,7 @@ void cLevel::draw()
 
 void cLevel::play()
 {
-
 	this->draw();
-
 
 	// Set starting position for people
 	this->People->set_starting_pos((cSetting::Game::RIGHT_LIMIT + cSetting::Game::LEFT_LIMIT)/2, cSetting::Game::BOT_LIMIT - 2);

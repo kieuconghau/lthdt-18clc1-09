@@ -25,6 +25,8 @@ const vector<char> cTrain::Shapes({ char(220), char(219), char(219), char(219), 
 , cTrain::BRICK_SHAPE, cTrain::BRICK_SHAPE, cTrain::BRICK_SHAPE
 , cTrain::BRICK_SHAPE, cTrain::BRICK_SHAPE, cTrain::BRICK_SHAPE });
 
+const int cTrain::DisappearTime = 450;
+
 
 cTrain::cTrain(ecDirection direction, ecColor color, int x, int y, int step)
 	: cVehicle(cObject::ecType::MV_TRAIN, cTrain::N, direction, color, x, y, step)
@@ -37,6 +39,8 @@ cTrain::~cTrain() {}
 
 void cTrain::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	virtualDistance = cTrain::DisappearTime;
+
 	if (this->Direction == ecDirection::RIGHT)
 	{
 		for (int i = 0; i < cTrain::N + this->Step; i++)
@@ -108,7 +112,8 @@ bool cTrain::impact_xcor(int x)
 	return false;
 }
 
-char cTrain::brick_shape() {
+char cTrain::brick_shape()
+{
 	return this->BRICK_SHAPE;
 }
 ecColor cTrain::brick_color()

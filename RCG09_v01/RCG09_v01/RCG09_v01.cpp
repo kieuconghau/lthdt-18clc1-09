@@ -3,8 +3,8 @@
 int main()
 {
 	srand(time(nullptr));
-	cGame game;
-	game.play();
+	cGame* game = cGame::get_instance();
+	game->play();
 
 	return 0;
 }
