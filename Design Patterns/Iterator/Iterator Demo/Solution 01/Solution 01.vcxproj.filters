@@ -27,10 +27,7 @@
     <ClCompile Include="cLecturerCollection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cMinistryA.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="cMinistryB.cpp">
+    <ClCompile Include="cMinistry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,10 +44,7 @@
     <ClInclude Include="cLecturerCollection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cMinistryA.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="cMinistryB.h">
+    <ClInclude Include="cMinistry.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

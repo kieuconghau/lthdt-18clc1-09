@@ -125,16 +125,14 @@
   <ItemGroup>
     <ClCompile Include="cLecturer.cpp" />
     <ClCompile Include="cLecturerCollection.cpp" />
-    <ClCompile Include="cMinistryA.cpp" />
-    <ClCompile Include="cMinistryB.cpp" />
+    <ClCompile Include="cMinistry.cpp" />
     <ClCompile Include="cStudent.cpp" />
     <ClCompile Include="cStudentCollection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cLecturer.h" />
     <ClInclude Include="cLecturerCollection.h" />
-    <ClInclude Include="cMinistryA.h" />
-    <ClInclude Include="cMinistryB.h" />
+    <ClInclude Include="cMinistry.h" />
     <ClInclude Include="cStudent.h" />
     <ClInclude Include="cStudentCollection.h" />
   </ItemGroup>

@@ -4,8 +4,7 @@
 
 class cLecturerCollection
 {
-	friend class cMinistryA;
-	friend class cMinistryB;
+	friend class cMinistry;
 public:
 	cLecturerCollection();
 	~cLecturerCollection();
@@ -15,3 +14,4 @@ private:
 	cLecturer* Lecturers[MAX];
 	int Count;
 };
+

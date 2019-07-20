@@ -4,8 +4,7 @@
 
 class cStudentCollection
 {
-	friend class cMinistryA;
-	friend class cMinistryB;
+	friend class cMinistry;
 public:
 	cStudentCollection();
 	~cStudentCollection();
@@ -13,5 +12,3 @@ public:
 private:
 	cStudent* Head;
 };
-
-
