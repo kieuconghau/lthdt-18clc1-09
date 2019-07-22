@@ -43,6 +43,9 @@ public:
 	
 	void change_brick(char brickShape, ecColor brickColor);
 
+	void winning_effect();
+	void losing_effect();
+
 private:
 	static cPeople* Instance;
 

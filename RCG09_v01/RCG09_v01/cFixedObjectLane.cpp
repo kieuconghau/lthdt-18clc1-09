@@ -108,7 +108,7 @@ void cFixedObjectLane::draw()
 	}
 }
 
-void cFixedObjectLane::impact(cPeople* people)
+int cFixedObjectLane::impact(cPeople* people)
 {
 	if (people->is_in_line(this->Y)) {
 
@@ -118,15 +118,20 @@ void cFixedObjectLane::impact(cPeople* people)
 				if (this->FixedObjects[i]->is_edible()) {
 					if (!this->FixedObjects[i]->was_eaten()) {
 						this->FixedObjects[i]->is_eaten();
+						return 1;
+					}
+					else {
+						return 0;
 					}
 				}
 				else {
 					people->move_back();
+					return 0;
 				}
-				return;
 			}
 		}
 	}
+	return 0;
 }
 
 void cFixedObjectLane::change_people_brick(cPeople* people)
