@@ -101,7 +101,7 @@ void cMovableObjectLane::work()
 	}
 }
 
-void cMovableObjectLane::impact(cPeople* people)
+int cMovableObjectLane::impact(cPeople* people)
 {
 	// Check if people is on this lane? (check y_cor)
 	if (people->is_in_line(this->Y))
@@ -112,7 +112,7 @@ void cMovableObjectLane::impact(cPeople* people)
 			if (people->is_impacted(this->MovableObjects[i]))
 			{
 				people->die();
-				return;
+				return 0;
 			}
 
 			// Check if people impact on a traffic light on this light (check x_cor)
@@ -124,7 +124,9 @@ void cMovableObjectLane::impact(cPeople* people)
 				}
 			}
 		}
+		return 0;
 	}
+	return 0;
 }
 
 void cMovableObjectLane::draw()

@@ -4,6 +4,28 @@
 #include "Graphic.h"
 #include <iostream>
 
+class cObject;
+
+class cWood;
+class cStone;
+class cCoin;
+
+class cBird;
+class cDinosaur;
+
+class cCar;
+
+class cTruck;
+class cTrain;
+
+class cTrafficLight;
+
+class cLane;
+
+class cMoveableObjectLane;
+class cFixedObjectLane;
+
+
 class cScreen
 {
 public:
@@ -24,6 +46,7 @@ public:
 	static void screen_ending();
 	static void screen_escape();
 	static bool screen_confirm();
+	static void screen_how_to_play();
 private:
 	static void draw_coming_soon();
 	static void screen_border_decoration(int distanceFromScreenBorder,int numberOfLine);

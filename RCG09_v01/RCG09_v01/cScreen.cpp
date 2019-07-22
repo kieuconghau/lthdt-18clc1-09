@@ -1,4 +1,16 @@
 #include "cScreen.h"
+#include "cObject.h"
+#include "cLane.h"
+#include  "cBird.h"
+#include "cDinosaur.h"
+#include "cCar.h"
+#include "cCoin.h"
+#include "cFixedObjectLane.h"
+#include "cMovableObjectLane.h"
+#include "cStone.h"
+#include "cTrain.h"
+#include "cTruck.h"
+#include "cWood.h"
 
 void cScreen::screen_account()
 {
@@ -788,4 +800,37 @@ bool cScreen::screen_confirm()
 		return false;
 	else throw;
 
+}
+
+void cScreen::screen_how_to_play()
+{
+	system("cls");
+
+
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
+
+	print_text_at_middle(0, " __ __   ___   __    __      ______   ___       ____   _       ____  __ __ ", ecColor::BLUE, true);
+	print_text_at_middle(1, "|  |  | /   \\ |  |__|  |    |      | /   \\     |    \\ | |     /    ||  |  |", ecColor::BLUE, true);
+	print_text_at_middle(2, "|  |  ||     ||  |  |  |    |      ||     |    |  o  )| |    |  o  ||  |  |", ecColor::BLUE, true);
+	print_text_at_middle(3, "|  _  ||  O  ||  |  |  |    |_|  |_||  O  |    |   _/ | |___ |     ||  ~  |", ecColor::BLUE, true);
+	print_text_at_middle(4, "|  |  ||     ||  `  '  |      |  |  |     |    |  |   |     ||  _  ||___, |", ecColor::BLUE, true);
+	print_text_at_middle(5, "|  |  ||     | \\      /       |  |  |     |    |  |   |     ||  |  ||     |", ecColor::BLUE, true);
+	print_text_at_middle(6, "|__|__| \\___/   \\_/\\_/        |__|   \\___/     |__|   |_____||__|__||____/ ", ecColor::BLUE, true);
+
+	ecDirection direction = ecDirection::RIGHT;
+
+	ecColor firstColor = ecColor::RED;
+	ecColor secondColor = ecColor::BLUE;
+	ecColor thirdColor = ecColor::CYAN;
+	ecColor fourthColor = ecColor::GREEN;
+
+	int firstLeftLimit = 1;
+	int firstRightLimit = middleX - 2;
+	
+	int secondLeftLimit = middleX + 2;
+	int secondRightLimit = get_console_width() - 1;
+
+	cLane* BirdLane = new cMovableObjectLane(cObject::ecType::MA_BIRD, direction, firstColor, 3, 10, { 0,1,2 }, 1, firstLeftLimit, firstRightLimit);
+	BirdLane->draw();
 }
