@@ -2,9 +2,10 @@
 
 #include <iostream>
 #include <string>
+#include "cUniversityPersonel.h"
 using namespace std;
 
-class cStudent
+class cStudent:public cUniversityPersonel
 {
 public:
 	cStudent(string name = "N/A", string id = "N/A");

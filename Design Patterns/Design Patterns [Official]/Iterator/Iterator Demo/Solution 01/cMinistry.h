@@ -2,7 +2,7 @@
 
 #include "cLecturerCollection.h"
 #include "cStudentCollection.h"
-
+#include "cIterator.h"
 class cMinistry
 {
 public:

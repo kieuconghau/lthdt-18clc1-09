@@ -30,6 +30,18 @@
     <ClCompile Include="cMinistry.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cLecturerCollectionIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cStudentCollectionIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cUniversityPersonel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cLecturer.h">
@@ -45,6 +57,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cMinistry.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cLecturerCollectionIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cStudentCollectionIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cUniversityPersonel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

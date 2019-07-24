@@ -123,18 +123,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cIterator.cpp" />
     <ClCompile Include="cLecturer.cpp" />
     <ClCompile Include="cLecturerCollection.cpp" />
+    <ClCompile Include="cLecturerCollectionIterator.cpp" />
     <ClCompile Include="cMinistry.cpp" />
     <ClCompile Include="cStudent.cpp" />
     <ClCompile Include="cStudentCollection.cpp" />
+    <ClCompile Include="cStudentCollectionIterator.cpp" />
+    <ClCompile Include="cUniversityPersonel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cIterator.h" />
     <ClInclude Include="cLecturer.h" />
     <ClInclude Include="cLecturerCollection.h" />
+    <ClInclude Include="cLecturerCollectionIterator.h" />
     <ClInclude Include="cMinistry.h" />
     <ClInclude Include="cStudent.h" />
     <ClInclude Include="cStudentCollection.h" />
+    <ClInclude Include="cStudentCollectionIterator.h" />
+    <ClInclude Include="cUniversityPersonel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
