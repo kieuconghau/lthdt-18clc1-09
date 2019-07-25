@@ -17,6 +17,7 @@ void cMinistry::show_list_lecturers()
 		iterator->current_item()->show_info();
 		i++;
 	}
+	delete iterator;
 }
 
 void cMinistry::show_list_students()
@@ -30,6 +31,7 @@ void cMinistry::show_list_students()
 		iterator->current_item()->show_info();
 		i++;
 	}
+	delete iterator;
 }
 
 void cMinistry::add_one_lecturer(const cLecturer& lecturer)
