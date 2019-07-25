@@ -8,24 +8,30 @@ cMinistry::cMinistry(cLecturerCollection* lecturerCollection, cStudentCollection
 
 void cMinistry::show_list_lecturers()
 {
+	cIterator* iterator = this->LecturerCollection->create_iterator();
 	cout << "~ List of lecturers ~" << endl;
-	for (int i = 0; i < this->LecturerCollection->Count; ++i)
+	int i = 0;
+	for (iterator->first(); !iterator->is_end(); iterator->next())
 	{
 		cout << " #" << i + 1 << endl;
-		this->LecturerCollection->Lecturers[i]->show_info();
+		iterator->current_item()->show_info();
+		i++;
 	}
+	delete iterator;
 }
 
 void cMinistry::show_list_students()
 {
+	cIterator* iterator = this->StudentCollection->create_iterator();
 	cout << "~ List of students ~" << endl;
 	int i = 0;
-	for (cStudent* st = this->StudentCollection->Head; st != nullptr; st = st->next())
+	for (iterator->first(); !iterator->is_end(); iterator->next())
 	{
 		cout << " #" << i + 1 << endl;
-		st->show_info();
+		iterator->current_item()->show_info();
 		i++;
 	}
+	delete iterator;
 }
 
 void cMinistry::add_one_lecturer(const cLecturer& lecturer)
