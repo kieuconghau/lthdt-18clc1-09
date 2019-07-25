@@ -8,7 +8,6 @@ class Shape;
 class Triangle;
 class Rectangle;
 
-
 class ShapeVisitor
 {
 public:

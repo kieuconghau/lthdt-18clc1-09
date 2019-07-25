@@ -8,4 +8,3 @@ public:
 	void visit_triangle(Triangle* src);
 	void visit_rectangle(Rectangle* src);
 };
-

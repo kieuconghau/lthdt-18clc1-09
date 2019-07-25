@@ -5,9 +5,9 @@
 using namespace std;
 
 class ShapeVisitor;
-class CalculateAreaVisitor;
-class CalculatePerimeterVisitor;
-class CalculateDisplayVisitor;
+//class CalculateAreaVisitor;
+//class CalculatePerimeterVisitor;
+//class CalculateDisplayVisitor;
 
 class Shape
 {

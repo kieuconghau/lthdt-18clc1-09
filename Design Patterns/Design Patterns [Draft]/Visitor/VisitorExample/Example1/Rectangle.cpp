@@ -6,10 +6,9 @@ Rectangle::Rectangle(float width, float height)
 	this->height = height;
 }
 
-
 void Rectangle::display()
 {
-	cout << "Width: " << width << "/Height: " << height;
+	cout << "Width: " << width << " / Height: " << height << endl;
 }
 
 float Rectangle::calculate_area()
@@ -21,4 +20,3 @@ float Rectangle::calculate_perimeter()
 {
 	return (width + height) * 2;
 }
-
