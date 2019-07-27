@@ -12,4 +12,3 @@ cLecturerCollection::~cLecturerCollection()
 	for (int i = 0; i < this->Count; ++i)
 		delete this->Lecturers[i];
 }
-

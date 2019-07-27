@@ -1,7 +1,5 @@
 #include "cStudentCollectionIterator.h"
 
-
-
 cStudentCollectionIterator::cStudentCollectionIterator(const cStudentCollection* studentCollection)
 {
 	this->collection = studentCollection;
@@ -16,7 +14,7 @@ void cStudentCollectionIterator::next()
 {
 	index = index->next();
 }
-bool cStudentCollectionIterator::is_end()
+bool cStudentCollectionIterator::is_done()
 {
 	return index == nullptr;
 }
@@ -29,4 +27,3 @@ cIterator* cStudentCollection::create_iterator()
 {
 	return new cStudentCollectionIterator(this);
 }
-
