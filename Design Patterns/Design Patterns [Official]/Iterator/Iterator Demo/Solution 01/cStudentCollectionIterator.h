@@ -1,7 +1,7 @@
 #pragma once
-
 #include "cIterator.h"
-class cStudentCollectionIterator:public cIterator
+
+class cStudentCollectionIterator : public cIterator
 {
 public:
 	cStudentCollectionIterator(const cStudentCollection* lecturerCollection);
