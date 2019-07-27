@@ -49,5 +49,15 @@ cGame::~cGame()
 
 void cGame::play()
 {
-	this->Levels[0].play();
+
+
+	while (true)
+	{
+		this->Levels[this->CurrentLevel - 1].play();
+
+		if (this->State != ecState::PLAYING)
+		{
+			break;
+		}
+	}
 }

@@ -174,16 +174,16 @@ void cScreen::screen_menu()
 		screen_account();
 	else
 		throw;
-
 }
 
 void cScreen::screen_game()
 {
 	system("cls");
 
-	/*
-		Start game
-	*/
+	cGame* game = cGame::get_instance();
+	game->play();
+
+	delete game;
 }
 
 void cScreen::screen_load_game()

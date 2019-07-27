@@ -190,6 +190,9 @@ void cLevel::play()
 			flag = 1;
 			thread Esc(cScreen::screen_escape);
 			Esc.join();
+
+			if ()
+
 			system("cls");
 			this->draw();
 			this->People->draw();
