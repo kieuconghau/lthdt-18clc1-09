@@ -197,9 +197,11 @@ void cPeople::change_brick(char brickShape, ecColor brickColor)
 
 void cPeople::winning_effect() {
 	this->draw();
+	Sleep(500);
 }
 
 void cPeople::losing_effect()
 {
 	this->draw();
+	Sleep(1000);
 }

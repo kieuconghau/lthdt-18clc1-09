@@ -1,4 +1,7 @@
 #pragma once
+#pragma comment(lib, "winmm.lib")
+#include <windows.h>
+#include <mmsystem.h>
 
 #include "cMovableObject.h"
 

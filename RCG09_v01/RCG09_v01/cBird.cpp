@@ -85,7 +85,7 @@ void cBird::draw(int leftLimit, int rightLimit)
 
 void cBird::tell()
 {
-	// do_sth
+	PlaySound(TEXT("bird.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cBird::impact_xcor(int x)

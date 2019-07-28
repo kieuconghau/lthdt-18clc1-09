@@ -85,7 +85,7 @@ void cDinosaur::draw(int leftLimit, int rightLimit)
 
 void cDinosaur::tell()
 {
-	// do_sth
+	PlaySound(TEXT("dino.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cDinosaur::impact_xcor(int x)
