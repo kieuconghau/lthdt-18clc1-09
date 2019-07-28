@@ -2,9 +2,15 @@
 
 #include "ShapeVisitor.h"
 
-class DisplayVisitor : public ShapeVisitor
+class CalculateAreaVisitor: public ShapeVisitor
 {
 public:
+	CalculateAreaVisitor();
 	void visit_triangle(Triangle* src);
 	void visit_rectangle(Rectangle* src);
+	float get_result();
+private:
+	float result;
 };
+
+
