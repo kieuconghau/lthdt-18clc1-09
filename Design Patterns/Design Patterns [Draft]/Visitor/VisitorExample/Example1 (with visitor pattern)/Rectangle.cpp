@@ -14,6 +14,7 @@ void Rectangle::accept(ShapeVisitor* v)
 
 float Rectangle::get_height()
 {
+
 	return height;
 }
 
@@ -21,4 +22,3 @@ float Rectangle::get_width()
 {
 	return width;
 }
-

@@ -9,17 +9,18 @@ Triangle::Triangle(float a, float b, float c)
 
 void Triangle::display()
 {
-	cout << "a: " << a << " / b: " << b << " / c: " << c << endl;
+	cout << "a: " << a << "/b: " << b << "/c: " << c;
 }
 
 float Triangle::calculate_area()
 {
 	float p = (a + b + c) / 2;
 
-	return sqrtf(p * (p - a) * (p - b) * (p - c));
+	return sqrt(p * (p - a) * (p - b) * (p - c));
 }
 
 float Triangle::calculate_perimeter()
 {
-	return a +b + c;
+	return a +b +c;
 }
+

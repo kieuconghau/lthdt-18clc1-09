@@ -2,13 +2,14 @@
 
 #include "Shape.h"
 
-class Rectangle : public Shape
+class Rectangle
 {
 public:
 	Rectangle(float width, float height);
-	void accept(ShapeVisitor* v) override;
+	void accept(ShapeVisitor* v);
 	float get_height();
 	float get_width();
 private:
 	float width, height;
 };
+

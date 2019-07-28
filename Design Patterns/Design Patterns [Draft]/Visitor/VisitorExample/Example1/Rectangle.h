@@ -6,9 +6,10 @@ class Rectangle : public Shape
 {
 public:
 	Rectangle(float width, float height);
-	void display() override;
-	float calculate_area() override;
-	float calculate_perimeter() override;
+	void display();
+	float calculate_area();
+	float calculate_perimeter();
 private:
 	float width, height;
 };
+
