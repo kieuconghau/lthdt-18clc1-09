@@ -14,7 +14,8 @@ cLevel::cLevel()
 	this->FinishLine = 0;
 	this->MaxCoin = 0;
 	this->TimeCount = 0;
-	this->unblockCount = 0;
+	this->UnblockCount = 0;
+	this->Level = 0;
 }
 
 cLevel::~cLevel()
@@ -28,20 +29,20 @@ cLevel::~cLevel()
 
 void cLevel::draw()
 {
-	/* Draw borders */
+	/* Draw game's borders */
 	text_color(cSetting::Game::BORDER_COLOR);
 
-	goto_xy(cSetting::Game::LEFT_LIMIT, cSetting::Game::TOP_LIMIT);
+	goto_xy(cSetting::Game::LEFT_LIMIT, cSetting::Game::TOP_LIMIT_1);
 	cout << char(201);
 	for (int i = 0; i < cSetting::Game::RIGHT_LIMIT - cSetting::Game::LEFT_LIMIT - 1; i++)
 		cout << char(205);
 	cout << char(187);
 
-	for (int i = 0; i < cSetting::Game::BOT_LIMIT - cSetting::Game::TOP_LIMIT - 1; i++)
+	for (int i = 0; i < cSetting::Game::BOT_LIMIT - cSetting::Game::TOP_LIMIT_1 - 1; i++)
 	{
-		goto_xy(cSetting::Game::LEFT_LIMIT, i + cSetting::Game::TOP_LIMIT + 1);
+		goto_xy(cSetting::Game::LEFT_LIMIT, i + cSetting::Game::TOP_LIMIT_1 + 1);
 		cout << char(186);
-		goto_xy(cSetting::Game::RIGHT_LIMIT, i + cSetting::Game::TOP_LIMIT + 1);
+		goto_xy(cSetting::Game::RIGHT_LIMIT, i + cSetting::Game::TOP_LIMIT_1 + 1);
 		cout << char(186);
 	}
 
@@ -51,6 +52,21 @@ void cLevel::draw()
 		cout << char(205);
 	cout << char(188);
 
+	goto_xy(cSetting::Game::LEFT_LIMIT, cSetting::Game::TOP_LIMIT);
+	cout << char(204);
+	for (int i = 0; i < cSetting::Game::RIGHT_LIMIT - cSetting::Game::LEFT_LIMIT - 1; i++)
+		cout << char(205);
+	cout << char(185);
+
+	goto_xy(cSetting::Game::LEFT_LIMIT_1, cSetting::Game::TOP_LIMIT_1);
+	cout << char(203);
+	for (int y = cSetting::Game::TOP_LIMIT_1 + 1; y < cSetting::Game::TOP_LIMIT; y++)
+	{
+		goto_xy(cSetting::Game::LEFT_LIMIT_1, y);
+		cout << char(186);
+	}
+	goto_xy(cSetting::Game::LEFT_LIMIT_1, cSetting::Game::TOP_LIMIT);
+	cout << char(202);
 
 	/* Draw lanes */
 	for (int i = 0; i < this->LaneCount; i++)
@@ -60,7 +76,6 @@ void cLevel::draw()
 
 
 	/* Draw finish line  */
-
 	ecColor flFirstColor = ecColor::WHITE;
 	ecColor flSecondColor = ecColor::WHITE;
 	for (int i = cSetting::Game::LEFT_LIMIT + 1; i <= cSetting::Game::RIGHT_LIMIT - 1; i++) {
@@ -77,10 +92,15 @@ void cLevel::draw()
 		}
 	}
 
-	//draw finishing block
 
+	/* Draw finishing block */
 	this->draw_finish_block();
 
+
+	/* Draw current level */
+	goto_xy(cSetting::Game::LEFT_LIMIT + 2, cSetting::Game::TOP_LIMIT_1 + 1);
+	text_color(ecColor::CYAN);
+	cout << "LEVEL " << this->Level;
 
 	text_color();
 	goto_xy(0, 0);
@@ -142,8 +162,8 @@ void cLevel::play()
 				break;
 			}
 
-			if ((this->CurrentCoin == this->MaxCoin) && (unblockCount == 0)) {
-				unblockCount++;
+			if ((this->CurrentCoin == this->MaxCoin) && (UnblockCount == 0)) {
+				UnblockCount++;
 				this->destroy_finish_block();
 				topLimit = FinishLine - 1;
 			}
@@ -236,8 +256,8 @@ void cLevel::play()
 			break;
 		}
 
-		if ((this->CurrentCoin == this->MaxCoin) && (unblockCount == 0)) {
-			unblockCount++;
+		if ((this->CurrentCoin == this->MaxCoin) && (UnblockCount == 0)) {
+			UnblockCount++;
 			this->destroy_finish_block();
 			topLimit = FinishLine - 1;
 		}
@@ -250,17 +270,18 @@ void cLevel::play()
 	}
 }
 
-void cLevel::set_up(int laneCount,int finishLine,int maxCoin, int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+void cLevel::set_up(int level, int laneCount,int finishLine,int maxCoin, int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
 	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
 {
 	for (int i = 0; i < this->LaneCount; i++)
 		delete this->Lanes[i];
 	delete[] this->Lanes;
 
+	this->Level = level;
 	this->LaneCount = laneCount;
 	this->FinishLine = finishLine;
 	this->FinishBlock = finishLine + 1;
-	this->unblockCount = 0;
+	this->UnblockCount = 0;
 	this->MaxCoin = maxCoin;
 	this->CurrentCoin = 0;
 	this->TimeCount = 0;
@@ -296,7 +317,7 @@ bool cLevel::lose(cPeople* people)
 
 void cLevel::draw_finish_block()
 {
-	if (this->unblockCount > 0) {
+	if (this->UnblockCount > 0) {
 		return;
 	}
 	ecColor flFirstColor = ecColor::LIGHT_RED;
@@ -308,7 +329,8 @@ void cLevel::draw_finish_block()
 
 	int i = 0;
 	for ( i = cSetting::Game::LEFT_LIMIT + 2; i <= cSetting::Game::RIGHT_LIMIT - 2; i++) {
-			cout << char(176);
+		cout << char(176);
+		//cout << char(35);
 	}
 
 	cout << char(174);
@@ -321,7 +343,7 @@ void cLevel::draw_finish_block()
 
 void cLevel::destroy_finish_block()
 {
-	this->unblockCount++;
+	this->UnblockCount++;
 	ecColor flFirstColor = ecColor::LIGHT_RED;
 	ecColor flSecondColor = ecColor::BLACK;
 
@@ -380,7 +402,7 @@ bool cLevel::lost()
 void cLevel::reset()
 {
 	this->TimeCount = this->TimeAlotted;
-	this->unblockCount = 0;
+	this->UnblockCount = 0;
 	this->CurrentCoin = 0;
 
 	for (int i = 0; i < this->LaneCount; i++) {

@@ -7,10 +7,12 @@ const bool cSetting::Console::SETTING_2(zoom_full_console_window());
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* Setting: Game screen */
-const int cSetting::Game::TOP_LIMIT = 1;
-const int cSetting::Game::BOT_LIMIT = get_console_height() - cSetting::Game::TOP_LIMIT - 1;
-const int cSetting::Game::LEFT_LIMIT = 1;
+const int cSetting::Game::TOP_LIMIT = 5;
+const int cSetting::Game::BOT_LIMIT = get_console_height() - 3;
+const int cSetting::Game::LEFT_LIMIT = 3;
 const int cSetting::Game::RIGHT_LIMIT = get_console_width() - cSetting::Game::LEFT_LIMIT - 1;
+const int cSetting::Game::TOP_LIMIT_1 = cSetting::Game::TOP_LIMIT - 2;
+const int cSetting::Game::LEFT_LIMIT_1 = cSetting::Game::LEFT_LIMIT + 11;
 const ecColor cSetting::Game::BORDER_COLOR = ecColor::WHITE;
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

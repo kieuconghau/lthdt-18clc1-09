@@ -716,7 +716,7 @@ void cScreen::screen_ending()
 	print_text_at_middle(middleY - 1, "    \\|__|     \\|_______|    \\|__|\\|__|        \\|__|       \\|_______|    \\|__|\\|__||\\___/ /         \\|__|    \\|__| \\|__|    \\|_______| ", ecColor::CYAN, true);
 	print_text_at_middle(middleY + 0, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
-	Sleep(1500);
+	Sleep(300);
 	print_text_at_middle(lastY - 16, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
 	Sleep(300);
 
