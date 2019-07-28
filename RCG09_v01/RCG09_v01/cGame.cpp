@@ -288,4 +288,4 @@ void cGame::new_game()
 void cGame::playing()
 {
 	this->State = ecState::PLAYING;
-}
+

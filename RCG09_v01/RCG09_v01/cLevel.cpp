@@ -205,6 +205,9 @@ void cLevel::play()
 			flag = 1;
 			thread Esc(cScreen::screen_escape);
 			Esc.join();
+
+			if ()
+
 			system("cls");
 
 			if (gameStateOnly->state_is_loading()) {

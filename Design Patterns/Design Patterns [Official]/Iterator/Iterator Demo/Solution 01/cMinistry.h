@@ -1,8 +1,8 @@
 #pragma once
-
 #include "cLecturerCollection.h"
 #include "cStudentCollection.h"
 #include "cIterator.h"
+
 class cMinistry
 {
 public:
@@ -15,5 +15,7 @@ public:
 private:
 	cLecturerCollection* LecturerCollection;
 	cStudentCollection* StudentCollection;
-};
 
+private:
+	void show_list(cIterator* iterator);
+};

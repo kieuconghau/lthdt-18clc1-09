@@ -131,7 +131,7 @@
     <ClCompile Include="cStudent.cpp" />
     <ClCompile Include="cStudentCollection.cpp" />
     <ClCompile Include="cStudentCollectionIterator.cpp" />
-    <ClCompile Include="cUniversityPersonel.cpp" />
+    <ClCompile Include="cUniversityPersonnel.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cIterator.h" />
@@ -142,7 +142,7 @@
     <ClInclude Include="cStudent.h" />
     <ClInclude Include="cStudentCollection.h" />
     <ClInclude Include="cStudentCollectionIterator.h" />
-    <ClInclude Include="cUniversityPersonel.h" />
+    <ClInclude Include="cUniversityPersonnel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

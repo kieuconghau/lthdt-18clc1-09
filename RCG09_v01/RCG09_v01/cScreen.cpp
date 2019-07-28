@@ -168,7 +168,6 @@ void cScreen::screen_menu()
 		vector<cTextBox> menu = { newGame , loadGame, setting,about,howToPlay, back };
 		cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-
 		if (choice == cTextBox::ecScreenType::GAME)
 			screen_game();
 		else if (choice == cTextBox::ecScreenType::LOAD_GAME)
@@ -192,7 +191,6 @@ void cScreen::screen_menu()
 void cScreen::screen_game()
 {
 	system("cls");
-
 	cGame* game = cGame::get_instance();
 	game->new_game();
 }

@@ -1,16 +1,15 @@
 #pragma once
-
+#include "cUniversityPersonnel.h"
 #include <iostream>
 #include <string>
-#include "cUniversityPersonel.h"
 using namespace std;
 
-class cStudent:public cUniversityPersonel
+class cStudent : public cUniversityPersonnel
 {
 public:
 	cStudent(string name = "N/A", string id = "N/A");
-	void input_info();
-	void show_info();
+	void input_info() override;
+	void show_info() override;
 	cStudent*& next();
 
 private:

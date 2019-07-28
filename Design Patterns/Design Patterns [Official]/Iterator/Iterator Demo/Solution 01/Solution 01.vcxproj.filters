@@ -39,7 +39,7 @@
     <ClCompile Include="cStudentCollectionIterator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cUniversityPersonel.cpp">
+    <ClCompile Include="cUniversityPersonnel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClInclude Include="cStudentCollectionIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cUniversityPersonel.h">
+    <ClInclude Include="cUniversityPersonnel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

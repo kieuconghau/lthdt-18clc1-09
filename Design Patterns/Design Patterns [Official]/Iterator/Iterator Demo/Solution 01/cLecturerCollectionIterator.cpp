@@ -1,21 +1,20 @@
 #include "cLecturerCollectionIterator.h"
 
-
-
 cLecturerCollectionIterator::cLecturerCollectionIterator(const cLecturerCollection* lecturerCollection)
 {
 	this->collection = lecturerCollection;
 	this->index = 0;
 }
+
 void cLecturerCollectionIterator::first()
 {
-	index=0;
+	index = 0;
 }
 void cLecturerCollectionIterator::next()
 {
-	index++;
+	++index;
 }
-bool cLecturerCollectionIterator::is_end()
+bool cLecturerCollectionIterator::is_done()
 {
 	return index == collection->Count;
 }
