@@ -16,6 +16,7 @@ public:
 	int impact(cPeople* people);
 	void draw();
 	void change_people_brick(cPeople* people);
+	void reset();
 
 private:
 	cObject::ecType FixedObjectType;

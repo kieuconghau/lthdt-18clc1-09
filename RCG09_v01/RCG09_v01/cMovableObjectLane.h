@@ -19,6 +19,7 @@ public:
 	int impact(cPeople* people);
 	void draw();
 	void change_people_brick(cPeople* people);
+	void reset() {}; // nothing need to be reset yet;
 
 public:
 	bool is_vehicle_lane();

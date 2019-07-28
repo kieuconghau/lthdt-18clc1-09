@@ -141,3 +141,11 @@ void cFixedObjectLane::change_people_brick(cPeople* people)
 	}
 }
 
+void cFixedObjectLane::reset()
+{
+	for (int i = 0; i < this->ObjectCount;i++) {
+		this->FixedObjects[i]->reset();
+	}
+}
+
+

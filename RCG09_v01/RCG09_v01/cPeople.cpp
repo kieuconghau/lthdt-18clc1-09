@@ -121,6 +121,8 @@ void cPeople::update_pos()
 
 void cPeople::set_starting_pos(int xStart, int yStart)
 {
+	this->Color = ecColor::WHITE;
+	this->BrickColor = ecColor::BLACK;
 	this->State = ecState::ALIVE;
 	this->X = xStart;
 	this->Y = yStart;

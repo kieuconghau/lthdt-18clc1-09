@@ -103,6 +103,6 @@ cTextBox::ecScreenType cTextBox::scrolling_menu(vector<cTextBox> menu, ecColor c
 			}
 		}
 
-		Sleep(100);
+		Sleep(150);
 	}
 }

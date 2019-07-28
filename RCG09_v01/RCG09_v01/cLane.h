@@ -26,6 +26,7 @@ public:
 	
 	virtual bool has_people(cPeople* people);
 
+	virtual void reset() {};
 public:
 
 private:
