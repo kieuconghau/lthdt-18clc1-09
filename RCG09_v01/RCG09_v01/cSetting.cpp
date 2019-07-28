@@ -1,7 +1,7 @@
 #include "cSetting.h"
 
 /* Setting: Console window */
-const bool cSetting::Console::SETTING_0(text_size(21));
+const bool cSetting::Console::SETTING_0(text_size(20));
 const bool cSetting::Console::SETTING_1(remove_scroll_bar());
 const bool cSetting::Console::SETTING_2(zoom_full_console_window());
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

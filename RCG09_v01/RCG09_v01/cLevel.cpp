@@ -9,6 +9,12 @@ cLevel::cLevel()
 	this->People = cPeople::get_instance();
 	this->State = cLevel::ecState::PLAYING;
 	this->TimeAlotted = 0;
+	this->CurrentCoin = 0;
+	this->FinishBlock = 0;
+	this->FinishLine = 0;
+	this->MaxCoin = 0;
+	this->TimeCount = 0;
+	this->unblockCount = 0;
 }
 
 cLevel::~cLevel()
@@ -82,7 +88,7 @@ void cLevel::draw()
 
 void cLevel::play()
 {
-	system("CLS");
+	system("cls");
 
 	//used only for knowing game's current state
 	cGame* gameStateOnly = cGame::get_instance();
@@ -167,7 +173,7 @@ void cLevel::play()
 
 		//Hot keys		
 		int flag = 0;
-		if ((GetAsyncKeyState(0x50)&0x8000)&&(flag==0))
+		if ((GetAsyncKeyState(0x50) & 0x8000) && (flag == 0))
 		{
 			flag = 1;
 			thread P(cScreen::screen_pause_game);
@@ -205,8 +211,6 @@ void cLevel::play()
 			flag = 1;
 			thread Esc(cScreen::screen_escape);
 			Esc.join();
-
-			if ()
 
 			system("cls");
 
@@ -260,11 +264,11 @@ void cLevel::set_up(int laneCount,int finishLine,int maxCoin, int timeAlotted, v
 	this->MaxCoin = maxCoin;
 	this->CurrentCoin = 0;
 	this->TimeCount = 0;
-	this->TimeAlotted = timeAlotted*1000;
+	this->TimeAlotted = timeAlotted * 1000;
 	this->State = cLevel::ecState::PLAYING;
 	this->People = cPeople::get_instance();
 
-	this->Lanes = new cLane * [this->LaneCount];
+	this->Lanes = new cLane*[this->LaneCount];
 	for (int i = 0; i < this->LaneCount; i++)
 	{
 		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i]
