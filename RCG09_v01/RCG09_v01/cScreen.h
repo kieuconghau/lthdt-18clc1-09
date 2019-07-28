@@ -29,9 +29,9 @@ class cFixedObjectLane;
 class cScreen
 {
 public:
-	static void screen_account();
+	/*static void screen_account();
 	static void screen_sign_up();
-	static void screen_sign_in();
+	static void screen_sign_in();*/
 	static void screen_about();
 	static void screen_menu();
 	static void screen_game();
@@ -47,6 +47,11 @@ public:
 	static void screen_escape();
 	static bool screen_confirm();
 	static void screen_how_to_play();
+	static void screen_reach_max_level();
+
+	static void draw_save_game();
+	static void draw_load_game();
+
 private:
 	static void draw_coming_soon();
 	static void screen_border_decoration(int distanceFromScreenBorder,int numberOfLine);

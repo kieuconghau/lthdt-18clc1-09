@@ -13,14 +13,14 @@ const vector<char> cCoin::Shapes({ char('$') });
 cCoin::cCoin(ecDirection direction, ecColor color, int x, int y)
 	: cEdibleObject(cObject::ecType::FE_COIN, cCoin::N, direction, color, x, y)
 {
-	this->State = coinState::AVAILABLE;
+	this->State = eatState::AVAILABLE;
 }
 
 cCoin::~cCoin() {}
 
 void cCoin::draw(int leftLimit, int rightLimit)
 {
-	if (this->State == coinState::AVAILABLE) {
+	if (this->State == eatState::AVAILABLE) {
 		text_color(this->Color);
 
 		for (int i = 0; i < cCoin::N; i++)
@@ -56,12 +56,12 @@ bool cCoin::is_edible()
 
 void cCoin::is_eaten()
 { 
-	this->State = coinState::UNAVAILABLE;
+	this->State = eatState::UNAVAILABLE;
 }
 
 bool cCoin::was_eaten()
 {
-	return (this->State == coinState::UNAVAILABLE);
+	return (this->State == eatState::UNAVAILABLE);
 }
 
 char cCoin::brick_shape() {
@@ -70,4 +70,9 @@ char cCoin::brick_shape() {
 ecColor cCoin::brick_color()
 {
 	return this->BRICK_COLOR;
+}
+
+void cCoin::reset()
+{
+	this->State = eatState::AVAILABLE;
 }

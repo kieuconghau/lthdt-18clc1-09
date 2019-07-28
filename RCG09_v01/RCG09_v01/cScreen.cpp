@@ -11,8 +11,9 @@
 #include "cTrain.h"
 #include "cTruck.h"
 #include "cWood.h"
+#include "cGame.h"
 
-void cScreen::screen_account()
+/*void cScreen::screen_account()
 {
 	system("cls");
 
@@ -104,7 +105,7 @@ void cScreen::screen_sign_in()
 		screen_account();
 	else
 		throw;
-}
+}*/
 
 void cScreen::screen_about()
 {
@@ -128,62 +129,70 @@ void cScreen::screen_about()
 	print_text_at_middle(middleY + 0, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
 
 
-	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+	cTextBox back(cTextBox::ecScreenType::MENU, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { back };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	if (choice == cTextBox::ecScreenType::ACCOUNT)
-		screen_account();
+	if (choice == cTextBox::ecScreenType::MENU)
+		return;
 	else
 		throw;
+
 }
 
 void cScreen::screen_menu()
 {
-	system("cls");
+	while (true) {
+		system("cls");
+		int middleX = get_console_width() / 2;
+		int middleY = get_console_height() / 2;
 
-	int middleX = get_console_width() / 2;
-	int middleY = get_console_height() / 2;
+		print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 13, "|  D  )|     ||  o  ||    \\       /  / |  D  )|     |(   \\_ (   \\_  |  | |  _  ||   __|    |   __||  o  || _   _ | /  [_ ", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", ecColor::CYAN, true);
 
-	print_text_at_middle(middleY - 15, " ____    ___    ____  ___           __  ____    ___    _____  _____ ____  ____    ____       ____   ____  ___ ___    ___ ", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 14, "|    \\  /   \\  /    ||   \\         /  ]|    \\  /   \\  / ___/ / ___/|    ||    \\  /    |     /    | /    ||   |   |  /  _]", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 13, "|  D  )|     ||  o  ||    \\       /  / |  D  )|     |(   \\_ (   \\_  |  | |  _  ||   __|    |   __||  o  || _   _ | /  [_ ", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 12, "|    / |  O  ||     ||  D  |     /  /  |    / |  O  | \\__  | \\__  | |  | |  |  ||  |  |    |  |  ||     ||  \\_/  ||    _]", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 11, "|    \\ |     ||  _  ||     |    /   \\_ |    \\ |     | /  \\ | /  \\ | |  | |  |  ||  |_ |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 10, "|  .  \\|     ||  |  ||     |    \\     ||  .  \\|     | \\    | \\    | |  | |  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::CYAN, true);
-	print_text_at_middle(middleY - 9, "|__|\\_| \\___/ |__|__||_____|     \\____||__|\\_| \\___/   \\___|  \\___||____||__|__||___,_|    |___,_||__|__||___|___||_____|", ecColor::CYAN, true);
+		print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
 
-	print_text_at_middle(middleY - 7, "========= Group 09 * 18CLC1 =========", ecColor::BLUE, true);
+		cTextBox newGame(cTextBox::ecScreenType::GAME, middleX, middleY - 2, 25, "NEW GAME", ecColor::WHITE, ecColor::WHITE);
+		cTextBox loadGame(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY + 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
+		cTextBox setting(cTextBox::ecScreenType::SETTING, middleX, middleY + 6, 25, "SETTING", ecColor::WHITE, ecColor::WHITE);
+		cTextBox about(cTextBox::ecScreenType::ABOUT, middleX, middleY + 10, 25, "ABOUT", ecColor::WHITE, ecColor::WHITE);
+		cTextBox howToPlay(cTextBox::ecScreenType::HOW_TO_PLAY, middleX, middleY + 14, 25, "HOW TO PLAY", ecColor::WHITE, ecColor::WHITE);
+		cTextBox back(cTextBox::ecScreenType::ENDING, middleX, middleY + 18, 25, "EXIT", ecColor::WHITE, ecColor::WHITE);
 
-	cTextBox newGame(cTextBox::ecScreenType::GAME, middleX, middleY - 2, 25, "NEW GAME", ecColor::WHITE, ecColor::WHITE);
-	cTextBox loadGame(cTextBox::ecScreenType::LOAD_GAME, middleX, middleY + 2, 25, "LOAD GAME", ecColor::WHITE, ecColor::WHITE);
-	cTextBox setting(cTextBox::ecScreenType::SETTING, middleX, middleY + 6, 25, "SETTING", ecColor::WHITE, ecColor::WHITE);
-	cTextBox back(cTextBox::ecScreenType::ACCOUNT, middleX, middleY + 10, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
+		vector<cTextBox> menu = { newGame , loadGame, setting,about,howToPlay, back };
+		cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
-	vector<cTextBox> menu = { newGame , loadGame, setting, back };
-	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+		if (choice == cTextBox::ecScreenType::GAME)
+			screen_game();
+		else if (choice == cTextBox::ecScreenType::LOAD_GAME)
+			screen_load_game();
+		else if (choice == cTextBox::ecScreenType::SETTING)
+			screen_setting();
+		else if (choice == cTextBox::ecScreenType::ABOUT)
+			screen_about();
+		else if (choice == cTextBox::ecScreenType::HOW_TO_PLAY)
+			screen_how_to_play();
+		else if (choice == cTextBox::ecScreenType::ENDING) {
+			screen_ending();
+			break;
+		}
+		else
+			throw;
+	}
 
-	if (choice == cTextBox::ecScreenType::GAME)
-		screen_game();
-	else if (choice == cTextBox::ecScreenType::LOAD_GAME)
-		screen_load_game();
-	else if (choice == cTextBox::ecScreenType::SETTING)
-		screen_setting();
-	else if (choice == cTextBox::ecScreenType::ACCOUNT)
-		screen_account();
-	else
-		throw;
 }
 
 void cScreen::screen_game()
 {
 	system("cls");
-
 	cGame* game = cGame::get_instance();
-	game->play();
-
-	delete game;
+	game->new_game();
 }
 
 void cScreen::screen_load_game()
@@ -209,12 +218,14 @@ void cScreen::screen_load_game()
 
 	if (choice == cTextBox::ecScreenType::LOAD_GAME)
 	{
-		/*
-			Load game
-		*/
+		cGame* g = cGame::get_instance();
+		g->load_game();
+		if (g->state_is_loading()) {
+			g->play();
+		}
 	}
 	else if (choice == cTextBox::ecScreenType::MENU)
-		screen_menu();
+		return;
 	else
 		throw;
 }
@@ -242,9 +253,8 @@ void cScreen::screen_load_mid_game()
 
 	if (choice == cTextBox::ecScreenType::LOAD_GAME)
 	{
-		/*
-			Load game
-		*/
+		cGame* g = cGame::get_instance();
+		g->load_game();
 		system("cls");
 	}
 	else if (choice == cTextBox::ecScreenType::GAME)
@@ -277,9 +287,8 @@ void cScreen::screen_save_game()
 
 		if (choice == cTextBox::ecScreenType::SAVE_GAME)
 		{
-			/*
-				Save game
-			*/
+			cGame* g = cGame::get_instance();
+			g->save_game();
 			system("cls");
 		}
 		else if (choice == cTextBox::ecScreenType::GAME)
@@ -323,13 +332,15 @@ void cScreen::screen_setting()
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
+	cScreen::draw_coming_soon();
+
 	cTextBox back(cTextBox::ecScreenType::MENU, middleX, middleY + 2, 25, "BACK", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { back };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
 
 	if (choice == cTextBox::ecScreenType::MENU)
-		screen_menu();
+		return;
 	else
 		throw;
 }
@@ -349,21 +360,22 @@ void cScreen::screen_continue()
 	print_text_at_middle(middleY - 10, "\\     ||     ||  |  |  |  |   |  | |  |  ||     ||     |        __ ", ecColor::BLUE, true);
 	print_text_at_middle(middleY - 9, " \\____| \\___/ |__|__|  |__|  |____||__|__| \\____||_____|       |__|", ecColor::BLUE, true);
 
-	cTextBox yes(cTextBox::ecScreenType::GAME, middleX - 18, middleY + 2, 25, "Yes", ecColor::WHITE, ecColor::WHITE);
-	cTextBox no(cTextBox::ecScreenType::ENDING, middleX + 18, middleY + 2, 25, "No", ecColor::WHITE, ecColor::WHITE);
+	cTextBox yes(cTextBox::ecScreenType::YES, middleX , middleY , 25, "Yes", ecColor::WHITE, ecColor::WHITE);
+	cTextBox no(cTextBox::ecScreenType::NO, middleX , middleY + 4, 25, "No", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menuLoadGame = { yes,no };
 
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menuLoadGame, ecColor::RED);
 
-	if (choice == cTextBox::ecScreenType::GAME)
+	if (choice == cTextBox::ecScreenType::YES)
 	{
-		/*
-			Play game
-		*/
+		cGame* game = cGame::get_instance();
+		game->playing();
 	}
-	else if (choice == cTextBox::ecScreenType::ENDING)
-		screen_ending();
+	else if (choice == cTextBox::ecScreenType::NO) {
+		cGame* game = cGame::get_instance();
+		game->give_up();
+	}	
 	else
 		throw;
 }
@@ -478,7 +490,7 @@ void cScreen::screen_game_over()
 	print_text_at_middle(middleY - 10, "|     ||  |  ||   |   ||     |    |     | \\   / |     ||  .  \\ ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 9, "|___,_||__|__||___|___||_____|     \\___/   \\_/  |_____||__|\\_| ", ecColor::CYAN, true);
 
-	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY - 10, 25, "OK FINE", ecColor::WHITE, ecColor::WHITE);
+	cTextBox ok(cTextBox::ecScreenType::CONTINUE, middleX, middleY , 25, "OK FINE", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { ok };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
@@ -685,6 +697,8 @@ void cScreen::screen_ending()
 	unsigned middleX = get_console_width() / 2;
 	unsigned middleY = get_console_height() / 2;
 
+	unsigned lastY = get_console_height();
+
 	print_text_at_middle(middleY - 18, " _________    ___  ___      ________      ________       ___  __             ___    ___  ________      ___  ___         ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 17, "|\\___   ___\\ |\\  \\|\\  \\    |\\   __  \\    |\\   ___  \\    |\\  \\|\\  \\          |\\  \\  /  /||\\   __  \\    |\\  \\|\\  \\        ", ecColor::CYAN, true);
 	print_text_at_middle(middleY - 16, "\\|___ \\  \\_| \\ \\  \\\\\\  \\   \\ \\  \\|\\  \\   \\ \\  \\\\ \\  \\   \\ \\  \\/  /|_        \\ \\  \\/  / /\\ \\  \\|\\  \\   \\ \\  \\\\\\  \\       ", ecColor::CYAN, true);
@@ -704,18 +718,21 @@ void cScreen::screen_ending()
 	print_text_at_middle(middleY + 1, "                                                                                  \\|___|/                                             ", ecColor::CYAN, true);
 
 	Sleep(2000);
-	print_text_at_middle(middleY + 14, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
+	print_text_at_middle(lastY - 12, "This game was made by: GROUP 9 - 18CLC1", ecColor::GREEN, true);
 	Sleep(500);
 
-	print_text_at_middle(middleY + 17, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
+	print_text_at_middle(lastY - 8, "18127259 - Kieu Cong Hau", ecColor::GREY, true);
 	Sleep(500);
-	print_text_at_middle(middleY + 19, "18127118 - Mai Dang Khanh", ecColor::GREY, true);
+	print_text_at_middle(lastY - 5 , "18127118 - Mai Dang Khanh", ecColor::GREY, true);
 	Sleep(500);
-	print_text_at_middle(middleY + 21, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
+	print_text_at_middle(lastY - 2, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
 	Sleep(500);
 
-	goto_xy(middleX - 15, middleY + 5);
-	system("pause");
+	cTextBox exit(cTextBox::ecScreenType::CONTINUE, middleX, lastY-16, 25, "EXIT", ecColor::WHITE, ecColor::WHITE);
+
+	vector<cTextBox> menu = { exit };
+	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);
+
 }
 
 void cScreen::draw_win(ecColor color)
@@ -768,12 +785,10 @@ void cScreen::screen_escape()
 		screen_save_game();
 	else if (choice == cTextBox::ecScreenType::LOAD_GAME)
 		screen_load_mid_game();
-	else if (choice == cTextBox::ecScreenType::MENU)
-	{
-		if (screen_confirm())
-			exit(1);
-		else system("cls");
-	}	
+	else if (choice == cTextBox::ecScreenType::MENU) {
+		cGame* game = cGame::get_instance();
+		game->give_up();
+	}
 	else
 		throw;
 }
@@ -806,6 +821,10 @@ void cScreen::screen_how_to_play()
 {
 	system("cls");
 
+	ecColor textColor = ecColor::CYAN;
+
+	int distanceFromLeftBorder = 3;
+	int i = 1;
 
 	int middleX = get_console_width() / 2;
 	int middleY = get_console_height() / 2;
@@ -824,13 +843,159 @@ void cScreen::screen_how_to_play()
 	ecColor secondColor = ecColor::BLUE;
 	ecColor thirdColor = ecColor::CYAN;
 	ecColor fourthColor = ecColor::GREEN;
+	ecColor fifthColor = ecColor::YELLOW;
 
 	int firstLeftLimit = 1;
 	int firstRightLimit = middleX - 2;
-	
+
 	int secondLeftLimit = middleX + 2;
 	int secondRightLimit = get_console_width() - 1;
 
-	cLane* BirdLane = new cMovableObjectLane(cObject::ecType::MA_BIRD, direction, firstColor, 3, 10, { 0,1,2 }, 1, firstLeftLimit, firstRightLimit);
-	BirdLane->draw();
+	goto_xy(distanceFromLeftBorder, 8);
+	text_color(textColor);
+	cout << i++ << ". CONTROL CHARACTER ";
+	text_color(ecColor::WHITE);
+	cout << char(219);
+	text_color(textColor);
+	cout << " BY USING ARROW KEYS." << endl;
+
+	goto_xy(distanceFromLeftBorder, 10);
+	cout << i++ << ". TOUCH THESE THINGS IF YOU REALLY WANT TO DIE!!! " << endl;
+
+	int distanceBetweenObjects = get_console_width() / 5;
+
+	text_color(ecColor::GREY);
+	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 0 + 10, 11);
+	cout << "Bird: ";
+
+	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 1 + 10, 11);
+	cout << "Dinosaur: ";
+
+	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 2 + 10, 11);
+	cout << "Car: ";
+
+	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 3 + 10, 11);
+	cout << "Train: ";
+
+	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 4 + 10, 11);
+	cout << "Truck: ";
+
+	cBird bird(direction, firstColor, distanceFromLeftBorder + distanceBetweenObjects * 0 + 13, 13, 1);
+	bird.draw(0, get_console_width());
+
+	cDinosaur dinosaur(direction, secondColor, distanceFromLeftBorder + distanceBetweenObjects * 1 + 13, 13, 1);
+	dinosaur.draw(0, get_console_width());
+
+	cCar car(direction, thirdColor, distanceFromLeftBorder + distanceBetweenObjects * 2 + 13, 13, 1);
+	car.draw(0, get_console_width());
+
+	cTrain train(direction, fourthColor, distanceFromLeftBorder + distanceBetweenObjects * 3 + 28, 13, 1);
+	train.draw(0, get_console_width());
+
+	cTruck truck(direction, fifthColor, distanceFromLeftBorder + distanceBetweenObjects * 4 + 13, 13, 1);
+	truck.draw(0, get_console_width());
+
+	goto_xy(distanceFromLeftBorder, 15);
+	text_color(textColor);
+	cout << i++ << ". THE RIVER. YOU SUCK AT SWIMMING, SO YOU WILL DROWN. BUT LUCKILY, THERE ARE WOODS FOR YOU TO CROSS IT. " << endl;
+	cMovableObjectLane waterLane(cObject::ecType::MF_WOOD, direction, ecColor::BLUE, 10, 17, { 0,0,0 }, 1, 0, get_console_width() - 2, 0);
+	waterLane.draw();
+
+	goto_xy(distanceFromLeftBorder, 19);
+	text_color(textColor);
+	cout << i++ << ". THERE ARE ROCKS: ";
+	text_color(ecColor::GREY);
+	cout << char(219) << char(219) << char(219);
+	text_color(textColor);
+	cout << " THEY BLOCK YOUR WAY AND YOU CAN'T DO ANYTHING TO THEM. " << endl;
+
+	goto_xy(distanceFromLeftBorder, 21);
+	text_color(textColor);
+	cout << i++ << ". THERE ARE COINS ";
+	cCoin coin(direction, ecColor::YELLOW, 25, 21);
+	coin.draw(0,70);
+	
+	goto_xy(distanceFromLeftBorder + 25 + 4, 21);
+	text_color(textColor);
+	cout << "AND YOU REALLY NEED TO COLLECT ALL OF THEM. " << endl;
+
+
+	goto_xy(distanceFromLeftBorder, 23);
+	text_color(textColor);
+	cout << i++ << ". HOW TO LOSE:" << endl;
+	int j = 1;
+	cout << "	" << j++ << ". dead." << endl;
+	cout << "	" << j++ << ". DEAD." << endl;
+	cout << "	" << j++ << ". Out of time (there will be time limit for each level, please PAY ATTENTION)." << endl;
+
+
+	goto_xy(distanceFromLeftBorder, 28);
+	text_color(textColor);
+	cout << i++ << ". HOW TO WIN:" << endl;
+	j = 1;
+	cout << "	" << j++ << ". DON'T LOSE FIRST. " << endl;
+	cout << "	" << j++ << ". There will be a roadblock in front of finish line so you need to collect ALL coins to destroy it." << endl;
+	cout << "	" << j++ << ". Reach the finish line" << endl;
+
+	goto_xy(distanceFromLeftBorder, 33);
+	cout << i++ << ". SOME HOT KEYS FOR YOU: " << " P: pause game	" << "S: save game	" << "L: load game	" << "ESC: exit";
+
+	print_text_at_middle(35, "GOOD LUCK!!! press enter to continue", ecColor::LIGHT_YELLOW, true);
+
+	while (true) {
+		waterLane.work();
+
+		if (GetAsyncKeyState(VK_RETURN) != 0) {
+			Sleep(50);
+			break;
+		}
+		Sleep(50);
+	}
+
+	goto_xy(0, 0);
+
+	
+}
+
+void cScreen::draw_save_game()
+{
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, "   _____  ____  __ __    ___       ____   ____  ___ ___    ___", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "  / ___/ /    ||  |  |  /  _]     /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, " (   \\_ |  o  ||  |  | /  [_     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "  \\__  ||     ||  |  ||    _]    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, " /  \\ ||  _  ||  :  ||   [_     |  |_ ||  _  ||   |   ||   [_", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "  \\    ||  |  | \\   / |     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "   \\___||__|__|  \\_/  |_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+}
+
+void cScreen::draw_load_game()
+{
+	unsigned middleX = get_console_width() / 2;
+	unsigned middleY = get_console_height() / 2;
+
+	print_text_at_middle(middleY - 15, " _       ___    ____  ___         ____   ____  ___ ___    ___ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 14, "| |     /   \\  /    ||   \\       /    | /    ||   |   |  /  _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 13, "| |    |     ||  o  ||    \\     |   __||  o  || _   _ | /  [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 12, "| |___ |  O  ||     ||  D  |    |  |  ||     ||  \\_/  ||    _]", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 11, "|     ||     ||  _  ||     |    |  |_ ||  _  ||   |   ||   [_ ", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 10, "|     ||     ||  |  ||     |    |     ||  |  ||   |   ||     |", ecColor::BLUE, true);
+	print_text_at_middle(middleY - 9, "|_____| \\___/ |__|__||_____|    |___,_||__|__||___|___||_____|", ecColor::BLUE, true);
+}
+
+void cScreen::screen_reach_max_level()
+{
+	system("CLS");
+
+	int middleX = get_console_width() / 2;
+	int middleY = get_console_height() / 2;
+
+	goto_xy(middleX - 10, middleY);
+
+	text_color(ecColor::CYAN);
+	cout << "CONGRATULATIONS!!! YOU HAVE REACHED MAX LEVEL" << endl;
+	goto_xy(middleX - 10, middleY + 2);
+	system("pause");
 }

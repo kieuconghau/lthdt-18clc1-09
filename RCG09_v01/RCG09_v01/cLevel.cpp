@@ -1,5 +1,6 @@
 #include "cLevel.h"
 #include <thread>
+#include "cGame.h"
 
 cLevel::cLevel()
 {
@@ -81,6 +82,15 @@ void cLevel::draw()
 
 void cLevel::play()
 {
+	system("CLS");
+
+	//used only for knowing game's current state
+	cGame* gameStateOnly = cGame::get_instance();
+
+	this->reset();
+
+	this->State = ecState::PLAYING;
+
 	this->draw();
 
 	// Set starting position for people
@@ -182,6 +192,11 @@ void cLevel::play()
 			thread L(cScreen::screen_load_mid_game);
 			L.join();
 			system("cls");
+			
+			if (gameStateOnly->state_is_loading()) {
+				break;
+			}
+
 			this->draw();
 			this->People->draw();
 		}
@@ -194,13 +209,22 @@ void cLevel::play()
 			if ()
 
 			system("cls");
+
+			if (gameStateOnly->state_is_loading()) {
+				break;
+			}
+
+			if (gameStateOnly->state_is_defeat()) {
+				break;
+			}
+
 			this->draw();
 			this->People->draw();
 		}
 
 
 		Sleep(50);
-		this->TimeAlotted -= 75;
+		this->TimeCount -= 75;
 
 		if (this->lose(People)) {
 			People->losing_effect();
@@ -235,6 +259,7 @@ void cLevel::set_up(int laneCount,int finishLine,int maxCoin, int timeAlotted, v
 	this->unblockCount = 0;
 	this->MaxCoin = maxCoin;
 	this->CurrentCoin = 0;
+	this->TimeCount = 0;
 	this->TimeAlotted = timeAlotted*1000;
 	this->State = cLevel::ecState::PLAYING;
 	this->People = cPeople::get_instance();
@@ -249,7 +274,8 @@ void cLevel::set_up(int laneCount,int finishLine,int maxCoin, int timeAlotted, v
 
 bool cLevel::win(cPeople* people)
 {
-	if ((this->CurrentCoin == this->MaxCoin) && (people->is_in_line(this->FinishLine)) && (this->TimeAlotted > 0)) {
+	if ((this->CurrentCoin == this->MaxCoin) && (people->is_in_line(this->FinishLine)) && (this->TimeCount > 0)) {
+		this->State = ecState::VICTORY;
 		return true;
 	}
 	return false;
@@ -257,7 +283,8 @@ bool cLevel::win(cPeople* people)
 
 bool cLevel::lose(cPeople* people)
 {
-	if ((people->is_dead()) || (this->TimeAlotted <= 0) ){
+	if ((people->is_dead()) || (this->TimeCount <= 0) ){
+		this->State = ecState::DEFEAT;
 		return true;
 	}
 	return false;
@@ -336,4 +363,24 @@ void cLevel::destroy_finish_block()
 	goto_xy(0, 0);
 }
 
+bool cLevel::won()
+{
+	return (this->State == ecState::VICTORY);
+}
+
+bool cLevel::lost()
+{
+	return (this->State == ecState::DEFEAT);
+}
+
+void cLevel::reset()
+{
+	this->TimeCount = this->TimeAlotted;
+	this->unblockCount = 0;
+	this->CurrentCoin = 0;
+
+	for (int i = 0; i < this->LaneCount; i++) {
+		this->Lanes[i]->reset();
+	}
+}
 

@@ -2,6 +2,12 @@
 
 #include "cFixedObject.h"
 
+enum class eatState
+{
+	AVAILABLE,
+	UNAVAILABLE,
+};
+
 class cEdibleObject : public cFixedObject
 {
 public:
