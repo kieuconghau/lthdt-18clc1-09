@@ -67,11 +67,14 @@ void cTextBox::draw(ecColor textColor, ecColor lineColor)
 
 cTextBox::ecScreenType cTextBox::scrolling_menu(vector<cTextBox> menu, ecColor color)
 {
+	Sleep(150);
+
 	int pointer = 0;
 	int n = int(menu.size());
 
 	while (true)
 	{
+		int flag = 0;
 		for (int i = 0; i < n; ++i)
 		{
 			if (i == pointer)
@@ -82,22 +85,25 @@ cTextBox::ecScreenType cTextBox::scrolling_menu(vector<cTextBox> menu, ecColor c
 
 		while (true)
 		{
-			if (GetAsyncKeyState(VK_UP) != 0)
+			if ((GetAsyncKeyState(VK_UP) & 0x8000) && (flag == 0))
 			{
+				flag = 1;
 				pointer--;
 				if (pointer == -1)
 					pointer = n - 1;
 				break;
 			}
-			else if (GetAsyncKeyState(VK_DOWN) != 0)
+			else if ((GetAsyncKeyState(VK_DOWN) & 0x8000) && (flag == 0))
 			{
+				flag = 1;
 				pointer++;
 				if (pointer == n)
 					pointer = 0;
 				break;
 			}
-			else if (GetAsyncKeyState(VK_RETURN) != 0)
+			else if ((GetAsyncKeyState(VK_RETURN) & 0x8000) && (flag == 0))
 			{
+				flag = 1;
 				Sleep(150);
 				return menu[pointer].ScreenType;
 			}

@@ -111,6 +111,7 @@ int cMovableObjectLane::impact(cPeople* people)
 			// Check if people impact on one object on this lane (check x_cor)
 			if (people->is_impacted(this->MovableObjects[i]))
 			{
+				this->MovableObjects[i]->tell();
 				people->die();
 				return 0;
 			}

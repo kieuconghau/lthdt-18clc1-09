@@ -14,6 +14,8 @@ public:
 		static const int BOT_LIMIT;
 		static const int LEFT_LIMIT;
 		static const int RIGHT_LIMIT;
+		static const int TOP_LIMIT_1;
+		static const int LEFT_LIMIT_1;
 		static const ecColor BORDER_COLOR;
 	};
 
