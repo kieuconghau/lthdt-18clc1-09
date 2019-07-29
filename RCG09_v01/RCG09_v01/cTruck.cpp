@@ -85,7 +85,7 @@ void cTruck::draw(int leftLimit, int rightLimit)
 
 void cTruck::tell()
 {
-	// do_sth
+	PlaySound(TEXT("truck.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cTruck::impact_xcor(int x)
