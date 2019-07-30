@@ -35,7 +35,7 @@ cGame::cGame()
 	vector<ecDirection> directions0 =		{ ecDirection::RIGHT					, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT };
 	vector<ecColor> colors0 =				{ ecColor::GREY							, ecColor::PURPLE				, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN };
 	vector<int> objectCounts0 =				{ 25									, 4								, 30									, 9							, 6								, 1 };
-	vector<vector<int>> times0 =			{ {0, 0, 0}								, {0, 15, 15}					, {0, 0, 0}								, {0, 0, 0}				, {0, 10, 20}						, {0, 0, 0} };
+	vector<vector<int>> times0 =			{ {0, 0, 0}								, {10, 15, 15}					, {0, 0, 0}								, {0, 0, 0}					, {0, 10, 20}						, {0, 0, 0} };
 	vector<int> steps0 =					{ 2										, 1								, 1										, 1							, 1								, 9	};
 	vector<int> crazySteps0 =				{ 0										, 2								, 0										, 0							, 1								, 0 };
 	this->Levels[0].set_up(1, laneCounts[0], finishLine0, maxCoin0, timeAlotted0, objectTypes0, directions0, colors0, objectCounts0, times0, steps0, crazySteps0, leftLimit, rightLimit);
@@ -48,7 +48,7 @@ cGame::cGame()
 	vector<ecDirection> directions1 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT };
 	vector<ecColor> colors1 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
 	vector<int> objectCounts1 =				{ 25									, 4							, 30									, 9							, 6								, 1							, 6 };
-	vector<vector<int>> times1 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {5, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
+	vector<vector<int>> times1 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {0, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
 	vector<int> steps1 =					{ 2										, 1							, 1										, 1							, 1								, 9							, 1 };
 	vector<int> crazySteps1 =				{ 0										, 2							, 0										, 0							, 1								, 0							, 0	};
 	this->Levels[1].set_up(2, laneCounts[1], finishLine1, maxCoin1, timeAlotted1, objectTypes1, directions1, colors1, objectCounts1, times1, steps1, crazySteps1, leftLimit, rightLimit);

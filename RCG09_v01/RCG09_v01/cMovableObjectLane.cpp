@@ -116,6 +116,13 @@ void cMovableObjectLane::work(cPeople* people)
 				this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
 			}
 		}
+		else
+		{
+			for (int i = 0; i < this->ObjectCount; i++)
+			{
+				this->MovableObjects[i]->normal();
+			}
+		}
 	}
 	else
 	{

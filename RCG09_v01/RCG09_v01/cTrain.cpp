@@ -39,6 +39,8 @@ cTrain::~cTrain() {}
 
 void cTrain::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	virtualDistance = cTrain::DisappearTime;
+
 	int crazyFlag = 0;
 
 	if (this->State == ecState::CRAZY)
