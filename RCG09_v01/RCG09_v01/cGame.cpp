@@ -61,7 +61,7 @@ void cGame::play()
 {
 	this->State = ecState::PLAYING;
 
-	while (this->State == ecState::PLAYING) {
+	while (true) {
 
 		if (this->CurrentLevel > this->LevelCount) {
 			this->CurrentLevel = this->LevelCount;
@@ -92,7 +92,6 @@ void cGame::play()
 		if (this->State == ecState::VICTORY) {
 			break;
 		}
-
 	}
 }
 
@@ -108,12 +107,13 @@ void cGame::save_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
-	cin.ignore(9999, '\n');
+	cin.ignore(1000, '\n');
 
 	ofstream f;
 
 	while (true) {
 		system("cls");
+		path.clear();
 
 		try {
 			cScreen::draw_save_game();
@@ -123,6 +123,7 @@ void cGame::save_game()
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
 			getline(cin, path);
+			cin.clear();
 
 			if (path == "0") {
 				return ;
@@ -197,11 +198,13 @@ void cGame::load_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
+	cin.ignore(1000, '\n');
 
 	ifstream f;
 
 	while (true) {
 		system("cls");
+		path.clear();
 
 		try {
 
@@ -212,6 +215,7 @@ void cGame::load_game()
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
 			getline(cin, path);
+			cin.clear();
 
 			if (path == "0") {
 				return;

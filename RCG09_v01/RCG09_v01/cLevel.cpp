@@ -374,7 +374,7 @@ void cLevel::play()
 		{
 			flag = 1;
 			thread S(cScreen::screen_save_game);
-			if (GetAsyncKeyState(0x53))
+			if (GetAsyncKeyState(0x53) & 0x8000)
 				S.join();
 			system("cls");
 			this->draw();

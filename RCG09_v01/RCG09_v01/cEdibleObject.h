@@ -2,14 +2,15 @@
 
 #include "cFixedObject.h"
 
-enum class eatState
-{
-	AVAILABLE,
-	UNAVAILABLE,
-};
-
 class cEdibleObject : public cFixedObject
 {
+public:
+	enum class eatState
+	{
+		AVAILABLE,
+		UNAVAILABLE,
+	};
+
 public:
 	cEdibleObject(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y);
 	virtual ~cEdibleObject();

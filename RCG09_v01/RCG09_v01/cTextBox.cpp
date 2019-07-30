@@ -95,7 +95,7 @@ cTextBox::ecScreenType cTextBox::scrolling_menu(vector<cTextBox> menu, ecColor c
 			}
 			else if ((GetAsyncKeyState(VK_DOWN) & 0x8000) && (flag == 0))
 			{
-				flag = 1;
+				flag = 1;	
 				pointer++;
 				if (pointer == n)
 					pointer = 0;

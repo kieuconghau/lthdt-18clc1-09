@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="cAnimal" Collapsed="true">
+    <Position X="4.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAEAACAAAIAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cAnimal.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cBird" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAgAAAMAACAAAIAAAAAQBAIAAAAAAAIABAAAAA=</HashCode>
+      <FileName>cBird.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cCar" Collapsed="true">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAgAAAEQACAAAIAAAAAAFAIAAAAAAAIABAAAAA=</HashCode>
+      <FileName>cCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cCoin" Collapsed="true">
+    <Position X="17" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAmAAAEAAAAAgIAAAAAABAAAACAACCIBBAAAAA=</HashCode>
+      <FileName>cCoin.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cDinosaur" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAgAAAEAACAAAIBAAEAABAIAAAAAAAIABAAAAA=</HashCode>
+      <FileName>cDinosaur.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cEdibleObject" Collapsed="true">
+    <Position X="17" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="cEdibleObject::eatState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>cEdibleObject.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAEAAAQAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cEdibleObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cFixedObject" Collapsed="true">
+    <Position X="18.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAABAAAAAEAAAAAAIAAAAAAAAAAACAACCIgAAQAAA=</HashCode>
+      <FileName>cFixedObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cFixedObjectLane" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAMAAAAAAAQAAKAAAAIAAAQAAAAAAAACAAAAAA=</HashCode>
+      <FileName>cFixedObjectLane.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cFloat" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAiAAAIAAAAAAAAIAAAAAAABAAAAAAA=</HashCode>
+      <FileName>cFloat.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cGame" Collapsed="true">
+    <Position X="9.5" Y="7" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="cGame::ecState">
+        <TypeIdentifier>
+          <NewMemberFileName>cGame.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>gAAGAAEAAAAQFAAAAAgAAAAAQACEAAABSAAABAACAAA=</HashCode>
+      <FileName>cGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cInedibleObject" Collapsed="true">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAABAIAAAAAAAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>cInedibleObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cLane" Collapsed="true">
+    <Position X="9.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAMAAAACwAQAAIAEAAAAAAAAAAEAAIQAAwAIAA=</HashCode>
+      <FileName>cLane.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cLaneFactory" Collapsed="true">
+    <Position X="6.5" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>cLaneFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cLevel" Collapsed="true">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAEQEBMAAwAIUAAIQABCAAASAAAABAAAABAoAAAA=</HashCode>
+      <FileName>cLevel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cMovableObject" Collapsed="true">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAEAACAAAIAAAAAAAAIAAAAIAAIgAAggAA=</HashCode>
+      <FileName>cMovableObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cMovableObjectLane" Collapsed="true">
+    <Position X="7.75" Y="11.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gAABAAIMAAAQAAAQACIAAAAAAAAAAAAQIAEAAAIAAAA=</HashCode>
+      <FileName>cMovableObjectLane.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cObject" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAMAAAAAGAAAAAAAAAAAAAAAIAAAAAAYAA=</HashCode>
+      <FileName>cObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cObjectFactory" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>cObjectFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cPeople" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgIAAQCQAAACFAJ4AAAAgQAAAAAAEYEMghAAA5AA=</HashCode>
+      <FileName>cPeople.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cScreen" Collapsed="true">
+    <Position X="19.25" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAIAACAZAgAgAAARgAAAgAAAAIAAAAAAMAAACiA4BA=</HashCode>
+      <FileName>cScreen.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cSetting">
+    <Position X="16.5" Y="7" Width="1.5" />
+    <NestedTypes>
+      <Class Name="cSetting::Game" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>cSetting.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="cSetting::Object" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>cSetting.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="cSetting::Console" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>cSetting.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAAA=</HashCode>
+      <FileName>cSetting.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cStone" Collapsed="true">
+    <Position X="19.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABIgAAAEAAAAAAIAAAAAABAAAACAACKIABAAAAA=</HashCode>
+      <FileName>cStone.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cTextBox" Collapsed="true">
+    <Position X="16.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAQAAAAAAAAIAAIIAEAAAAAAAAAAAAACCAAAYAA=</HashCode>
+      <FileName>cTextBox.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cTrafficLight" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgIAAAEAAAAAAZAAAAgAAQAAAIAAAAEABAAAAA=</HashCode>
+      <FileName>cTrafficLight.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cTrain" Collapsed="true">
+    <Position X="12.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAgAIAEAACAAAIAAAAAABAIAQAAAABIABAAAAA=</HashCode>
+      <FileName>cTrain.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cTruck" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAgAAAEAACAAAIAAAAAABAIAAAAAAAIABIgAAA=</HashCode>
+      <FileName>cTruck.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cVehicle" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAACAAAIAAAAAAAAIAAAAAAAAAAAAACI=</HashCode>
+      <FileName>cVehicle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cWood" Collapsed="true">
+    <Position X="14.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAiAAAGAACAAAIAAAAAABAIAAAAAAAIABAAAAA=</HashCode>
+      <FileName>cWood.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ecColor" Collapsed="true">
+    <Position X="19.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAAAAAAgAQIAAAAAiEABEggBAEAAAEEAAAAAAAAA=</HashCode>
+      <FileName>Graphic.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ecDirection" Collapsed="true">
+    <Position X="19.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAQAAAAAAAAICAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -131,6 +131,30 @@ void cPeople::set_starting_pos(int xStart, int yStart)
 	this->draw();
 }
 
+//void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
+//{
+//	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+//	{
+//		this->move_left(leftLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+//	{
+//		this->move_right(rightLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_UP) & 0x8000)
+//	{
+//		this->move_up(topLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+//	{
+//		this->move_down(bottomLimit);
+//	}
+//	else
+//	{
+//		this->LastDirection = ecDirection::NONE;
+//	}
+//}
+
 void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 {
 	if (GetAsyncKeyState(VK_LEFT))
