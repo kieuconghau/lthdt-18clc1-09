@@ -15,7 +15,7 @@ public:
 	~cMovableObjectLane();
 
 public:
-	void work();
+	void work(cPeople* people);
 	int impact(cPeople* people);
 	void draw();
 	void change_people_brick(cPeople* people);

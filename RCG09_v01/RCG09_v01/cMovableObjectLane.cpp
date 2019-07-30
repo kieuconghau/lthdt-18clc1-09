@@ -36,6 +36,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 	int distance = ceil(float((this->RightLimit + this->VirtualDistance - this->LeftLimit + 1)) / this->ObjectCount);
 	if (this->VirtualDistance == 0)	// Default
 	{
+
 		this->VirtualDistance = this->ObjectCount * distance + this->LeftLimit - 1 - this->RightLimit;
 	}
 
@@ -76,7 +77,7 @@ bool cMovableObjectLane::is_vehicle_lane()
 	//|| this->MovableObjectType == cObject::ecType::MV_TRAIN;
 }
 
-void cMovableObjectLane::work()
+void cMovableObjectLane::work(cPeople* people)
 {
 	if (this->TrafficLight != nullptr)
 	{
@@ -87,7 +88,7 @@ void cMovableObjectLane::work()
 			for (int i = 0; i < this->ObjectCount; i++)
 			{
 				this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
-				this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+				//this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
 			}
 		}
 	}
@@ -95,10 +96,84 @@ void cMovableObjectLane::work()
 	{
 		for (int i = 0; i < this->ObjectCount; i++)
 		{
+	
+			
+			
+			
 			this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
-			this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+			//this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
 		}
 	}
+
+	// Check if people is on wood lane
+	if (this->has_people(people))
+	{
+		if (this->MovableObjectType == cObject::ecType::MF_WOOD)
+		{
+			ecDirection lastDirectionP = people->get_last_direction();
+			people->update_pos();
+			this->change_people_brick(people);
+
+			if (this->Direction == ecDirection::RIGHT)
+			{
+				if (lastDirectionP == ecDirection::RIGHT)
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_right(this->RightLimit);
+					}
+				}
+				else if (lastDirectionP == ecDirection::LEFT)
+				{
+
+				}
+				else
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_right(this->RightLimit);
+					}
+				}
+			}
+			else if (this->Direction == ecDirection::LEFT)
+			{
+				if (lastDirectionP == ecDirection::LEFT)
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_left(this->LeftLimit);
+					}
+				}
+				else if (lastDirectionP == ecDirection::RIGHT)
+				{
+
+				}
+				else
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_left(this->LeftLimit);
+					}
+				}
+			}
+			else if (this->Direction == ecDirection::NONE)
+			{
+				return;
+			}
+			else
+				throw;
+
+			people->update_pos();
+		}
+	}
+
+	for (int i = 0; i < this->ObjectCount; i++)
+	{
+		//this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+		this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+	}
+	people->draw();
+
 }
 
 int cMovableObjectLane::impact(cPeople* people)

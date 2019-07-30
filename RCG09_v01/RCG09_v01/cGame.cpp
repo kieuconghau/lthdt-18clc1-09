@@ -1,5 +1,5 @@
 #include "cGame.h"
-
+#include <limits>
 
 cGame* cGame::Instance = nullptr;
 
@@ -108,7 +108,7 @@ void cGame::save_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
-	cin.ignore(100, '\n');
+	cin.ignore(9999, '\n');
 
 	ofstream f;
 
@@ -197,7 +197,6 @@ void cGame::load_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
-	cin.ignore(100, '\n');
 
 	ifstream f;
 

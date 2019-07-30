@@ -944,7 +944,7 @@ void cScreen::screen_how_to_play()
 	print_text_at_middle(35, "GOOD LUCK!!! press enter to continue", ecColor::LIGHT_YELLOW, true);
 
 	while (true) {
-		waterLane.work();
+		waterLane.work(nullptr);
 
 		if (GetAsyncKeyState(VK_RETURN) != 0) {
 			Sleep(50);
