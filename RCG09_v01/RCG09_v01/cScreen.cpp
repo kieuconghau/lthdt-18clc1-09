@@ -852,12 +852,12 @@ void cScreen::screen_how_to_play()
 	int secondLeftLimit = middleX + 2;
 	int secondRightLimit = get_console_width() - 1;
 
+	cPeople* People = cPeople::get_instance();
+	People->set_starting_pos(24, 8);
+
 	goto_xy(distanceFromLeftBorder, 8);
 	text_color(textColor);
-	cout << i++ << ". CONTROL CHARACTER ";
-	text_color(ecColor::WHITE);
-	cout << char(219);
-	text_color(textColor);
+	cout << i++ << ". CONTROL CHARACTER  ";
 	cout << " BY USING ARROW KEYS." << endl;
 
 	goto_xy(distanceFromLeftBorder, 10);
@@ -944,7 +944,7 @@ void cScreen::screen_how_to_play()
 	print_text_at_middle(35, "GOOD LUCK!!! press enter to continue", ecColor::LIGHT_YELLOW, true);
 
 	while (true) {
-		waterLane.work(nullptr);
+		waterLane.work(People);
 
 		if (GetAsyncKeyState(VK_RETURN) != 0) {
 			Sleep(50);

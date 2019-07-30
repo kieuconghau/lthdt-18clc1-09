@@ -125,12 +125,10 @@ void cGame::save_game()
 			goto_xy(0, middleY);
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
-<<<<<<< HEAD
-			getline(cin, path, '\n');
-=======
+
 			getline(cin, path);
 			cin.clear();
->>>>>>> 6a78581ac656ecbdef78bd650e9c30da6da6639a
+
 
 			if (path == "0") {
 				return ;
@@ -221,12 +219,10 @@ void cGame::load_game()
 			goto_xy(0, middleY);
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
-<<<<<<< HEAD
-			getline(cin, path, '\n');
-=======
+
 			getline(cin, path);
 			cin.clear();
->>>>>>> 6a78581ac656ecbdef78bd650e9c30da6da6639a
+
 
 			if (path == "0") {
 				return;
