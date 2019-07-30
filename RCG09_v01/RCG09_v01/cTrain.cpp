@@ -93,7 +93,7 @@ void cTrain::draw(int leftLimit, int rightLimit)
 
 void cTrain::tell()
 {
-	// do_sth
+	PlaySound(TEXT("train.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cTrain::impact_xcor(int x)
