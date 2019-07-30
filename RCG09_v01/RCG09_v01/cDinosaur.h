@@ -10,7 +10,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cDinosaur(ecDirection direction, ecColor color, int x, int y, int step);
+	cDinosaur(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cDinosaur();
 
 public:

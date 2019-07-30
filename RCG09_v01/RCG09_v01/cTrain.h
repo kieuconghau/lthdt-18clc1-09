@@ -10,7 +10,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cTrain(ecDirection direction, ecColor color, int x, int y, int step);
+	cTrain(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cTrain();
 
 public:

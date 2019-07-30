@@ -21,10 +21,10 @@ const vector<char> cDinosaur::Shapes({ char(223), char(219), char(220), char(254
 , cDinosaur::BRICK_SHAPE, cDinosaur::BRICK_SHAPE, cDinosaur::BRICK_SHAPE });
 
 
-cDinosaur::cDinosaur(ecDirection direction, ecColor color, int x, int y, int step)
-	: cAnimal(cObject::ecType::MA_DINOSAUR, cDinosaur::N, direction, color, x, y, step)
+cDinosaur::cDinosaur(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep)
+	: cAnimal(cObject::ecType::MA_DINOSAUR, cDinosaur::N, direction, color, x, y, step, crazyStep)
 {
-	if (step > cDinosaur::Shapes.size() - cDinosaur::N)
+	if (step + crazyStep > cDinosaur::Shapes.size() - cDinosaur::N)
 		throw;
 }
 
@@ -33,12 +33,19 @@ cDinosaur::~cDinosaur() {}
 
 void cDinosaur::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	int crazyFlag = 0;
+
+	if (this->State == ecState::CRAZY)
+		crazyFlag = 1;
+	else
+		crazyFlag = 0;
+
 	if (this->Direction == ecDirection::RIGHT)
 	{
-		for (int i = 0; i < cDinosaur::N + this->Step; ++i)
+		for (int i = 0; i < cDinosaur::N + this->Step + this->CrazyStep; ++i)
 		{
-			this->X[i] += this->Step;
-			
+			this->X[i] += this->Step + this->CrazyStep * crazyFlag;
+
 			if (this->X[i] >= rightLimit + virtualDistance + 1)
 			{
 				this->X[i] = leftLimit + (this->X[i] - (rightLimit + virtualDistance + 1));
@@ -47,10 +54,10 @@ void cDinosaur::move(int leftLimit, int rightLimit, int virtualDistance)
 	}
 	else if (this->Direction == ecDirection::LEFT)
 	{
-		for (int i = 0; i < cDinosaur::N + this->Step; i++)
+		for (int i = 0; i < cDinosaur::N + this->Step + this->CrazyStep; i++)
 		{
-			this->X[i] -= this->Step;
-			
+			this->X[i] -= this->Step + this->CrazyStep * crazyFlag;
+
 			if (this->X[i] <= leftLimit - 1)
 			{
 				this->X[i] = rightLimit + virtualDistance - ((leftLimit - 1) - this->X[i]);
@@ -64,8 +71,20 @@ void cDinosaur::move(int leftLimit, int rightLimit, int virtualDistance)
 void cDinosaur::draw(int leftLimit, int rightLimit)
 {
 	text_color(this->Color);
+	int crazyFlag = 0;
 
-	for (int i = 0; i < cDinosaur::N + this->Step; i++)
+	if (this->State == ecState::CRAZY)
+	{
+		crazyFlag = 1;
+		text_color(ecColor::RED);
+	}
+	else if (this->State == ecState::NORMAL)
+	{
+		crazyFlag = 0;
+		text_color(this->Color);
+	}
+
+	for (int i = 0; i < cDinosaur::N + this->Step + this->CrazyStep * crazyFlag; i++)
 	{
 		if (i >= cDinosaur::N)
 		{
@@ -82,6 +101,7 @@ void cDinosaur::draw(int leftLimit, int rightLimit)
 	text_color();
 	goto_xy(0, 0);
 }
+
 
 void cDinosaur::tell()
 {

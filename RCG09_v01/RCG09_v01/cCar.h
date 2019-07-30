@@ -10,7 +10,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cCar(ecDirection direction, ecColor color, int x, int y, int step);
+	cCar(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cCar();
 
 public:

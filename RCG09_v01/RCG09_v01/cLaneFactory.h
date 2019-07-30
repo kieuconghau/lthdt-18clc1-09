@@ -15,6 +15,6 @@ class cLaneFactory
 {
 public:
 	static cLane* create(cObject::ecType objectType, ecDirection direction, ecColor color
-		, int objectCount, int y, vector<int> time, int step, int leftLimit, int rightLimit);
+		, int objectCount, int y, vector<int> time, int step, int crazyStep, int leftLimit, int rightLimit);
 };
 

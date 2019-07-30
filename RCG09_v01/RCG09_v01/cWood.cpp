@@ -21,10 +21,10 @@ const vector<char> cWood::Shapes({ char(177), char(177), char(177), char(177), c
 , cWood::BRICK_SHAPE, cWood::BRICK_SHAPE, cWood::BRICK_SHAPE });
 
 
-cWood::cWood(ecDirection direction, ecColor color, int x, int y, int step)
-	: cFloat(cObject::ecType::MV_CAR, cWood::N, direction, color, x, y, step)
+cWood::cWood(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep)
+	: cFloat(cObject::ecType::MV_CAR, cWood::N, direction, color, x, y, step, crazyStep)
 {
-	if (step > cWood::Shapes.size() - cWood::N)
+	if (step + crazyStep > cWood::Shapes.size() - cWood::N)
 		throw;
 }
 
@@ -33,11 +33,18 @@ cWood::~cWood() {}
 
 void cWood::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	int crazyFlag = 0;
+
+	if (this->State == ecState::CRAZY)
+		crazyFlag = 1;
+	else
+		crazyFlag = 0;
+
 	if (this->Direction == ecDirection::RIGHT)
 	{
-		for (int i = 0; i < cWood::N + this->Step; ++i)
+		for (int i = 0; i < cWood::N + this->Step + this->CrazyStep; ++i)
 		{
-			this->X[i] += this->Step;
+			this->X[i] += this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] >= rightLimit + virtualDistance + 1)
 			{
@@ -47,9 +54,9 @@ void cWood::move(int leftLimit, int rightLimit, int virtualDistance)
 	}
 	else if (this->Direction == ecDirection::LEFT)
 	{
-		for (int i = 0; i < cWood::N + this->Step; i++)
+		for (int i = 0; i < cWood::N + this->Step + this->CrazyStep; i++)
 		{
-			this->X[i] -= this->Step;
+			this->X[i] -= this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] <= leftLimit - 1)
 			{
@@ -64,8 +71,20 @@ void cWood::move(int leftLimit, int rightLimit, int virtualDistance)
 void cWood::draw(int leftLimit, int rightLimit)
 {
 	text_color(this->Color);
+	int crazyFlag = 0;
 
-	for (int i = 0; i < cWood::N + this->Step; i++)
+	if (this->State == ecState::CRAZY)
+	{
+		crazyFlag = 1;
+		text_color(ecColor::RED);
+	}
+	else if (this->State == ecState::NORMAL)
+	{
+		crazyFlag = 0;
+		text_color(this->Color);
+	}
+
+	for (int i = 0; i < cWood::N + this->Step + this->CrazyStep * crazyFlag; i++)
 	{
 		if (i >= cWood::N)
 		{

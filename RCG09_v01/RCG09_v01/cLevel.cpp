@@ -439,7 +439,7 @@ void cLevel::play()
 }
 
 void cLevel::set_up(int level, int laneCount,int finishLine,int maxCoin, int timeAlotted, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
-	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit)
+	, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, vector<int> crazySteps, int leftLimit, int rightLimit)
 {
 	for (int i = 0; i < this->LaneCount; i++)
 		delete this->Lanes[i];
@@ -461,7 +461,7 @@ void cLevel::set_up(int level, int laneCount,int finishLine,int maxCoin, int tim
 	for (int i = 0; i < this->LaneCount; i++)
 	{
 		this->Lanes[i] = cLaneFactory::create(objectTypes[i], directions[i], objectColors[i]
-			, objectCounts[i], cSetting::Game::TOP_LIMIT + 3 + i, times[i], steps[i], leftLimit, rightLimit);
+			, objectCounts[i], cSetting::Game::TOP_LIMIT + 3 + i, times[i], steps[i], crazySteps[i], leftLimit, rightLimit);
 	}
 }
 

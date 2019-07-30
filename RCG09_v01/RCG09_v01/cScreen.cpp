@@ -881,25 +881,25 @@ void cScreen::screen_how_to_play()
 	goto_xy(distanceFromLeftBorder + distanceBetweenObjects * 4 + 10, 11);
 	cout << "Truck";
 
-	cBird bird(direction, firstColor, distanceFromLeftBorder + distanceBetweenObjects * 0 + 13, 13, 1);
+	cBird bird(direction, firstColor, distanceFromLeftBorder + distanceBetweenObjects * 0 + 13, 13, 1, 0);
 	bird.draw(0, get_console_width());
 
-	cDinosaur dinosaur(direction, secondColor, distanceFromLeftBorder + distanceBetweenObjects * 1 + 13, 13, 1);
+	cDinosaur dinosaur(direction, secondColor, distanceFromLeftBorder + distanceBetweenObjects * 1 + 13, 13, 1, 0);
 	dinosaur.draw(0, get_console_width());
 
-	cCar car(direction, thirdColor, distanceFromLeftBorder + distanceBetweenObjects * 2 + 13, 13, 1);
+	cCar car(direction, thirdColor, distanceFromLeftBorder + distanceBetweenObjects * 2 + 13, 13, 1, 0);
 	car.draw(0, get_console_width());
 
-	cTrain train(direction, fourthColor, distanceFromLeftBorder + distanceBetweenObjects * 3 + 28, 13, 1);
+	cTrain train(direction, fourthColor, distanceFromLeftBorder + distanceBetweenObjects * 3 + 28, 13, 1, 0);
 	train.draw(0, get_console_width());
 
-	cTruck truck(direction, fifthColor, distanceFromLeftBorder + distanceBetweenObjects * 4 + 13, 13, 1);
+	cTruck truck(direction, fifthColor, distanceFromLeftBorder + distanceBetweenObjects * 4 + 13, 13, 1, 0);
 	truck.draw(0, get_console_width());
 
 	goto_xy(distanceFromLeftBorder, 15);
 	text_color(textColor);
 	cout << i++ << ". THE RIVER. YOU SUCK AT SWIMMING, SO YOU WILL DROWN. BUT LUCKILY, THERE ARE WOODS FOR YOU TO CROSS IT. " << endl;
-	cMovableObjectLane waterLane(cObject::ecType::MF_WOOD, direction, ecColor::BLUE, 10, 17, { 0,0,0 }, 1, 0, get_console_width() - 1, 0);
+	cMovableObjectLane waterLane(cObject::ecType::MF_WOOD, direction, ecColor::BLUE, 10, 17, { 0,0,0 }, 1, 0, 0, get_console_width() - 1, 0);
 	waterLane.draw();
 
 	goto_xy(distanceFromLeftBorder, 19);

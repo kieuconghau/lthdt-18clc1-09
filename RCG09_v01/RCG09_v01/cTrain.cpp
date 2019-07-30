@@ -28,10 +28,10 @@ const vector<char> cTrain::Shapes({ char(220), char(219), char(219), char(219), 
 const int cTrain::DisappearTime = 450;
 
 
-cTrain::cTrain(ecDirection direction, ecColor color, int x, int y, int step)
-	: cVehicle(cObject::ecType::MV_TRAIN, cTrain::N, direction, color, x, y, step)
+cTrain::cTrain(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep)
+	: cVehicle(cObject::ecType::MV_TRAIN, cTrain::N, direction, color, x, y, step, crazyStep)
 {
-	if (step > cTrain::Shapes.size() - cTrain::N)
+	if (step + crazyStep > cTrain::Shapes.size() - cTrain::N)
 		throw;
 }
 
@@ -39,13 +39,18 @@ cTrain::~cTrain() {}
 
 void cTrain::move(int leftLimit, int rightLimit, int virtualDistance)
 {
-	virtualDistance = cTrain::DisappearTime;
+	int crazyFlag = 0;
+
+	if (this->State == ecState::CRAZY)
+		crazyFlag = 1;
+	else
+		crazyFlag = 0;
 
 	if (this->Direction == ecDirection::RIGHT)
 	{
-		for (int i = 0; i < cTrain::N + this->Step; i++)
+		for (int i = 0; i < cTrain::N + this->Step + this->CrazyStep; ++i)
 		{
-			this->X[i] += this->Step;
+			this->X[i] += this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] >= rightLimit + virtualDistance + 1)
 			{
@@ -55,10 +60,10 @@ void cTrain::move(int leftLimit, int rightLimit, int virtualDistance)
 	}
 	else if (this->Direction == ecDirection::LEFT)
 	{
-		for (int i = 0; i < cTrain::N + this->Step; i++)
+		for (int i = 0; i < cTrain::N + this->Step + this->CrazyStep; i++)
 		{
-			this->X[i] -= this->Step;
-			
+			this->X[i] -= this->Step + this->CrazyStep * crazyFlag;
+
 			if (this->X[i] <= leftLimit - 1)
 			{
 				this->X[i] = rightLimit + virtualDistance - ((leftLimit - 1) - this->X[i]);
@@ -72,8 +77,20 @@ void cTrain::move(int leftLimit, int rightLimit, int virtualDistance)
 void cTrain::draw(int leftLimit, int rightLimit)
 {
 	text_color(this->Color);
+	int crazyFlag = 0;
 
-	for (int i = 0; i < cTrain::N + this->Step; i++)
+	if (this->State == ecState::CRAZY)
+	{
+		crazyFlag = 1;
+		text_color(ecColor::RED);
+	}
+	else if (this->State == ecState::NORMAL)
+	{
+		crazyFlag = 0;
+		text_color(this->Color);
+	}
+
+	for (int i = 0; i < cTrain::N + this->Step + this->CrazyStep * crazyFlag; i++)
 	{
 		if (i >= cTrain::N)
 		{

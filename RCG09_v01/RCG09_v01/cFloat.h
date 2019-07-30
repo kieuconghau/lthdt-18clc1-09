@@ -5,7 +5,7 @@
 class cFloat : public cMovableObject
 {
 public:
-	cFloat(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step);
+	cFloat(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	virtual ~cFloat();
 
 public:

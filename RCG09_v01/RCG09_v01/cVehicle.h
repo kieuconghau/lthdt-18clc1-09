@@ -7,7 +7,7 @@
 class cVehicle : public cMovableObject
 {
 public:
-	cVehicle(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step);
+	cVehicle(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	virtual ~cVehicle();
 
 public:

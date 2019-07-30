@@ -19,7 +19,7 @@ public:
 
 	void play();
 	void set_up(int level, int laneCount, int timeAlotted, int maxCoin, int finishLine, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
-		, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit);
+		, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, vector<int> crazySteps, int leftLimit, int rightLimit);
 
 	void reset();
 

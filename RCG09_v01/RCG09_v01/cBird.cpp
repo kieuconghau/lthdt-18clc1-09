@@ -21,10 +21,10 @@ const vector<char> cBird::Shapes({ char(223), char(220), char(220), char(223)
 , cBird::BRICK_SHAPE, cBird::BRICK_SHAPE, cBird::BRICK_SHAPE });
 
 
-cBird::cBird(ecDirection direction, ecColor color, int x, int y, int step)
-	: cAnimal(cObject::ecType::MA_BIRD, cBird::N, direction, color, x, y, step)
+cBird::cBird(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep)
+	: cAnimal(cObject::ecType::MA_BIRD, cBird::N, direction, color, x, y, step, crazyStep)
 {
-	if (step > cBird::Shapes.size() - cBird::N)
+	if (step + crazyStep > cBird::Shapes.size() - cBird::N)
 		throw;
 }
 
@@ -33,11 +33,18 @@ cBird::~cBird() {}
 
 void cBird::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	int crazyFlag = 0;
+
+	if (this->State == ecState::CRAZY)
+		crazyFlag = 1;
+	else
+		crazyFlag = 0;
+
 	if (this->Direction == ecDirection::RIGHT)
 	{
-		for (int i = 0; i < cBird::N + this->Step; ++i)
+		for (int i = 0; i < cBird::N + this->Step + this->CrazyStep; ++i)
 		{
-			this->X[i] += this->Step;
+			this->X[i] += this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] >= rightLimit + virtualDistance + 1)
 			{
@@ -47,10 +54,10 @@ void cBird::move(int leftLimit, int rightLimit, int virtualDistance)
 	}
 	else if (this->Direction == ecDirection::LEFT)
 	{
-		for (int i = 0; i < cBird::N + this->Step; i++)
+		for (int i = 0; i < cBird::N + this->Step + this->CrazyStep; i++)
 		{
-			this->X[i] -= this->Step;
-			
+			this->X[i] -= this->Step + this->CrazyStep * crazyFlag;
+
 			if (this->X[i] <= leftLimit - 1)
 			{
 				this->X[i] = rightLimit + virtualDistance - ((leftLimit - 1) - this->X[i]);
@@ -64,8 +71,20 @@ void cBird::move(int leftLimit, int rightLimit, int virtualDistance)
 void cBird::draw(int leftLimit, int rightLimit)
 {
 	text_color(this->Color);
+	int crazyFlag = 0;
 
-	for (int i = 0; i < cBird::N + this->Step; i++)
+	if (this->State == ecState::CRAZY)
+	{
+		crazyFlag = 1;
+		text_color(ecColor::RED);
+	}
+	else if (this->State == ecState::NORMAL)
+	{
+		crazyFlag = 0;
+		text_color(this->Color);
+	}
+
+	for (int i = 0; i < cBird::N + this->Step + this->CrazyStep * crazyFlag; i++)
 	{
 		if (i >= cBird::N)
 		{
@@ -82,6 +101,7 @@ void cBird::draw(int leftLimit, int rightLimit)
 	text_color();
 	goto_xy(0, 0);
 }
+
 
 void cBird::tell()
 {
