@@ -73,6 +73,7 @@ void cGame::play()
 			break;
 		}
 
+
 		this->Levels[CurrentLevel - 1].play();
 
 		if (this->Levels[CurrentLevel - 1].won()) {
@@ -126,7 +127,7 @@ void cGame::save_game()
 			goto_xy(0, middleY);
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
-			cin >> path;
+			getline(cin, path, '\n');
 
 			if (path == "0") {
 				return ;
@@ -200,10 +201,9 @@ void cGame::load_game()
 
 			text_color(textColor);
 			goto_xy(0, middleY);
-			cin.ignore(100, '\n');
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
-			cin >> path;
+			getline(cin, path, '\n');
 
 			if (path == "0") {
 				return;
