@@ -14,6 +14,6 @@
 class cObjectFactory
 {
 public:
-	static cMovableObject* create(cObject::ecType movableObjectType, ecDirection direction, ecColor color, int x, int y, int step);
+	static cMovableObject* create(cObject::ecType movableObjectType, ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	static cFixedObject* create(cObject::ecType fixedObjectType, ecDirection direction, ecColor color, int x, int y);
 };

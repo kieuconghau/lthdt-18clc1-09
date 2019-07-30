@@ -10,7 +10,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cBird(ecDirection direction, ecColor color, int x, int y, int step);
+	cBird(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cBird();
 
 public:

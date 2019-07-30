@@ -1,5 +1,5 @@
 #include "cGame.h"
-
+#include <limits>
 
 cGame* cGame::Instance = nullptr;
 
@@ -19,7 +19,6 @@ cGame* cGame::get_instance()
 cGame::cGame()
 {
 	this->Levels = new cLevel[cGame::LevelCount];
-	//this->CurrentLevel = 1;
 	this->CurrentLevel = 1;
 	this->State = cGame::ecState::PLAYING;
 
@@ -32,40 +31,39 @@ cGame::cGame()
 	int timeAlotted0 = 60;//second... kind of
 	int finishLine0 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin0 = 2; // must be equal to the number of level's coins;
-	vector<cObject::ecType> objectTypes0 = { cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN };
-	vector<ecDirection> directions0 = { ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT };
-	vector<ecColor> colors0 = { ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN };
-	vector<int> objectCounts0 = { 25									, 4							, 30									, 9							, 6								, 1 };
-	vector<vector<int>> times0 = { {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {5, 5, 15}					, {0, 0, 0} };
-	vector<int> steps0 = { 2										, 1							, 1										, 1							, 1								, 9 };
-	this->Levels[0].set_up(laneCounts[0], finishLine0, maxCoin0, timeAlotted0, objectTypes0, directions0, colors0, objectCounts0, times0, steps0, leftLimit, rightLimit);
+	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN };
+	vector<ecDirection> directions0 =		{ ecDirection::RIGHT					, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT };
+	vector<ecColor> colors0 =				{ ecColor::GREY							, ecColor::PURPLE				, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN };
+	vector<int> objectCounts0 =				{ 25									, 4								, 30									, 9							, 6								, 1 };
+	vector<vector<int>> times0 =			{ {0, 0, 0}								, {0, 15, 15}					, {0, 0, 0}								, {0, 0, 0}				, {0, 10, 20}						, {0, 0, 0} };
+	vector<int> steps0 =					{ 2										, 1								, 1										, 1							, 1								, 9	};
+	vector<int> crazySteps0 =				{ 0										, 2								, 0										, 0							, 1								, 0 };
+	this->Levels[0].set_up(1, laneCounts[0], finishLine0, maxCoin0, timeAlotted0, objectTypes0, directions0, colors0, objectCounts0, times0, steps0, crazySteps0, leftLimit, rightLimit);
 
 	/* Level 2 */
 	int timeAlotted1 = 60;//second... kind of
 	int finishLine1 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin1 = 2; // must be equal to the number of level's coins;
-	vector<cObject::ecType> objectTypes1 = { cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD };
-	vector<ecDirection> directions1 = { ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT };
-	vector<ecColor> colors1 = { ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
-	vector<int> objectCounts1 = { 25									, 4							, 30									, 9							, 6								, 1							, 6 };
-	vector<vector<int>> times1 = { {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {5, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
-	vector<int> steps1 = { 2										, 1							, 1										, 1							, 1								, 9							, 1 };
-	this->Levels[1].set_up(laneCounts[1], finishLine1, maxCoin1, timeAlotted1, objectTypes1, directions1, colors1, objectCounts1, times1, steps1, leftLimit, rightLimit);
+	vector<cObject::ecType> objectTypes1 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD };
+	vector<ecDirection> directions1 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT };
+	vector<ecColor> colors1 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
+	vector<int> objectCounts1 =				{ 25									, 4							, 30									, 9							, 6								, 1							, 6 };
+	vector<vector<int>> times1 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {5, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
+	vector<int> steps1 =					{ 2										, 1							, 1										, 1							, 1								, 9							, 1 };
+	vector<int> crazySteps1 =				{ 0										, 2							, 0										, 0							, 1								, 0							, 0	};
+	this->Levels[1].set_up(2, laneCounts[1], finishLine1, maxCoin1, timeAlotted1, objectTypes1, directions1, colors1, objectCounts1, times1, steps1, crazySteps1, leftLimit, rightLimit);
 }
 
 cGame::~cGame()
 {
 	delete[] this->Levels;
-
-	delete cGame::Instance;
 }
 
 void cGame::play()
 {
-
 	this->State = ecState::PLAYING;
 
-	while (this->State == ecState::PLAYING) {
+	while (true) {
 
 		if (this->CurrentLevel > this->LevelCount) {
 			this->CurrentLevel = this->LevelCount;
@@ -97,7 +95,6 @@ void cGame::play()
 		if (this->State == ecState::VICTORY) {
 			break;
 		}
-
 	}
 }
 
@@ -113,24 +110,35 @@ void cGame::save_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
+	cin.ignore(1000, '\n');
 
 	ofstream f;
 
 	while (true) {
+		system("cls");
+		path.clear();
+
 		try {
-
 			cScreen::draw_save_game();
-
-			Sleep(50);
 
 			text_color(textColor);
 			goto_xy(0, middleY);
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
+<<<<<<< HEAD
 			getline(cin, path, '\n');
+=======
+			getline(cin, path);
+			cin.clear();
+>>>>>>> 6a78581ac656ecbdef78bd650e9c30da6da6639a
 
 			if (path == "0") {
 				return ;
+			}
+
+			if (path == "")
+			{
+				continue;
 			}
 
 			if ((path.length() < 4) || (path[path.length() - 1] != 't') || (path[path.length() - 2] != 'x') || (path[path.length() - 3] != 't') || (path[path.length() - 4] != '.')) {
@@ -146,18 +154,24 @@ void cGame::save_game()
 			break;
 		}
 		catch (const char* msg) {
-			system("cls");
+			//system("cls");
 			path.clear();
 			goto_xy(distanceFromLeftBorder, middleY + 2);
 			if (msg == "!.txt") {
+				text_color(ecColor::RED);
 				cout << "This is not a text file. Please enter again." << endl;
+				text_color(textColor);
+				Sleep(500);
 			}
 		}
 		catch (bool fopen) {
-			system("cls");
+			//system("cls");
 			goto_xy(distanceFromLeftBorder, middleY + 2);
 			if (!fopen) {
+				text_color(ecColor::RED);
 				cout << "Can't open this file or this path doesn't exist" << endl;
+				text_color(textColor);
+				Sleep(500);
 			}
 		}
 	}
@@ -166,13 +180,15 @@ void cGame::save_game()
 	f << "RCG09" << endl;
 	f << this->CurrentLevel;
 
+	f.close();
+
 	goto_xy(distanceFromLeftBorder, middleY + 2);
 	cout << "                                                                          ";
 
 	goto_xy(distanceFromLeftBorder, middleY + 2);
 	cout << "Save game successfully. " << endl;
 	goto_xy(distanceFromLeftBorder, middleY + 3);
-	cout << "Game is saved in: " << path << endl;
+	cout << "Game was saved in: " << path << endl;
 	goto_xy(distanceFromLeftBorder, middleY + 4);
 	system("pause");
 }
@@ -189,24 +205,36 @@ void cGame::load_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
+	cin.ignore(1000, '\n');
 
 	ifstream f;
 
 	while (true) {
+		system("cls");
+		path.clear();
+
 		try {
 
 			cScreen::draw_load_game();
-
-			Sleep(50);
 
 			text_color(textColor);
 			goto_xy(0, middleY);
 
 			cout << "Enter file's path or name (file's type is text file, you can enter 0 to return): ";
+<<<<<<< HEAD
 			getline(cin, path, '\n');
+=======
+			getline(cin, path);
+			cin.clear();
+>>>>>>> 6a78581ac656ecbdef78bd650e9c30da6da6639a
 
 			if (path == "0") {
 				return;
+			}
+
+			if (path == "")
+			{
+				continue;
 			}
 
 			if ((path.length() < 4) || (path[path.length() - 1] != 't') || (path[path.length() - 2] != 'x') || (path[path.length() - 3] != 't') || (path[path.length() - 4] != '.')) {
@@ -230,29 +258,39 @@ void cGame::load_game()
 			break;
 		}
 		catch (const char* msg) {
-			system("cls");
 			path.clear();
 			goto_xy(distanceFromLeftBorder, middleY + 2);
 			if (msg == "!.txt") {
+				text_color(ecColor::RED);
 				cout << "This is not saved file's type. Please enter again." << endl;
+				text_color(textColor);
+				Sleep(500);
 			}
 			if (msg == "!signature") {
+				text_color(ecColor::RED);
 				cout << "This is not saved file of this game. Please enter again." << endl;
+				text_color(textColor);
+				Sleep(500);
 			}
 		}
 		catch (bool fopen) {
-			system("cls");
 			goto_xy(distanceFromLeftBorder, middleY + 2);
 			if (!fopen) {
+				text_color(ecColor::RED);
 				cout << "Can't open this file or this path doesn't exist" << endl;
+				text_color(textColor);
+				Sleep(500);
 			}
 		}
 	}
 
 	int level; 
 	f >> level;
+	
+	f.close();
 
-	if ((level > 0) && (level <= this->LevelCount)) {
+	if ((level > 0) && (level <= this->LevelCount))
+	{
 		this->CurrentLevel = level;
 	}
 	

@@ -10,7 +10,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cWood(ecDirection direction, ecColor color, int x, int y, int step);
+	cWood(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cWood();
 
 public:

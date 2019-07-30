@@ -21,10 +21,10 @@ const vector<char> cCar::Shapes({ char(220), char(219), char(219), char(220)
 , cCar::BRICK_SHAPE, cCar::BRICK_SHAPE, cCar::BRICK_SHAPE });
 
 
-cCar::cCar(ecDirection direction, ecColor color, int x, int y, int step)
-	: cVehicle(cObject::ecType::MV_CAR, cCar::N, direction, color, x, y, step)
+cCar::cCar(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep)
+	: cVehicle(cObject::ecType::MV_CAR, cCar::N, direction, color, x, y, step, crazyStep)
 {
-	if (step > cCar::Shapes.size() - cCar::N)
+	if (step + crazyStep > cCar::Shapes.size() - cCar::N)
 		throw;
 }
 
@@ -33,11 +33,18 @@ cCar::~cCar() {}
 
 void cCar::move(int leftLimit, int rightLimit, int virtualDistance)
 {
+	int crazyFlag = 0;
+
+	if (this->State == ecState::CRAZY)
+		crazyFlag = 1;
+	else
+		crazyFlag = 0;
+
 	if (this->Direction == ecDirection::RIGHT)
 	{
-		for (int i = 0; i < cCar::N + this->Step; ++i)
+		for (int i = 0; i < cCar::N + this->Step + this->CrazyStep; ++i)
 		{
-			this->X[i] += this->Step;
+			this->X[i] += this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] >= rightLimit + virtualDistance + 1)
 			{
@@ -47,9 +54,9 @@ void cCar::move(int leftLimit, int rightLimit, int virtualDistance)
 	}
 	else if (this->Direction == ecDirection::LEFT)
 	{
-		for (int i = 0; i < cCar::N + this->Step; i++)
+		for (int i = 0; i < cCar::N + this->Step + this->CrazyStep; i++)
 		{
-			this->X[i] -= this->Step;
+			this->X[i] -= this->Step + this->CrazyStep * crazyFlag;
 
 			if (this->X[i] <= leftLimit - 1)
 			{
@@ -64,8 +71,20 @@ void cCar::move(int leftLimit, int rightLimit, int virtualDistance)
 void cCar::draw(int leftLimit, int rightLimit)
 {
 	text_color(this->Color);
+	int crazyFlag = 0;
 
-	for (int i = 0; i < cCar::N + this->Step; i++)
+	if (this->State == ecState::CRAZY)
+	{
+		crazyFlag = 1;
+		text_color(ecColor::RED);
+	}
+	else if (this->State == ecState::NORMAL)
+	{
+		crazyFlag = 0;
+		text_color(this->Color);
+	}
+
+	for (int i = 0; i < cCar::N + this->Step + this->CrazyStep * crazyFlag; i++)
 	{
 		if (i >= cCar::N)
 		{
@@ -85,7 +104,7 @@ void cCar::draw(int leftLimit, int rightLimit)
 
 void cCar::tell()
 {
-	// do_sth
+	PlaySound(TEXT("bird.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cCar::impact_xcor(int x)

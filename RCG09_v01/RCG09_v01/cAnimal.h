@@ -1,11 +1,14 @@
 #pragma once
+#pragma comment(lib, "winmm.lib")
+#include <windows.h>
+#include <mmsystem.h>
 
 #include "cMovableObject.h"
 
 class cAnimal : public cMovableObject
 {
 public:
-	cAnimal(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step);
+	cAnimal(cObject::ecType objectType, int n, ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	virtual ~cAnimal();
 
 public:

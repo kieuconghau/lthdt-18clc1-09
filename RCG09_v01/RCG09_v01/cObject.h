@@ -25,7 +25,7 @@ public:
 	};
 
 public:
-	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step = 0);
+	cObject(cObject::ecType objectType, int n, ecDirection direction, int x, int y, int step = 0, int crazyStep = 0);
 	virtual ~cObject();
 
 public:

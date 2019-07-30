@@ -95,19 +95,20 @@ void cPeople::move_back()
 void cPeople::update_pos()
 {
 	text_color(this->BrickColor);
+
 	if (this->LastDirection == ecDirection::UP) {
 		goto_xy(this->X, this->Y + 1);
 		cout << this->BrickShape;
 	}
-	if (this->LastDirection == ecDirection::DOWN) {
+	else if (this->LastDirection == ecDirection::DOWN) {
 		goto_xy(this->X, this->Y - 1);
 		cout << this->BrickShape;
 	}
-	if (this->LastDirection == ecDirection::LEFT) {
+	else if (this->LastDirection == ecDirection::LEFT) {
 		goto_xy(this->X+1, this->Y);
 		cout << this->BrickShape;
 	}
-	if (this->LastDirection == ecDirection::RIGHT) {
+	else if (this->LastDirection == ecDirection::RIGHT) {
 		goto_xy(this->X - 1, this->Y );
 		cout << this->BrickShape;
 	}
@@ -115,6 +116,7 @@ void cPeople::update_pos()
 	text_color(this->Color);
 	goto_xy(this->X, this->Y);
 	cout << this->Shape;
+	goto_xy(this->X, this->Y);
 	
 	this->LastDirection = ecDirection::NONE;
 }
@@ -129,29 +131,52 @@ void cPeople::set_starting_pos(int xStart, int yStart)
 	this->draw();
 }
 
+//void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
+//{
+//	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+//	{
+//		this->move_left(leftLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+//	{
+//		this->move_right(rightLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_UP) & 0x8000)
+//	{
+//		this->move_up(topLimit);
+//	}
+//	else if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+//	{
+//		this->move_down(bottomLimit);
+//	}
+//	else
+//	{
+//		this->LastDirection = ecDirection::NONE;
+//	}
+//}
+
 void cPeople::move(int leftLimit, int rightLimit, int topLimit, int bottomLimit)
 {
-	if (GetAsyncKeyState(VK_LEFT) != 0)
+	if (GetAsyncKeyState(VK_LEFT))
 	{
 		this->move_left(leftLimit);
-		return;
 	}
-	else if (GetAsyncKeyState(VK_RIGHT) != 0)
+	else if (GetAsyncKeyState(VK_RIGHT))
 	{
 		this->move_right(rightLimit);
-		return;
 	}
-	else if (GetAsyncKeyState(VK_UP) != 0)
+	else if (GetAsyncKeyState(VK_UP))
 	{
 		this->move_up(topLimit);
-		return;
 	}
-	else if (GetAsyncKeyState(VK_DOWN) != 0)
+	else if (GetAsyncKeyState(VK_DOWN))
 	{
 		this->move_down(bottomLimit);
-		return;
 	}
-	this->LastDirection = ecDirection::NONE;
+	else
+	{
+		this->LastDirection = ecDirection::NONE;
+	}
 }
 
 bool cPeople::is_alive()
@@ -173,7 +198,6 @@ void cPeople::die()
 bool cPeople::is_in_line(unsigned int y)
 {
 	return this->Y == y;
-
 }
 
 bool cPeople::is_impacted(cObject* object)
@@ -183,10 +207,7 @@ bool cPeople::is_impacted(cObject* object)
 
 bool cPeople::stand_still()
 {
-	if (this->LastDirection == ecDirection::NONE) {
-		return true;
-	}
-	return false;
+	return this->LastDirection == ecDirection::NONE;
 }
 
 void cPeople::change_brick(char brickShape, ecColor brickColor) 
@@ -197,9 +218,16 @@ void cPeople::change_brick(char brickShape, ecColor brickColor)
 
 void cPeople::winning_effect() {
 	this->draw();
+	Sleep(500);
 }
 
 void cPeople::losing_effect()
 {
 	this->draw();
+	Sleep(1000);
+}
+
+ecDirection cPeople::get_last_direction()
+{
+	return this->LastDirection;
 }

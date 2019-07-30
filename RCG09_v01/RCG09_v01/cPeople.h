@@ -46,6 +46,8 @@ public:
 	void winning_effect();
 	void losing_effect();
 
+	ecDirection get_last_direction();
+
 private:
 	static cPeople* Instance;
 

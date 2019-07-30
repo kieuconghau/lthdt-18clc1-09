@@ -18,8 +18,8 @@ public:
 	~cLevel();
 
 	void play();
-	void set_up(int laneCount,int timeAlotted,int maxCoin, int finishLine, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
-		, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, int leftLimit, int rightLimit);
+	void set_up(int level, int laneCount, int timeAlotted, int maxCoin, int finishLine, vector<cObject::ecType> objectTypes, vector<ecDirection> directions, vector<ecColor> objectColors
+		, vector<int> objectCounts, vector<vector<int>> times, vector<int> steps, vector<int> crazySteps, int leftLimit, int rightLimit);
 
 	void reset();
 
@@ -44,5 +44,7 @@ private:
 	void draw();
 	void draw_finish_block();
 	void destroy_finish_block();
-	int unblockCount;
+	int UnblockCount;
+	int Level;
+
 };

@@ -11,7 +11,7 @@ public:
 	static const ecColor BRICK_COLOR;
 
 public:
-	cTruck(ecDirection direction, ecColor color, int x, int y, int step);
+	cTruck(ecDirection direction, ecColor color, int x, int y, int step, int crazyStep);
 	~cTruck();
 
 public:

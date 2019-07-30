@@ -76,8 +76,6 @@ void cTrafficLight::work()
 {
 	if (++this->TimeCount == this->Times[0] + this->Times[1] + this->Times[2] + 1)
 		this->TimeCount = 1;
-
-	this->draw();
 }
 
 bool cTrafficLight::isGreenLight()

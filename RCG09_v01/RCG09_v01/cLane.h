@@ -19,7 +19,7 @@ public:
 	virtual ~cLane();
 
 public:
-	virtual void work() = 0;
+	virtual void work(cPeople* people) = 0;
 	virtual int impact(cPeople* people) = 0;
 	virtual void draw();
 	virtual void change_people_brick(cPeople* people) = 0;

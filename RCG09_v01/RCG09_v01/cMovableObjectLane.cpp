@@ -1,12 +1,13 @@
 #include "cMovableObjectLane.h"
 
 cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection direction, ecColor objectColor
-	, int objectCount, int y, vector<int> time, int step, int leftLimit, int rightLimit, int virtualDistance)
+	, int objectCount, int y, vector<int> time, int step, int crazyStep, int leftLimit, int rightLimit, int virtualDistance)
 	: cLane(objectType, y, objectCount, leftLimit, rightLimit, virtualDistance)
 {
 	this->MovableObjectType = objectType;
 	this->Direction = direction;
 	this->Step = step;
+	this->CrazyStep = crazyStep;
 
 	// Traffic light
 	if (this->is_vehicle_lane())
@@ -27,6 +28,10 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 
 		this->TrafficLight = new cTrafficLight(direction, x, y, time[0], time[1], time[2]);
 	}
+	else if (this->is_animal_lane())
+	{
+		this->TrafficLight = new cTrafficLight(direction, 0, 0, time[0], time[1], time[2]);
+	}
 	else
 	{
 		this->TrafficLight = nullptr;
@@ -36,6 +41,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 	int distance = ceil(float((this->RightLimit + this->VirtualDistance - this->LeftLimit + 1)) / this->ObjectCount);
 	if (this->VirtualDistance == 0)	// Default
 	{
+
 		this->VirtualDistance = this->ObjectCount * distance + this->LeftLimit - 1 - this->RightLimit;
 	}
 
@@ -55,7 +61,7 @@ cMovableObjectLane::cMovableObjectLane(cObject::ecType objectType, ecDirection d
 		else
 			throw;
 
-		this->MovableObjects[i] = cObjectFactory::create(objectType, direction, objectColor, x, y, step);
+		this->MovableObjects[i] = cObjectFactory::create(objectType, direction, objectColor, x, y, step, crazyStep);
 	}
 }
 
@@ -76,18 +82,38 @@ bool cMovableObjectLane::is_vehicle_lane()
 	//|| this->MovableObjectType == cObject::ecType::MV_TRAIN;
 }
 
-void cMovableObjectLane::work()
+bool cMovableObjectLane::is_animal_lane()
+{
+	return this->MovableObjectType == cObject::ecType::MA_BIRD
+		|| this->MovableObjectType == cObject::ecType::MA_DINOSAUR;
+}
+
+void cMovableObjectLane::work(cPeople* people)
 {
 	if (this->TrafficLight != nullptr)
 	{
 		this->TrafficLight->work();
 
-		if (!this->TrafficLight->isRedLight())
+		if (this->is_vehicle_lane())
+		{
+			this->TrafficLight->draw();
+		}
+
+		if (this->TrafficLight->isGreenLight())
 		{
 			for (int i = 0; i < this->ObjectCount; i++)
 			{
+				this->MovableObjects[i]->normal();
 				this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
-				this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+				//this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+			}
+		}
+		else if (this->TrafficLight->isYellowLight())
+		{
+			for (int i = 0; i < this->ObjectCount; i++)
+			{
+				this->MovableObjects[i]->crazy();
+				this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
 			}
 		}
 	}
@@ -96,9 +122,78 @@ void cMovableObjectLane::work()
 		for (int i = 0; i < this->ObjectCount; i++)
 		{
 			this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
-			this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+			//this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
 		}
 	}
+
+	// Check if people is on wood lane
+	if (this->has_people(people))
+	{
+		if (this->MovableObjectType == cObject::ecType::MF_WOOD)
+		{
+			ecDirection lastDirectionP = people->get_last_direction();
+			people->update_pos();
+			this->change_people_brick(people);
+
+			if (this->Direction == ecDirection::RIGHT)
+			{
+				if (lastDirectionP == ecDirection::RIGHT)
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_right(this->RightLimit);
+					}
+				}
+				else if (lastDirectionP == ecDirection::LEFT)
+				{
+
+				}
+				else
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_right(this->RightLimit);
+					}
+				}
+			}
+			else if (this->Direction == ecDirection::LEFT)
+			{
+				if (lastDirectionP == ecDirection::LEFT)
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_left(this->LeftLimit);
+					}
+				}
+				else if (lastDirectionP == ecDirection::RIGHT)
+				{
+
+				}
+				else
+				{
+					for (int i = 0; i < this->Step; ++i)
+					{
+						people->move_left(this->LeftLimit);
+					}
+				}
+			}
+			else if (this->Direction == ecDirection::NONE)
+			{
+				return;
+			}
+			else
+				throw;
+
+			people->update_pos();
+		}
+	}
+
+	for (int i = 0; i < this->ObjectCount; i++)
+	{
+		//this->MovableObjects[i]->move(this->LeftLimit, this->RightLimit, this->VirtualDistance);
+		this->MovableObjects[i]->draw(this->LeftLimit, this->RightLimit);
+	}
+	people->draw();
 }
 
 int cMovableObjectLane::impact(cPeople* people)
@@ -111,6 +206,7 @@ int cMovableObjectLane::impact(cPeople* people)
 			// Check if people impact on one object on this lane (check x_cor)
 			if (people->is_impacted(this->MovableObjects[i]))
 			{
+				this->MovableObjects[i]->tell();
 				people->die();
 				return 0;
 			}
@@ -144,4 +240,14 @@ void cMovableObjectLane::change_people_brick(cPeople* people)
 	if (this->ObjectCount != 0) {
 		people->change_brick(this->MovableObjects[0]->brick_shape(), this->MovableObjects[0]->brick_color());
 	}
+}
+
+void cMovableObjectLane::crazy()
+{
+	
+}
+
+void cMovableObjectLane::caml_down()
+{
+
 }
