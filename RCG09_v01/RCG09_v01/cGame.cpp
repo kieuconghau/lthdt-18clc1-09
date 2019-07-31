@@ -110,7 +110,6 @@ void cGame::save_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
-	cin.ignore(1000, '\n');
 
 	ofstream f;
 
@@ -128,7 +127,6 @@ void cGame::save_game()
 
 			getline(cin, path);
 			cin.clear();
-
 
 			if (path == "0") {
 				return ;
@@ -203,7 +201,6 @@ void cGame::load_game()
 	ecColor textColor = ecColor::CYAN;
 
 	string path;
-	cin.ignore(1000, '\n');
 
 	ifstream f;
 

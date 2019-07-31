@@ -1,6 +1,7 @@
 #pragma once
 #pragma warning(disable:4996)
 
+#include <conio.h>
 #include <Windows.h>
 #include <iostream>
 #include <string>

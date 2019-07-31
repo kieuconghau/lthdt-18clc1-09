@@ -363,6 +363,14 @@ void cLevel::play()
 		int flag = 0;
 		if ((GetAsyncKeyState(0x50) & 0x8000) && (flag == 0))
 		{
+			char temp;
+			while (true)
+			{
+				temp = _getch();
+				if (temp == 'p' || temp == 'P')
+					break;
+			}
+
 			flag = 1;
 			thread P(cScreen::screen_pause_game);
 			P.join();
@@ -372,16 +380,33 @@ void cLevel::play()
 		}
 		if ((GetAsyncKeyState(0x53) & 0x8000) && (flag == 0))
 		{
+			char temp;
+			while (true)
+			{
+				temp = _getch();
+				if (temp == 's' || temp == 'S')
+					break;
+			}
+
 			flag = 1;
 			thread S(cScreen::screen_save_game);
-			if (GetAsyncKeyState(0x53) & 0x8000)
-				S.join();
+			/*if (GetAsyncKeyState(0x53) & 0x8000)
+				S.join();*/
+			S.join();
 			system("cls");
 			this->draw();
 			this->People->draw();
 		}
 		if ((GetAsyncKeyState(0x4C) & 0x8000) && (flag == 0))
 		{
+			char temp;
+			while (true)
+			{
+				temp = _getch();
+				if (temp == 'l' || temp == 'L')
+					break;
+			}
+
 			flag = 1;
 			thread L(cScreen::screen_load_mid_game);
 			L.join();

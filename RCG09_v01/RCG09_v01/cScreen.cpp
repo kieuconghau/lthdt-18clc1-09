@@ -395,66 +395,77 @@ void cScreen::screen_win()
 	while(true) {
 	
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::RED);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::LIGHT_RED);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::LIGHT_YELLOW);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::GREEN);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::CYAN);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::LIGHT_PURPLE);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::PURPLE);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::GREY);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::GREEN);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::BLUE);
 		Sleep(speed);
 
 		if (GetAsyncKeyState(VK_RETURN) & 0x8000) {
+			int temp = getchar();
 			break;
 		}
 		draw_win(ecColor::YELLOW);
