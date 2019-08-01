@@ -104,7 +104,7 @@ void cCar::draw(int leftLimit, int rightLimit)
 
 void cCar::tell()
 {
-	PlaySound(TEXT("bird.wav"), NULL, SND_FILENAME | SND_ASYNC);
+	PlaySound(TEXT("car.wav"), NULL, SND_FILENAME | SND_ASYNC);
 }
 
 bool cCar::impact_xcor(int x)

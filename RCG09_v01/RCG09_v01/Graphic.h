@@ -52,4 +52,4 @@ int get_console_width();
 int get_console_height();
 
 void print_text_at_middle(int y, string text, ecColor color, bool endline);
-
+void ShowConsoleCursor(bool showFlag);

@@ -29,6 +29,7 @@ public:
 	bool won();
 	bool lost();
 
+	void time_bar_shrink();
 
 private:
 	int FinishLine;

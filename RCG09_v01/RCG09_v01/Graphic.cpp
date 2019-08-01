@@ -95,4 +95,13 @@ void print_text_at_middle(int y, string text, ecColor color, bool endline)
 	text_color();
 }
 
+void ShowConsoleCursor(bool showFlag)
+{
+	HANDLE output = GetStdHandle(STD_OUTPUT_HANDLE);
 
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(output, &cursorInfo);
+	cursorInfo.bVisible = showFlag; // set cursor's visibility
+	SetConsoleCursorInfo(output, &cursorInfo);
+}

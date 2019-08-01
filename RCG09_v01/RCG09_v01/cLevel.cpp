@@ -29,6 +29,8 @@ cLevel::~cLevel()
 
 void cLevel::draw()
 {
+	ShowConsoleCursor(false); // Hide console cursor
+
 	/* Draw game's borders */
 	text_color(cSetting::Game::BORDER_COLOR);
 
@@ -101,6 +103,13 @@ void cLevel::draw()
 	goto_xy(cSetting::Game::LEFT_LIMIT + 2, cSetting::Game::TOP_LIMIT_1 + 1);
 	text_color(ecColor::CYAN);
 	cout << "LEVEL " << this->Level;
+
+
+	/* Draw time bar*/
+	goto_xy(cSetting::Game::LEFT_LIMIT + 12, cSetting::Game::TOP_LIMIT_1 + 1);
+	text_color(ecColor::WHITE);
+	for (int i = cSetting::Game::LEFT_LIMIT + 12; i < cSetting::Game::RIGHT_LIMIT; i++)
+		cout << char(219);
 
 	text_color();
 	goto_xy(0, 0);
@@ -439,9 +448,10 @@ void cLevel::play()
 			this->People->draw();
 		}
 
-
+		// Update time
 		Sleep(50);
 		this->TimeCount -= 75;
+		time_bar_shrink();
 
 		if (this->lose(People)) {
 			People->losing_effect();
@@ -603,3 +613,14 @@ void cLevel::reset()
 	}
 }
 
+void cLevel::time_bar_shrink()
+{
+	int timePortionPassed = (TimeAlotted - TimeCount) * 118 / TimeAlotted;
+	if (timePortionPassed>0)
+	{
+		goto_xy(cSetting::Game::RIGHT_LIMIT - timePortionPassed, cSetting::Game::TOP_LIMIT_1 + 1);
+		text_color();
+		cout << char(219);
+	}
+	goto_xy(0, 0);
+}
