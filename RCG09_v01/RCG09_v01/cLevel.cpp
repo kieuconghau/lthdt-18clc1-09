@@ -449,9 +449,10 @@ void cLevel::play()
 		}
 
 		// Update time
-		Sleep(50);
-		this->TimeCount -= 75;
 		time_bar_shrink();
+		this->TimeCount -= 75;
+		Sleep(50);
+
 
 		if (this->lose(People)) {
 			People->losing_effect();
@@ -512,6 +513,8 @@ bool cLevel::win(cPeople* people)
 bool cLevel::lose(cPeople* people)
 {
 	if ((people->is_dead()) || (this->TimeCount <= 0) ){
+		if (this->TimeCount <= 0)
+			time_bar_shrink();
 		this->State = ecState::DEFEAT;
 		return true;
 	}
@@ -616,12 +619,10 @@ void cLevel::reset()
 void cLevel::time_bar_shrink()
 {
 	int timePortionPassed = (TimeAlotted - TimeCount) * 118 / TimeAlotted;
-	if (timePortionPassed>0)
-	{
-		goto_xy(cSetting::Game::RIGHT_LIMIT - timePortionPassed, cSetting::Game::TOP_LIMIT_1 + 1);
-		text_color();
-		for (int i = 0; i < timePortionPassed; i++)
-			cout << char(219);
-	}
+	text_color();
+	goto_xy(cSetting::Game::RIGHT_LIMIT - timePortionPassed, cSetting::Game::TOP_LIMIT_1 + 1);
+	for (int i = 0; i < timePortionPassed; i++)
+	cout << char(219);
+
 	goto_xy(0, 0);
 }
