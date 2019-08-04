@@ -620,7 +620,8 @@ void cLevel::time_bar_shrink()
 	{
 		goto_xy(cSetting::Game::RIGHT_LIMIT - timePortionPassed, cSetting::Game::TOP_LIMIT_1 + 1);
 		text_color();
-		cout << char(219);
+		for (int i = 0; i < timePortionPassed; i++)
+			cout << char(219);
 	}
 	goto_xy(0, 0);
 }
