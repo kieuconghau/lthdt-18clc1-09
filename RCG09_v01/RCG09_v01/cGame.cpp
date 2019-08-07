@@ -44,9 +44,9 @@ cGame::cGame()
 	int timeAlotted1 = 45;//second... kind of
 	int finishLine1 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin1 = 2; // must be equal to the number of level's coins;
-	vector<cObject::ecType> objectTypes1 =		{ cObject::ecType::MV_TRAIN			, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_BIRD		, cObject::ecType::MF_WOOD			, cObject::ecType::MV_TRUCK		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_BIRD	, cObject::ecType::MV_CAR };
+	vector<cObject::ecType> objectTypes1 =		{ cObject::ecType::MV_TRAIN			, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_DINOSAUR	, cObject::ecType::MF_WOOD			, cObject::ecType::MV_TRUCK		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_BIRD	, cObject::ecType::MV_CAR };
 	vector<ecDirection> directions1 =			{ ecDirection::RIGHT				, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT			, ecDirection::LEFT					, ecDirection::RIGHT			, ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT };
-	vector<ecColor> colors1 =					{ ecColor::PURPLE					, ecColor::CYAN					, ecColor::GREY							, ecColor::PURPLE				, ecColor::LIGHT_BLUE				, ecColor::RED					, ecColor::GREY							, ecColor::PURPLE			, ecColor::CYAN };
+	vector<ecColor> colors1 =					{ ecColor::PURPLE					, ecColor::CYAN					, ecColor::GREY							, ecColor::YELLOW				, ecColor::LIGHT_BLUE				, ecColor::RED					, ecColor::GREY							, ecColor::PURPLE			, ecColor::CYAN };
 	vector<int> objectCounts1 =					{ 1									, 6								, 25									, 5								, 7									, 5								, 26									, 5							, 7 };
 	vector<vector<int>> times1 =				{ {0, 0, 1}							, {9, 0, 50}					, {0, 0, 1}								, {0, 10, 45}					, {0, 0, 1}							, {15, 20, 40}					, {0, 0, 1}								, {0, 0, 1}					, {10, 30, 20} };
 	vector<int> steps1 =						{ 9									, 1								, 0										, 1								, 1									, 1								, 1										, 1							, 1 };
