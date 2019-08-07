@@ -23,35 +23,63 @@ cGame::cGame()
 	this->State = cGame::ecState::PLAYING;
 
 	/* Setting: Levels */
-	const int laneCounts[cGame::LevelCount] = { 6, 7 };
+	const int laneCounts[cGame::LevelCount] = { 7, 9 };
 	const int leftLimit = cSetting::Game::LEFT_LIMIT + 1;
 	const int rightLimit = cSetting::Game::RIGHT_LIMIT - 1;
 
 	/* Level 1 */
-	int timeAlotted0 = 10;//second... kind of
+	int timeAlotted0 = 25;//second... kind of
 	int finishLine0 = cSetting::Game::TOP_LIMIT + 1;
-	int maxCoin0 = 2; // must be equal to the number of level's coins;
-	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN };
-	vector<ecDirection> directions0 =		{ ecDirection::RIGHT					, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT };
-	vector<ecColor> colors0 =				{ ecColor::GREY							, ecColor::PURPLE				, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN };
-	vector<int> objectCounts0 =				{ 25									, 4								, 30									, 9							, 6								, 1 };
-	vector<vector<int>> times0 =			{ {0, 0, 0}								, {10, 15, 15}					, {0, 0, 0}								, {0, 0, 0}					, {0, 10, 20}						, {0, 0, 0} };
-	vector<int> steps0 =					{ 2										, 1								, 1										, 1							, 1								, 9	};
-	vector<int> crazySteps0 =				{ 0										, 2								, 0										, 0							, 1								, 0 };
+	int maxCoin0 = 1; // must be equal to the number of level's coins;
+	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MV_CAR			, cObject::ecType::MF_WOOD		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_TRUCK		, cObject::ecType::MF_WOOD			, cObject::ecType::MF_WOOD		, cObject::ecType::MV_CAR	};
+	vector<ecDirection> directions0 =		{ ecDirection::RIGHT				, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT			, ecDirection::LEFT					, ecDirection::RIGHT			, ecDirection::LEFT					};
+	vector<ecColor> colors0 =				{ ecColor::CYAN						, ecColor::LIGHT_BLUE			, ecColor::GREY							, ecColor::RED					, ecColor::LIGHT_BLUE				, ecColor::LIGHT_BLUE			, ecColor::CYAN							};
+	vector<int> objectCounts0 =				{ 5									, 9								, 30									, 6								, 8									, 9								, 5									};
+	vector<vector<int>> times0 =			{ {15, 0, 45}						, {0, 0, 1}						, {0, 0, 0}								, {15, 0, 55}					, {0, 0, 1}							, {0, 0, 1}						, {7, 0, 35}								};
+	vector<int> steps0 =					{ 1									, 1								, 0										, 1								, 1									, 1								, 1										};
+	vector<int> crazySteps0 =				{ 0									, 0								, 0										, 0								, 0									, 0								, 0										};
 	this->Levels[0].set_up(1, laneCounts[0], finishLine0, maxCoin0, timeAlotted0, objectTypes0, directions0, colors0, objectCounts0, times0, steps0, crazySteps0, leftLimit, rightLimit);
 
 	/* Level 2 */
-	int timeAlotted1 = 30;//second... kind of
+	int timeAlotted1 = 45;//second... kind of
 	int finishLine1 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin1 = 2; // must be equal to the number of level's coins;
-	vector<cObject::ecType> objectTypes1 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD };
-	vector<ecDirection> directions1 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT };
-	vector<ecColor> colors1 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
-	vector<int> objectCounts1 =				{ 25									, 4							, 30									, 9							, 6								, 1							, 6 };
-	vector<vector<int>> times1 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {0, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
-	vector<int> steps1 =					{ 2										, 1							, 1										, 1							, 1								, 9							, 1 };
-	vector<int> crazySteps1 =				{ 0										, 2							, 0										, 0							, 1								, 0							, 0	};
+	vector<cObject::ecType> objectTypes1 =		{ cObject::ecType::MV_TRAIN			, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_BIRD		, cObject::ecType::MF_WOOD			, cObject::ecType::MV_TRUCK		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MA_BIRD	, cObject::ecType::MV_CAR };
+	vector<ecDirection> directions1 =			{ ecDirection::RIGHT				, ecDirection::LEFT				, ecDirection::RIGHT					, ecDirection::RIGHT			, ecDirection::LEFT					, ecDirection::RIGHT			, ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT };
+	vector<ecColor> colors1 =					{ ecColor::PURPLE					, ecColor::CYAN					, ecColor::GREY							, ecColor::PURPLE				, ecColor::LIGHT_BLUE				, ecColor::RED					, ecColor::GREY							, ecColor::PURPLE			, ecColor::CYAN };
+	vector<int> objectCounts1 =					{ 1									, 6								, 25									, 5								, 7									, 5								, 26									, 5							, 7 };
+	vector<vector<int>> times1 =				{ {0, 0, 1}							, {9, 0, 50}					, {0, 0, 1}								, {0, 10, 45}					, {0, 0, 1}							, {15, 20, 40}					, {0, 0, 1}								, {0, 0, 1}					, {10, 30, 20} };
+	vector<int> steps1 =						{ 9									, 1								, 0										, 1								, 1									, 1								, 1										, 1							, 1 };
+	vector<int> crazySteps1 =					{ 0									, 1								, 0										, 0								, 1									, 1								, 0										, 1							, 2 };
 	this->Levels[1].set_up(2, laneCounts[1], finishLine1, maxCoin1, timeAlotted1, objectTypes1, directions1, colors1, objectCounts1, times1, steps1, crazySteps1, leftLimit, rightLimit);
+
+
+	///* Level 2 */
+	//int timeAlotted1 = 30;//second... kind of
+	//int finishLine1 = cSetting::Game::TOP_LIMIT + 1;
+	//int maxCoin1 = 2; // must be equal to the number of level's coins;
+	//vector<cObject::ecType> objectTypes1 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD	};
+	//vector<ecDirection> directions1 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT			};
+	//vector<ecColor> colors1 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
+	//vector<int> objectCounts1 =				{ 25									, 4							, 30									, 9							, 6								, 1							, 6 };
+	//vector<vector<int>> times1 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {0, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
+	//vector<int> steps1 =					{ 2										, 1							, 1										, 1							, 1								, 9							, 1 };
+	//vector<int> crazySteps1 =				{ 0										, 2							, 0										, 0							, 1								, 0							, 0	};
+	//this->Levels[1].set_up(2, laneCounts[1], finishLine1, maxCoin1, timeAlotted1, objectTypes1, directions1, colors1, objectCounts1, times1, steps1, crazySteps1, leftLimit, rightLimit);
+
+	///* Level 3 */
+	//int timeAlotted2 = 30;//second... kind of
+	//int finishLine2 = cSetting::Game::TOP_LIMIT + 1;
+	//int maxCoin2 = 2; // must be equal to the number of level's coins;
+	//vector<cObject::ecType> objectTypes2 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD };
+	//vector<ecDirection> directions2 =		{ ecDirection::RIGHT					, ecDirection::LEFT			, ecDirection::RIGHT					, ecDirection::RIGHT		, ecDirection::LEFT				, ecDirection::RIGHT		, ecDirection::LEFT };
+	//vector<ecColor> colors2 =				{ ecColor::GREY							, ecColor::PURPLE			, ecColor::GREY							, ecColor::BLUE				, ecColor::LIGHT_GREEN			, ecColor::CYAN				, ecColor::BLUE };
+	//vector<int> objectCounts2 =				{ 25									, 4							, 30									, 9							, 6								, 1							, 6 };
+	//vector<vector<int>> times2 =			{ {0, 0, 0}								, {7, 5, 10}				, {0, 0, 0}								, {0, 0, 0}				    , {0, 5, 15}					, {0, 0, 0}					, {0, 0, 0} };
+	//vector<int> steps2 =					{ 2										, 1							, 1										, 1							, 1								, 9							, 1 };
+	//vector<int> crazySteps2 =				{ 0										, 2							, 0										, 0							, 1								, 0							, 0 };
+	//this->Levels[2].set_up(3, laneCounts[2], finishLine2, maxCoin2, timeAlotted2, objectTypes2, directions2, colors2, objectCounts2, times2, steps2, crazySteps2, leftLimit, rightLimit);
+
 }
 
 cGame::~cGame()

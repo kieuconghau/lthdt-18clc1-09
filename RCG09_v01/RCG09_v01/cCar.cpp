@@ -76,7 +76,7 @@ void cCar::draw(int leftLimit, int rightLimit)
 	if (this->State == ecState::CRAZY)
 	{
 		crazyFlag = 1;
-		text_color(ecColor::RED);
+		//text_color(ecColor::RED);
 	}
 	else if (this->State == ecState::NORMAL)
 	{

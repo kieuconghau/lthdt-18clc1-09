@@ -451,7 +451,7 @@ void cLevel::play()
 		// Update time
 		time_bar_shrink();
 		this->TimeCount -= 75;
-		Sleep(50);
+		Sleep(10);
 
 
 		if (this->lose(People)) {
