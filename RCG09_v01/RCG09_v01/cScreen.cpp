@@ -143,6 +143,8 @@ void cScreen::screen_about()
 
 void cScreen::screen_menu()
 {
+	ShowConsoleCursor(false);
+
 	while (true) {
 		system("cls");
 		int middleX = get_console_width() / 2;
@@ -804,7 +806,7 @@ void cScreen::screen_ending()
 	print_text_at_middle(lastY - 10, "18127014 - Huynh Nhat Nam", ecColor::GREY, true);
 	Sleep(300);
 
-	cTextBox exit(cTextBox::ecScreenType::CONTINUE, middleX, lastY - 6, 25, "BYE BYE", ecColor::WHITE, ecColor::WHITE);
+	cTextBox exit(cTextBox::ecScreenType::CONTINUE, middleX, lastY - 6, 25, "SEE YOU SOON", ecColor::WHITE, ecColor::WHITE);
 
 	vector<cTextBox> menu = { exit };
 	cTextBox::ecScreenType choice = cTextBox::scrolling_menu(menu, ecColor::RED);

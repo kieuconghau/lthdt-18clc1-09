@@ -28,7 +28,7 @@ cGame::cGame()
 	const int rightLimit = cSetting::Game::RIGHT_LIMIT - 1;
 
 	/* Level 1 */
-	int timeAlotted0 = 60;//second... kind of
+	int timeAlotted0 = 10;//second... kind of
 	int finishLine0 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin0 = 2; // must be equal to the number of level's coins;
 	vector<cObject::ecType> objectTypes0 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR		, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN };
@@ -41,7 +41,7 @@ cGame::cGame()
 	this->Levels[0].set_up(1, laneCounts[0], finishLine0, maxCoin0, timeAlotted0, objectTypes0, directions0, colors0, objectCounts0, times0, steps0, crazySteps0, leftLimit, rightLimit);
 
 	/* Level 2 */
-	int timeAlotted1 = 60;//second... kind of
+	int timeAlotted1 = 30;//second... kind of
 	int finishLine1 = cSetting::Game::TOP_LIMIT + 1;
 	int maxCoin1 = 2; // must be equal to the number of level's coins;
 	vector<cObject::ecType> objectTypes1 =	{ cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MV_CAR	, cObject::ecType::MIX_STONE_AND_COIN	, cObject::ecType::MF_WOOD	, cObject::ecType::MA_BIRD		, cObject::ecType::MV_TRAIN	, cObject::ecType::MF_WOOD };
@@ -100,6 +100,7 @@ void cGame::play()
 
 void cGame::save_game()
 {
+	ShowConsoleCursor(true);
 	system("cls");
 
 	int middleX = get_console_width() / 2;
@@ -129,6 +130,7 @@ void cGame::save_game()
 			cin.clear();
 
 			if (path == "0") {
+				ShowConsoleCursor(false);
 				return ;
 			}
 
@@ -187,10 +189,13 @@ void cGame::save_game()
 	cout << "Game was saved in: " << path << endl;
 	goto_xy(distanceFromLeftBorder, middleY + 4);
 	system("pause");
+
+	ShowConsoleCursor(false);
 }
 
 void cGame::load_game()
 {
+	ShowConsoleCursor(true);
 	system("cls");
 
 	int middleX = get_console_width() / 2;
@@ -222,6 +227,7 @@ void cGame::load_game()
 
 
 			if (path == "0") {
+				ShowConsoleCursor(false);
 				return;
 			}
 
@@ -289,6 +295,8 @@ void cGame::load_game()
 	
 	cGame* game = cGame::get_instance();
 	game->loading();
+
+	ShowConsoleCursor(false);
 }
 
 void cGame::give_up()

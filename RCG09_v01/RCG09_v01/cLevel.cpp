@@ -526,7 +526,7 @@ void cLevel::draw_finish_block()
 	if (this->UnblockCount > 0) {
 		return;
 	}
-	ecColor flFirstColor = ecColor::LIGHT_RED;
+	ecColor flFirstColor = ecColor::RED;
 	ecColor flSecondColor = ecColor::WHITE;
 
 	text_color(flFirstColor);
@@ -550,7 +550,7 @@ void cLevel::draw_finish_block()
 void cLevel::destroy_finish_block()
 {
 	this->UnblockCount++;
-	ecColor flFirstColor = ecColor::LIGHT_RED;
+	ecColor flFirstColor = ecColor::RED;
 	ecColor flSecondColor = ecColor::BLACK;
 
 	int speed = 40;
@@ -618,7 +618,7 @@ void cLevel::reset()
 
 void cLevel::time_bar_shrink()
 {
-	int timePortionPassed = (TimeAlotted - TimeCount) * 118 / TimeAlotted;
+	int timePortionPassed = (TimeAlotted - TimeCount) * (cSetting::Game::RIGHT_LIMIT - cSetting::Game::LEFT_LIMIT_1 - 1) / TimeAlotted;
 	text_color();
 	goto_xy(cSetting::Game::RIGHT_LIMIT - timePortionPassed, cSetting::Game::TOP_LIMIT_1 + 1);
 	for (int i = 0; i < timePortionPassed; i++)
